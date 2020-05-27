@@ -1,0 +1,49 @@
+% !TeX encoding = UTF-8
+% !TeX program = pdflatex
+% !TeX spellcheck = it_IT
+
+\documentclass[binding=0.6cm,TFA]{sapthesis}
+
+\usepackage{microtype}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={La mia tesi},pdfauthor={Leonardo Emili}}
+
+\title{Il protocollo GreenWup, approcci e performance}
+\author{Leonardo Emili}
+\IDnumber{1802989}
+\course{Informatica L-31}
+\courseorganizer{Facoltà di Ingegneria dell'informazione, informatica e statistica}
+\AcademicYear{2019/2020}
+\copyyear{2020}
+\advisor{Dr. Chiara Petrioli, PhD}
+\tutor{Georgia Koutsandria, PhD}
+\tutorcoord{Dr. Chiara Petrioli, PhD}
+\tutorcoord{Georgia Koutsandria, PhD}
+\authoremail{emili.1802989@studenti.uniroma1.it}
+
+%\schoolname{Sapienza, Università di Roma}
+%\schooladdress{Piazzale Aldo Moro 5, 00185 Roma}
+%\schoolprincipal{Dr. Alessandro Mei, PhD}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\dedication{Dedicato a\\ Donald Knuth}
+
+\tableofcontents
+
+\mainmatter
+\chapter{Introduzione}
+...
+
+\backmatter
+\cleardoublepage
+\phantomsection % Give this command only if hyperref is loaded
+\addcontentsline{toc}{chapter}{\bibname}
+% Here put the code for the bibliography. You can use BibTeX or
+% the BibLaTeX package or the simple environment thebibliography.
+
+\end{document}
