@@ -1,2 +1,2 @@
 # Thesis-TFA
-My thesis for TFA @Sapienza
+My thesis for the TFA @Sapienza.
