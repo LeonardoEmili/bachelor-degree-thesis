@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  27 MAY 2020 18:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  29 MAY 2020 20:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/leo/Desktop/sapthesis/relazione
-(/home/leo/Desktop/sapthesis/relazione.tex
+**/home/leo/Git/Thesis-TFA/relazione
+(/home/leo/Git/Thesis-TFA/relazione.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14> (./sapthesis.cls
 Document Class: sapthesis 2018/08/07 Sapienza - University of Rome thesis class
@@ -487,7 +487,7 @@ LaTeX Info: Redefining \nameref on input line 30.
 \@outlinefile=\write3
 \openout3 = `relazione.out'.
 
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 34.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 35.
  (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -498,89 +498,98 @@ Package microtype Info: Loading generic protrusion settings for font family
 <sapienza-MLred-pos.pdf, id=8, 288.07625pt x 89.33376pt>
 File: sapienza-MLred-pos.pdf Graphic file (type pdf)
 <use sapienza-MLred-pos.pdf>
-Package pdftex.def Info: sapienza-MLred-pos.pdf  used on input line 34.
+Package pdftex.def Info: sapienza-MLred-pos.pdf  used on input line 35.
 (pdftex.def)             Requested size: 142.26378pt x 44.11742pt.
  [1
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./sapienza-MLred-pos.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 34.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 35.
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
 
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 34.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 35.
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 34.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 35.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 34.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 35.
  (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 34.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 35.
  (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 34.
+(Font)              <10> on input line 35.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 34.
+(Font)              <7> on input line 35.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 34.
+(Font)              <5> on input line 35.
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--34
+Underfull \hbox (badness 10000) in paragraph at lines 35--35
 
  []
 
 [2
 
-] [3
-
-
-] [4
-
 ] (./relazione.toc)
 \tf@toc=\write4
 \openout4 = `relazione.toc'.
 
- [5] [6
+ [3
+
+
+] [4
 
 ]
 Capitolo 1.
-[1
 
-] [2
+Underfull \hbox (badness 10000) in paragraph at lines 45--53
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--68
+
+ []
+
+
+Underfull \vbox (badness 2564) has occurred while \output is active []
+
+ [1
+
+] [2]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 90.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 90.
  (./relazione.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 90.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 90.
 Package rerunfilecheck Info: File `relazione.out' has not changed.
 (rerunfilecheck)             Checksum: 041A919C66CE6A429ED060B449A0A129;47.
  ) 
 Here is how much of TeX's memory you used:
- 10918 strings out of 483058
- 170283 string characters out of 5963219
- 485020 words of memory out of 5000000
- 25710 multiletter control sequences out of 15000+600000
- 582552 words of font info for 59 fonts, out of 8000000 for 9000
+ 10952 strings out of 483058
+ 170656 string characters out of 5963219
+ 491055 words of memory out of 5000000
+ 25712 multiletter control sequences out of 15000+600000
+ 584057 words of font info for 76 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 63i,11n,100p,799b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,11n,100p,796b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss10.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb>
-Output written on relazione.pdf (8 pages, 161482 bytes).
+Output written on relazione.pdf (6 pages, 171730 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
+ 80 PDF objects out of 1000 (max. 8388607)
+ 62 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
  15886 words of extra memory for PDF output out of 17280 (max. 10000000)
 

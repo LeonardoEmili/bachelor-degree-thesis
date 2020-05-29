@@ -8,7 +8,7 @@
 \usepackage[italian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={La mia tesi},pdfauthor={Leonardo Emili}}
+\hypersetup{pdftitle={Il protocollo GreenWup, approcci e performance},pdfauthor={Leonardo Emili}}
 
 \title{Il protocollo GreenWup, approcci e performance}
 \author{Leonardo Emili}
@@ -31,13 +31,54 @@
 
 \frontmatter
 \maketitle
-\dedication{Dedicato a\\ Donald Knuth}
+%\dedication{Dedicato a\\ Donald Knuth}
 
 \tableofcontents
 
 \mainmatter
 \chapter{Introduzione}
-...
+
+%Sviluppo dell'Iot nel mondo: quando, dove perchè e come.
+%WSN reti di nodi sensori con applicazioni in, permettono di, hanno queste sfide (energia, latenza, disponibilità)
+%Nel mio percorso mi sono concentrato su green WSN: studio di protocolli e delle metodologie impiegate, implementazione di GreenWup un protocollo fatto così, e variazioni.
+
+Nell'ultimo decennio si è assistito ad un portentoso sviluppo del settore dell'Internet of Things che ha contribuito alla diffusione
+di un enorme numero di dispositivi wireless. Il numero di questi dispositivi ha registrato crescite costanti negli anni e loro applicazioni sono ormai infinite.
+Essi trovano impiego in ambito domestico dove realizzano l'automatizzazione dei compiti quotidiani, in quello sanitario in cui monitorano lo stato di salute
+dei pazienti e in ambito sottomarino dove l'obbiettivo spazia dal realizzare campionamenti di dati sino a creare vaste reti di comunicazione sottomarine.
+L'immissione di questo enorme contingente di dati nella rete ha reso possibili nuove interpretazioni e lo sviluppo di soluzioni che puntano a 
+migliorare la qualità della vita delle persone, anche in quei settori noti esser di difficile comprensione. Ad esempio, l'impiego di sensori IoT in ambito di
+monitoraggio del crosta terrestre ha reso disponibili informazioni prima sconosciute sulla presenza di terremoti e tsunami, migliorando radicalmente
+la nostra percezione degli eventi sismici nel mondo.\\
+
+Con lo sviluppo massivo dell'IoT nuove sfide sono emerse a minare la solidità degli approcci usati. Attualmente le soluzioni impiegate nello sviluppo
+dei dispositivi wireless puntano a realizzare comunicazioni a bassa latenza ed altamente efficienti in termini energetici. In ambito di ricerca,
+lo stato corrente dell'arte punta a realizzare tecnologie hardware e software che implementino questo binomio. Ad esempio, un particolare
+settore dell'IoT si occupa di realizzare vaste reti di nodi sensori interconnessi, note come \emph{Wireless Sensor Networks}, 
+che realizzano una comunicazione wireless con consumi minimi al fine di prolungare i tempi di servizio dell'intera rete. In questo caso,
+le principali problematiche sono chiaramente settoriali e sono identificate dallo specifico campo di applicazione: la richiesta di tecnologie
+altamente performanti per i monitoraggio clinici ed di altre che garantiscano durate elevate nel caso di sensori ambientali. Tuttavia esistono
+problematiche comuni a queste tipologie di reti, ad esempio spesso si richiede che l'intera rete sia connessa e che tutti i nodi siano,
+anche parzialmente, a conoscenza della topologia della rete. Nel caso, si rende l'impiego di protocolli che ne prevedano il
+costante aggiornamento e favoriscano una comunicazione efficiente. Inoltre, in queste reti la principale fonte di consumo energetico risiede
+nella comunicazione e nell'attesa che la precede, è quindi di vitale importanza prevedere che i nodi che fanno parte della rete siano
+oggetto di scaricamento delle batterie che li alimentano. Infatti, la morte prematura di un nodo può spesso avere conseguenze più grandi della semplice
+disconnessione dello stesso, poichè frequentemente si tratta di reti \emph{multi-hop} che realizzano la comunicazione passando attraverso nodi intermedi, e si può
+verificare una disconnessione dell'intera rete.\\
+
+Sino a qualche anno fa, la principale tendenza nello sviluppo di soluzioni ai problemi sopra menzionati consisteva nell'introduzione di cicli di attività
+dei nodi, il cosiddetto \emph{duty cycling} definito come la frazione di tempo in cui un nodo è attivo, il cui obbettivo era quello di minimizzare i momenti
+in cui i nodi sensori sono accessi senza alcun processamento di dati attivo. Seppur questo approccio permetta di prolungare la vita della rete,
+incrementa in maniera considerevole i ritardi nelle comunicazioni, dal momento che queste possono avvenire solamente all'interno delle finestre di attività
+delle coppie dei nodi coinvolti. Generalmente la richiesta di sincronizzazione delle parti è una proprietà scarsamente desiderata, in quanto implicitamente
+introduce overhead dovuto alla gestione di timer. Inoltre l'utilizzo del duty cycling non permette di risolvere i problemi citati, in quanto le comunicazioni
+possono ancora avvenire nei momenti di inattivà e dualmente esistono ancora i periodi di tempo in cui i nodi consumano energia pur non ricevendo o inviando dati.
+In questo panorama vengono introdotte le \emph{wake up radios}, che permettono di abbattere i consumi energetici mantenendo bassi i ritardi nelle comunicazioni.
+Di fatto, queste implementano uno schema di comunicazione on demand: un nodo che deve inviare un pacchetto dati ad un nodo dormiente può farlo posticipandone
+l'invio dopo quello di un pacchetto di wake-up che sveglia il ricevente, abilitandolo alla ricezione del pacchetto dati. In questo modo i nodi possono
+rimanere attivi solo per il tempo minimo richiesto all'attività che devono svolgere ed essere eventualmente svegliati da una sequenza di wake-up nel caso
+in cui un nodo gli richieda di ricevere dati. Dal punto vista energetico questo approccio è altamente efficiente e non richiede alcuna forma di
+sincronizzazione. Si rende quindi possibile attraverso l'impiego delle wake up radios l'implementazione di reti di nodi sensori ad alta efficienza energetica ...
 
 \backmatter
 \cleardoublepage
