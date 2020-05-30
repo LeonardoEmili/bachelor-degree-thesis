@@ -42,49 +42,87 @@
 %WSN reti di nodi sensori con applicazioni in, permettono di, hanno queste sfide (energia, latenza, disponibilità)
 %Nel mio percorso mi sono concentrato su green WSN: studio di protocolli e delle metodologie impiegate, implementazione di GreenWup un protocollo fatto così, e variazioni.
 
-Nell'ultimo decennio si è assistito ad un portentoso sviluppo del settore dell'Internet of Things che ha contribuito alla diffusione
-di un enorme numero di dispositivi wireless. Il numero di questi dispositivi ha registrato crescite costanti negli anni e loro applicazioni sono ormai infinite.
+Nell'ultimo decennio abbiamo assistito ad un portentoso sviluppo del settore dell'Internet of Things che ha contribuito alla diffusione
+di un enorme numero di dispositivi wireless. Il numero di questi dispositivi ha registrato crescite costanti negli anni e loro applicazioni sono pressoché infinite.
 Essi trovano impiego in ambito domestico dove realizzano l'automatizzazione dei compiti quotidiani, in quello sanitario in cui monitorano lo stato di salute
-dei pazienti e in ambito sottomarino dove l'obbiettivo spazia dal realizzare campionamenti di dati sino a creare vaste reti di comunicazione sottomarine.
-L'immissione di questo enorme contingente di dati nella rete ha reso possibili nuove interpretazioni e lo sviluppo di soluzioni che puntano a 
+dei pazienti e in ambito sottomarino dove gli obbiettivi spaziano da quello di realizzare campionamenti di dati sino a creare vaste reti di comunicazione sottomarine.
+L'immissione di questo enorme contingente di dati nella rete ha reso possibili nuove interpretazioni e lo sviluppo di soluzioni che puntano a
 migliorare la qualità della vita delle persone, anche in quei settori noti esser di difficile comprensione. Ad esempio, l'impiego di sensori IoT in ambito di
-monitoraggio del crosta terrestre ha reso disponibili informazioni prima sconosciute sulla presenza di terremoti e tsunami, migliorando radicalmente
+monitoraggio del crosta terrestre ha reso disponibili informazioni fino a prima sconosciute sulla presenza di terremoti e tsunami, migliorando radicalmente
 la nostra percezione degli eventi sismici nel mondo.\\
 
 Con lo sviluppo massivo dell'IoT nuove sfide sono emerse a minare la solidità degli approcci usati. Attualmente le soluzioni impiegate nello sviluppo
-dei dispositivi wireless puntano a realizzare comunicazioni a bassa latenza ed altamente efficienti in termini energetici. In ambito di ricerca,
-lo stato corrente dell'arte punta a realizzare tecnologie hardware e software che implementino questo binomio. Ad esempio, un particolare
-settore dell'IoT si occupa di realizzare vaste reti di nodi sensori interconnessi, note come \emph{Wireless Sensor Networks}, 
+dei dispositivi wireless puntano a realizzare comunicazioni con basse latenze e che siano altamente efficienti in termini energetici. In ambito di ricerca,
+lo stato corrente dell'arte punta a realizzare tecnologie hardware e software che implementino questo binomio. Un particolare
+settore dell'IoT si occupa di realizzare vaste reti di nodi sensori interconnessi, note come \emph{Wireless Sensor Networks},
 che realizzano una comunicazione wireless con consumi minimi al fine di prolungare i tempi di servizio dell'intera rete. In questo caso,
-le principali problematiche sono chiaramente settoriali e sono identificate dallo specifico campo di applicazione: la richiesta di tecnologie
-altamente performanti per i monitoraggio clinici ed di altre che garantiscano durate elevate nel caso di sensori ambientali. Tuttavia esistono
+le principali problematiche sono chiaramente settoriali e sono identificate dallo specifico campo di applicazione: come la richiesta di tecnologie
+altamente performanti per i monitoraggio clinici oppure di altre che garantiscano elevate lifetime nel caso di sensori ambientali. Tuttavia esistono
 problematiche comuni a queste tipologie di reti, ad esempio spesso si richiede che l'intera rete sia connessa e che tutti i nodi siano,
-anche parzialmente, a conoscenza della topologia della rete. Nel caso, si rende l'impiego di protocolli che ne prevedano il
+anche parzialmente, a conoscenza della topologia della rete. Nel caso, si richiede l'impiego di protocolli che ne prevedano il
 costante aggiornamento e favoriscano una comunicazione efficiente. Inoltre, in queste reti la principale fonte di consumo energetico risiede
-nella comunicazione e nell'attesa che la precede, è quindi di vitale importanza prevedere che i nodi che fanno parte della rete siano
+nella comunicazione e nell'attesa che la precede, è quindi di vitale importanza prevedere che i nodi della rete siano
 oggetto di scaricamento delle batterie che li alimentano. Infatti, la morte prematura di un nodo può spesso avere conseguenze più grandi della semplice
-disconnessione dello stesso, poichè frequentemente si tratta di reti \emph{multi-hop} che realizzano la comunicazione passando attraverso nodi intermedi, e si può
-verificare una disconnessione dell'intera rete.\\
+disconnessione dello stesso, poichè frequentemente si tratta di reti \emph{multi-hop} che realizzano la comunicazione passando attraverso nodi intermedi, si può
+verificare perfino la disconnessione dell'intera rete.\\
 
 Sino a qualche anno fa, la principale tendenza nello sviluppo di soluzioni ai problemi sopra menzionati consisteva nell'introduzione di cicli di attività
 dei nodi, il cosiddetto \emph{duty cycling} definito come la frazione di tempo in cui un nodo è attivo, il cui obbettivo era quello di minimizzare i momenti
-in cui i nodi sensori sono accessi senza alcun processamento di dati attivo. Seppur questo approccio permetta di prolungare la vita della rete,
+in cui i nodi sensori sono accessi senza alcun processamento di dati attivo. Seppur questo approccio permetta di prolungare la durata della vita della rete,
 incrementa in maniera considerevole i ritardi nelle comunicazioni, dal momento che queste possono avvenire solamente all'interno delle finestre di attività
-delle coppie dei nodi coinvolti. Generalmente la richiesta di sincronizzazione delle parti è una proprietà scarsamente desiderata, in quanto implicitamente
-introduce overhead dovuto alla gestione di timer. Inoltre l'utilizzo del duty cycling non permette di risolvere i problemi citati, in quanto le comunicazioni
+delle coppie dei nodi coinvolti. Inoltre l'utilizzo del duty cycling non permette di risolvere i problemi sopra citati, in quanto le comunicazioni
 possono ancora avvenire nei momenti di inattivà e dualmente esistono ancora i periodi di tempo in cui i nodi consumano energia pur non ricevendo o inviando dati.
-In questo panorama vengono introdotte le \emph{wake up radios}, che permettono di abbattere i consumi energetici mantenendo bassi i ritardi nelle comunicazioni.
-Di fatto, queste implementano uno schema di comunicazione on demand: un nodo che deve inviare un pacchetto dati ad un nodo dormiente può farlo posticipandone
-l'invio dopo quello di un pacchetto di wake-up che sveglia il ricevente, abilitandolo alla ricezione del pacchetto dati. In questo modo i nodi possono
-rimanere attivi solo per il tempo minimo richiesto all'attività che devono svolgere ed essere eventualmente svegliati da una sequenza di wake-up nel caso
-in cui un nodo gli richieda di ricevere dati. Dal punto vista energetico questo approccio è altamente efficiente e non richiede alcuna forma di
-sincronizzazione. Si rende quindi possibile attraverso l'impiego delle wake up radios l'implementazione di reti di nodi sensori ad alta efficienza energetica ...
+In questo panorama vengono introdotte le \emph{wake up radios}, in grado di abbattere i consumi energetici mantenendo bassi i ritardi nelle comunicazioni.
+La principale differenza rispetto all'approccio tradizionale consiste nell'introdurre un'antenna secondaria per i soli messaggi di wake-up che è costantemente
+attiva. La nuova antenna è progettata per avere di dimensioni e consumi energetici nettamente inferiori rispetto alla radio principale e, al momento della ricezione
+di un messaggio di wake-up, è possibile attivarla e ricevere il messaggio dati. Di fatto, questa tecnologia implementa uno schema di comunicazione on demand:
+un nodo può inviare un pacchetto dati ad un nodo dormiente semplicemente  posticipandone l'invio a quello di una sequenza di wake-up che, svegliando il ricevente,
+lo abilita alla ricezione del pacchetto dati. In questo modo i nodi possono rimanere attivi per il solo tempo minimo necessario a svolgere l'attività richiesta
+e lasciare spenta la radio principale nel tempo rimanente, essendo eventualmente svegliati da una sequenza di wake-up quando richiesto.
+Dal punto vista energetico questo approccio è altamente efficiente e non richiede alcuna forma di sincronizzazione che è generalmente non desiderata in quanto
+implicitamente introduce overhead dovuto alla gestione di timer aggiuntivi.\\
+
+Più recentemente la tendenza è quella di equipaggiare i nodi sensori, dotati di wake up radios, con moduli per l'\emph{energy harvesting} come ulteriore
+supporto energetico alla loro durata di vita. In particolare, i nodi sono in grado utilizzare l'energia fornita dalle pile elettriche di cui sono
+forniti e derivarne di nuova mediante turbine eoliche, pannelli solari e generatori termoelettrici di cui sono equipaggiati. La ricerca dimostrato che l'impiego
+di nodi dotati di energy harvesting \cite{energy-harvesting-paper} e che sono abilitati alle wake up radios \cite{wake-up-radios-paper} ha portato notevoli
+incrementi nelle performance delle WSN. Inoltre, l'innovativa tecnologia delle wake up radios può essere combinata con il cosiddetto \emph{semantic addressing}.
+L'idea è di limitare ad un sottoinsieme di nodi la ricezione di una sequenza di wake up, evitando quindi che questa sia recepita da tutti i nodi presenti all'interno
+del range di comunicazione. Il principio fondante in questo caso è di scegliere
+opportunamente una sequenza di wake up da assegnare ad un certo numero di nodi della rete e di svegliare, al momento della ricezione del messaggio, tutti e soli i
+nodi desiderati. In questo scenario, i consumi energetici possono essere ulteriormente ridotti poichè virtualmente si azzerano il numero dei nodi che vengono
+riattivati a seguito di comunicazioni che non sono a loro destinate.\\
+
+Questo lavoro si concentra sullo studio dei cosiddetti \emph{green protocols}, ovverosia di quei protocolli che si basano sulle tecnologie sopra esposte
+e che implementano la comunicazione tra nodi minimizzandone gli sprechi energetici e massimizzando la durata della vita delle reti. Nella letteratura scientifica
+sono presenti molti protocolli di questo tipo (es. CTP-WUR, GREENROUTES, WHARP) ed ognuno punta a risolvere problemati sollevate altri, migliorandone le performance
+rispetto a diverse metriche. Nel seguito verrà analizzato in dettaglio il comportamento del protocollo GREEN-WUP che utilizza energy harvesting e
+wake up radios per realizzare un'opportuna scelta dei nodi intermedei necessari alla ricezione dei dati da parte del sink.\\
+
+Nel capitolo 2 verrà presentato il protocollo GREEN-WUP nel dettaglio, spiengandone il funzionamento e le idee alla base delle decisioni prese.\\
+
+Nel capitolo 3 verranno introdotte alcune variazioni al fine di migliorare il protocollo rispetto ad alcune metriche.\\
+
+Nel capitolo 4 ...\\
+
+
+\chapter{Il protocollo GREEN-WUP}
+\chapter{Benchmark e analisi del protocollo a seguito di variazioni}
 
 \backmatter
 \cleardoublepage
 \phantomsection % Give this command only if hyperref is loaded
 \addcontentsline{toc}{chapter}{\bibname}
-% Here put the code for the bibliography. You can use BibTeX or
-% the BibLaTeX package or the simple environment thebibliography.
+
+\begin{thebibliography}{9}
+
+    \bibitem{energy-harvesting-paper}
+    Stefano Basagni, Georgia Koutsandria, Chiara Petrioli.
+    \textit{A Comparative Performance Evaluation of Wake-up Radio-based Data Forwarding for Green Wireless Networks}.
+
+    \bibitem{wake-up-radios-paper}
+    Stefano Basagni, Valerio Di Valerio, Georgia Koutsandria, Chiara Petrioli.
+    \textit{Wake-up Radio-enabled Routing for Green Wireless Sensor Networks}
+\end{thebibliography}
 
 \end{document}
