@@ -1,0 +1,6 @@
+\babel@toc {italian}{}
+\babel@toc {italian}{}
+\contentsline {chapter}{\numberline {1}GREEN-WUP}{2}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Il protocollo GREEN-WUP}{2}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Le problematiche emerse}{4}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Soluzioni proposte e risultati}{4}{section.1.3}%
