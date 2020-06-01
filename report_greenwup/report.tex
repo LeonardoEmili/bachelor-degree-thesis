@@ -63,8 +63,11 @@ per la ricezione del pacchetto dati. Quindi, $a$ verifica che il canale di comun
 seguita dal pacchetto dati. Dunque, $B_i$ ricevuto il pacchetto dati invia un \emph{acknowledgement packet} (ACK) ad $a$, va a dormire e prosegue la
 ritrasmissione del pacchetto ricevuto sino ad arrivare al sink node. Infine, $a$ va a dormire in attesa di svolgere una nuova operazione.\\
 
-Nel caso in cui il nodo sorgente sia a diretto contatto con il sink node ($l=1$) il protocollo prevede che avvenga direttamente lo scambio dei
-pacchetti DATA e del relativo ACK, in quanto non necessaria la selezione di un nodo intermedio per mezzo di RTS/CTS.
+Il design del protocollo prevede che ciascun nodo consideri dapprima i soli nodi con classe energetica più alta. Se, a seguito di un numero massimo di tentativi,
+questo non riesce a mettersi in contatto con nessuno di loro allora si procede considerando la classe energetica immediamente inferiore e si ripete
+l'intera procedura. Inoltre, nel caso in cui il nodo sorgente è a diretto contatto con il sink node ($l=1$), il protocollo prevede che
+lo scambio dei pacchetti DATA e del relativo ACK avvenga senza avviare la procedura di scambio di RTS e CTS, in quanto superflua la
+selezione di un nodo intermedio.\\
 
 \section{Le problematiche emerse}
 
