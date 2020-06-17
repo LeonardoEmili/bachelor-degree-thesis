@@ -82,6 +82,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /home/leo/Git/Thesis-TFA/report_greenwup/report.aux
@@ -135,6 +137,9 @@ INPUT ../assets/hop-count-algorithm.png
 INPUT ../assets/hop-count-algorithm.png
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
+INPUT /home/leo/Git/Thesis-TFA/report_greenwup/../assets/energy_plot.png
+INPUT ../assets/energy_plot.png
+INPUT ../assets/energy_plot.png
 INPUT /home/leo/Git/Thesis-TFA/report_greenwup/report.aux
 INPUT /home/leo/Git/Thesis-TFA/report_greenwup/report.out
 INPUT /home/leo/Git/Thesis-TFA/report_greenwup/report.out
