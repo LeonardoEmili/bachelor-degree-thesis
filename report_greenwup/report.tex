@@ -154,7 +154,7 @@ inferiore di nodi rispetto alla versione originale, con conseguente diminuizione
 Può tuttavia accadere che il nodo candidato alla ricezione non si svegli mai in quanto il valore randomico $r$ non supera mai la soglia $t$ da noi fissata.
 Ma questo accade con una probabilità che dipende dal numero di possibili ritrasmissioni $n$ per livello e che diminuisce esponenzialmente ad ogni tentativo.
 Nello scenario considerato, con $n=3$ è possibile ottenere un \emph{Packet Delivery Ratio} (PDR) medio del 99-100\% che permette parallelamente di abbattere i
-consumi energetici dal 7\% al 20\%.\\
+consumi energetici dal 7\% al 13\%.\\
 
 \begin{figure}
     \begin{center}
@@ -163,10 +163,30 @@ consumi energetici dal 7\% al 20\%.\\
     \end{center}
 \end{figure}
 
+I risultati a cui si fa riferimento all'interno di questo documento fanno tutti riferimento ad uno scenario in cui si utilizza un terreno di dimensioni
+$100 \times 100$, il sink node è piazzato nel centro, sono presenti 140 nodi uniformemente distribuiti all'interno dello scenario e varia il valore
+dell'\emph{inter-arrival time} (\emph{iaTime}) per regolare la frequenza di generazione ed invio di dati da parte dei nodi della rete. Inoltre tutti
+i nodi sono forniti di pannelli solari per derivare nuova energia dall'ambiente esterno e, nel caso della variante impiegata, gli energy predictor
+vengono allenati per circa 3 giorni prima dell'inizio della simulazione per poter generare predizioni sui valori di energia predetti in futuro.\\
+
 È chiaro che il principale vantaggio della variante qui proposta è l'efficienza energetica. Infatti, il suo principale obbiettivo è quello di migliorare i consumi
 energetici di GREEN-WUP. Si noti come la variante proposta migliori l'efficienza energetica di GREEN-WUP senza peggiorarne le performance in generale,
 mantendendo ad esempio il PDR e la latenza inalterati. Inoltre, in particolari casi di traffico intenso della rete (\emph{iaTime} $\sim$ 2-5) riesce anche a
 ottenere risultati migliori rispetto a quest'ultimo.
 
+\begin{figure}
+    \centering
+    \begin{minipage}{.5\textwidth}
+      \centering
+      \includegraphics[width=1\linewidth]{pdr_plot.png}
+      \caption*{(a)}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+      \centering
+      \includegraphics[width=1\linewidth]{latency_plot.png}
+      \caption*{(b)}
+    \end{minipage}
+    \caption{Comparazione fra i due protocolli: (a) il PDR e (b) le latenze ottenute. }
+    \end{figure}
 \phantomsection % Give this command only if hyperref is loaded
 \end{document}
