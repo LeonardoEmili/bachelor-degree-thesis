@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  17 JUN 2020 22:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  18 JUN 2020 13:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -376,46 +376,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 166--171
 <../assets/pdr_plot.png, id=81, 462.528pt x 346.896pt>
 File: ../assets/pdr_plot.png Graphic file (type png)
 <use ../assets/pdr_plot.png>
-Package pdftex.def Info: ../assets/pdr_plot.png  used on input line 176.
+Package pdftex.def Info: ../assets/pdr_plot.png  used on input line 196.
 (pdftex.def)             Requested size: 172.5pt x 129.37639pt.
 <../assets/latency_plot.png, id=82, 462.528pt x 346.896pt>
 File: ../assets/latency_plot.png Graphic file (type png)
 <use ../assets/latency_plot.png>
-Package pdftex.def Info: ../assets/latency_plot.png  used on input line 181.
+Package pdftex.def Info: ../assets/latency_plot.png  used on input line 201.
 (pdftex.def)             Requested size: 172.5pt x 129.37639pt.
 <../assets/overhead_plot.png, id=83, 462.528pt x 346.896pt>
 File: ../assets/overhead_plot.png Graphic file (type png)
 <use ../assets/overhead_plot.png>
-Package pdftex.def Info: ../assets/overhead_plot.png  used on input line 186.
+Package pdftex.def Info: ../assets/overhead_plot.png  used on input line 206.
 (pdftex.def)             Requested size: 172.5pt x 129.37639pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--203
+Underfull \hbox (badness 10000) in paragraph at lines 214--223
 
  []
 
-[9 <../assets/pdr_plot.png> <../assets/latency_plot.png> <../assets/overhead_plot.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 216.
- [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 216.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 228.
+[9] [10 <../assets/pdr_plot.png> <../assets/latency_plot.png> <../assets/overhead_plot.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 228.
  (/home/leo/Git/Thesis-TFA/report_greenwup/report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 216.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 216.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 228.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 228.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: DE7010DE2D46A0945ACE9E757AD75C41;258.
  ) 
 Here is how much of TeX's memory you used:
- 7348 strings out of 483058
- 115223 string characters out of 5963219
- 387576 words of memory out of 5000000
- 22247 multiletter control sequences out of 15000+600000
+ 7349 strings out of 483058
+ 115241 string characters out of 5963219
+ 386576 words of memory out of 5000000
+ 22248 multiletter control sequences out of 15000+600000
  538451 words of font info for 44 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 41i,7n,42p,839b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /home/leo/Git/Thesis-TFA/report_greenwup/report.pdf (11 pages, 281407 bytes).
+ 41i,10n,42p,839b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on /home/leo/Git/Thesis-TFA/report_greenwup/report.pdf (11 pages, 273092 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
+ 145 PDF objects out of 1000 (max. 8388607)
+ 108 compressed objects within 2 object streams
  21 named destinations out of 1000 (max. 500000)
  58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

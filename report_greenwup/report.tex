@@ -33,8 +33,8 @@ risvegliare i nodi della rete.\\
 Inizialmente il sink node invia un primo \emph{command packet} che viene successivamente distribuito ai nodi sensori utilizzando l'algoritmo di \emph{flooding}.
 L'obiettivo di questo processo è di assegnare a ciascun nodo della rete un valore di hop count secondo un algoritmo iterativo: questo
 avrà valore 0 nel solo caso del sink node, altrimenti assume un valore $h$ se $h-1$ è il valore di hop count del nodo precedente. Al termine
-di questa fase ciascun nodo sarà fornito di un indirizzo di wake up $w=w_{h}w_{e}$ della lunghezza di 8 bit, con $w_{h}$ definito dalla
-codifica in 4 bit di $h$ e $w_{e}$ che rappresenta la classe energetica del nodo, codificata nei restanti 4 bit. In particolare, ciascun nodo considera
+di questa fase ciascun nodo sarà fornito di un indirizzo di wake up $w=w_{h}w_{e}$ della lunghezza di 8 bit, con $w_{h}$ definito dall'hop count $h$
+e $w_{e}$ che rappresenta la classe energetica del nodo. In particolare, ciascun nodo considera
 l'energia disponibile come quella rimamente nelle batterie assieme a quella derivata da sorgenti esterne. In definitiva, la codifica del suffisso $w_{e}$
 viene calcolata a partire dalla discretizzazione in $k$ classi della disponibilità energetica di un nodo, dove $k$ rappresenta il numero delle classi
 disponibili.\\
@@ -109,7 +109,7 @@ stesso e può portare a consumi energetici superflui.
 
 Le proposte avanzate sono state testate attraverso il framework \emph{GreenCastalia} che permette di eseguire simulazioni di WSN che utilizzano le tecniche
 di \emph{energy harvesting} e \emph{wake up radios}. I risultati e i dati di seguito forniti sono considerati su un numero minimo di simulazioni
-necessario a fornire veridicità alle considerazioni affermate, vedere più avanti la formula utilizzata (Equazione 1.1).\\
+necessario a fornire veridicità alle considerazioni affermate.\\
 
 In questo lavoro si propone una variante del protocollo di base di GREEN-WUP che adotta alcune modifiche in risposta alle problematiche emerse nel capitolo
 precedente. Nel seguito, per ciascuna problematica si descrivono le modifiche adottate, le implicazioni e i risultati che questi cambiamenti hanno comportato.\\
@@ -134,7 +134,7 @@ Un altro obiettivo della variante del protocollo di base è quello di limitare i
 della rete. Quindi, l'idea del semantic addressing sulla quale si basa il protocollo GREEN-WUP viene espansa introducendo lo stato del buffer di ricezione dei nodi
 destinatari. L'indirizzo di wake up che viene inviato per svegliare i nodi prima consisteva nei soli valori di hop count e della classe energetica target, mentre ora
 viene modificato nel formato: $1BBHHHEE$. Con $B$ che rappresenta la classe dello stato del buffer di ricezione del nodo, $H$ che denota l'hop count ed
-$E$ che rappresenta la classe energetica. Si noti come la presenza del prefisso 1 serva per il rilevamento dell'energia del nodo secondo la \emph{OOK modulation}.
+$E$ che rappresenta la classe energetica.
 L'aggiunta dei bit che codificano lo stato del buffer permettono di selezionare dapprima i nodi con classe energetica superiore che siano contemporaneamente disponibili
 alla ricezione di nuovi pacchetti. Da questa modifica derivano due principali benefici: il fenomeno di buffer overflow sopra descritto viene mitigato in quanto il nodo
 che ha diversi pacchetti bufferizzati sarà considerato solo dopo i nodi che hanno meno pacchetti nel loro buffer di ricezione. Inoltre, migliora
@@ -169,6 +169,26 @@ dell'\emph{inter-arrival time} (\emph{iaTime}) per regolare la frequenza di gene
 i nodi sono forniti di pannelli solari per derivare nuova energia dall'ambiente esterno e, nel caso della variante impiegata, gli energy predictor
 vengono allenati per circa 3 giorni prima dell'inizio della simulazione per poter generare predizioni di energia nel futuro.\\
 
+\begin{table}[hb]
+    \centering
+    \begin{tabular}{ |p{5cm}|p{3cm}|  }
+        \hline
+        \multicolumn{2}{|c|}{Parametri della simulazione}           \\
+        \hline
+        Parametro                  & Valore                         \\
+        \hline
+        sim-time-limit             & 72h                            \\
+        SN.numNodes                & 140                            \\
+        SN.field                   & 100 $\times$ 100               \\
+        SN.deployment              & [1..139] $\rightarrow$ uniform \\
+        ctsMaxJitter               & 100                            \\
+        frequencyUpdateWurAddress  & 300                            \\
+        retriesBeforeChangingLevel & 3                              \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
 \begin{figure}
     \centering
     \begin{minipage}{.5\textwidth}
@@ -201,16 +221,8 @@ si può notare come questo scenda dal 22.3\% medio richiesto dall'implementazion
 proposta. Questo accade poichè nella variante il numero dei pacchetti CTS inviati è di circa il 27\% in meno dell'originale e questa è una
 diretta conseguenza del fatto che molti meno nodi di quelli necessari al funzionamento del protocollo sono ora svegliati.\\
 
-I risultati ottenuti fanno riferimento ad un numero $n$ di simulazioni eseguite attraverso il simulatore Castalia che viene calcolato utilizzando la
-seguente formula:
-
-\begin{equation}
-    n = \left( \frac{100zs}{r\bar{x}} \right)^2
-\end{equation}
-
-con $\bar{x}$ che denota la media aritmetica dei valori osservati e $s$ la deviazione standard. Scegliamo di impiegare un intervallo di 
-confidenza del 95\% e una precisione del 5\%, da cui seguono i valori $z=1.96$ e $r=5$. Inoltre, per fornire supporto ai risultati ottenuti
-si considera $n=max(n_1, n_2, \ldots, n_k)$, con $n_1, n_2, \ldots, n_k$ i valori ottenuti dalla formula al variare del parametro \emph{iaTime}.
+Tutti i dati riportati fanno riferimento ad un numero di esecuzioni sufficientemente grande da fornire un intervallo di confidenza del 95\% con una precisione
+del 5\% e i risultati finali sono considerati come la media di tutte le esecuzioni.
 
 \phantomsection % Give this command only if hyperref is loaded
 \end{document}
