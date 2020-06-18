@@ -110,7 +110,7 @@ stesso e può portare a consumi energetici superflui.
 \section{Soluzioni proposte e risultati}
 
 Le proposte avanzate sono state testate mediante una versione particolare del framework \emph{GreenCastalia} che supporta \emph{wake up radios}
-e \emph{energy harvesting}. I risultati e i dati di seguito forniti sono considerati su un numero minimo di simulazioni 
+e \emph{energy harvesting}. I risultati e i dati di seguito forniti sono considerati su un numero minimo di simulazioni
 necessario a fornire veridicità alle considerazioni affermate.\\
 
 In questo lavoro si propone una variante del protocollo di base di GREEN-WUP che adotta alcune modifiche in risposta alle problematiche emerse nel capitolo
@@ -160,19 +160,20 @@ consumi energetici dal 7\% al 13\%.\\
 
 \begin{table}[hb]
     \centering
-    \begin{tabular}{ |p{5cm}|p{3cm}|  }
+    \begin{tabular}{ |p{7.5cm}|p{3cm}|  }
         \hline
-        \multicolumn{2}{|c|}{Parametri della simulazione}           \\
+        \multicolumn{2}{|c|}{Scenario di simulazione}                                 \\
         \hline
-        Parametro                  & Valore                         \\
+        Parametro                                       & Valore                      \\
         \hline
-        sim-time-limit             & 72h                            \\
-        SN.numNodes                & 140                            \\
-        SN.field                   & 100 $\times$ 100               \\
-        SN.deployment              & [1..139] $\rightarrow$ uniform \\
-        ctsMaxJitter               & 100                            \\
-        frequencyUpdateWurAddress  & 300                            \\
-        retriesBeforeChangingLevel & 3                              \\
+        Tempo limite di simulazione                     & 72h                         \\
+        Nodi coinvolti                                  & 140                         \\
+        Campo di simulazone                             & 10.000mt\textsuperscript{2} \\
+        Tipo di distribuzione                           & uniforme                    \\
+        Massimo jitter                                  & 100ms                       \\
+        Frequenza di aggiornamento indirizzi di wake up & 300s                        \\
+        Tentativi per livello                           & 3                           \\
+        Sorgente energetica esterna                     & Energia solare              \\
         \hline
     \end{tabular}
     \caption{Tabella riepilogativa della configurazione usata nelle simulazioni.}
@@ -225,7 +226,7 @@ dei nodi della rete.\\
     \caption{Comparazione fra i due protocolli: (a) l'energia spesa dalla rete e (b) il packet delivery ratio.}
 \end{figure}
 
-Analizzando la Figura 1.3 si può notare come l'energia richiesta dalla rete è inferiore nel caso della variante. Come diretta conseguenza di quanto 
+Analizzando la Figura 1.3 si può notare come l'energia richiesta dalla rete è inferiore nel caso della variante. Come diretta conseguenza di quanto
 sopra esposto, i consumi energetici sono ridotti in quanto i nodi della rete rispondono alle sequenze di wake up con sematic addressing in
 numero minore rispetto alla versione originale. In particolare, la massima efficienza energetica è raggiunta in condizioni di maggiore stress
 della rete in quanto maggiore la probabilità che un più alto numero di messaggi di wake up con semantic addressing svegli i nodi candidati. In altri
