@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  18 JUN 2020 13:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  18 JUN 2020 17:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -297,121 +297,128 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--41
 [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 42--45
+Underfull \hbox (badness 10000) in paragraph at lines 42--46
 
  []
 
 <../assets/hop-count-algorithm.png, id=46, 144.54pt x 94.1919pt>
 File: ../assets/hop-count-algorithm.png Graphic file (type png)
 <use ../assets/hop-count-algorithm.png>
-Package pdftex.def Info: ../assets/hop-count-algorithm.png  used on input line 49.
+Package pdftex.def Info: ../assets/hop-count-algorithm.png  used on input line 50.
 (pdftex.def)             Requested size: 245.71692pt x 160.1255pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--57
+Underfull \hbox (badness 10000) in paragraph at lines 55--58
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--71
+Underfull \hbox (badness 10000) in paragraph at lines 59--73
 
  []
 
 [3 <../assets/hop-count-algorithm.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 72--77
+Underfull \hbox (badness 10000) in paragraph at lines 74--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--89
+Underfull \hbox (badness 10000) in paragraph at lines 82--91
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 90--98
+Underfull \hbox (badness 10000) in paragraph at lines 92--100
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 110--113
+Underfull \hbox (badness 10000) in paragraph at lines 112--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--116
+Underfull \hbox (badness 10000) in paragraph at lines 116--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--126
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 127--132
+Underfull \hbox (badness 10000) in paragraph at lines 126--128
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 133--143
+Underfull \hbox (badness 10000) in paragraph at lines 129--134
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--158
+Underfull \hbox (badness 10000) in paragraph at lines 135--145
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--160
 
  []
 
 [7]
-<../assets/energy_plot.png, id=74, 462.528pt x 346.896pt>
-File: ../assets/energy_plot.png Graphic file (type png)
-<use ../assets/energy_plot.png>
-Package pdftex.def Info: ../assets/energy_plot.png  used on input line 161.
-(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 166--171
+Underfull \hbox (badness 10000) in paragraph at lines 181--186
 
  []
 
-[8 <../assets/energy_plot.png>]
-<../assets/pdr_plot.png, id=81, 462.528pt x 346.896pt>
-File: ../assets/pdr_plot.png Graphic file (type png)
-<use ../assets/pdr_plot.png>
-Package pdftex.def Info: ../assets/pdr_plot.png  used on input line 196.
-(pdftex.def)             Requested size: 172.5pt x 129.37639pt.
-<../assets/latency_plot.png, id=82, 462.528pt x 346.896pt>
-File: ../assets/latency_plot.png Graphic file (type png)
-<use ../assets/latency_plot.png>
-Package pdftex.def Info: ../assets/latency_plot.png  used on input line 201.
-(pdftex.def)             Requested size: 172.5pt x 129.37639pt.
-<../assets/overhead_plot.png, id=83, 462.528pt x 346.896pt>
+[8]
+<../assets/overhead_plot.png, id=79, 462.528pt x 346.896pt>
 File: ../assets/overhead_plot.png Graphic file (type png)
 <use ../assets/overhead_plot.png>
-Package pdftex.def Info: ../assets/overhead_plot.png  used on input line 206.
+Package pdftex.def Info: ../assets/overhead_plot.png  used on input line 192.
+(pdftex.def)             Requested size: 172.5pt x 129.37639pt.
+<../assets/latency_plot.png, id=80, 462.528pt x 346.896pt>
+File: ../assets/latency_plot.png Graphic file (type png)
+<use ../assets/latency_plot.png>
+Package pdftex.def Info: ../assets/latency_plot.png  used on input line 197.
 (pdftex.def)             Requested size: 172.5pt x 129.37639pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--223
+Underfull \hbox (badness 10000) in paragraph at lines 203--211
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 228.
-[9] [10 <../assets/pdr_plot.png> <../assets/latency_plot.png> <../assets/overhead_plot.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 228.
+[9 <../assets/overhead_plot.png> <../assets/latency_plot.png>]
+<../assets/energy_plot.png, id=88, 462.528pt x 346.896pt>
+File: ../assets/energy_plot.png Graphic file (type png)
+<use ../assets/energy_plot.png>
+Package pdftex.def Info: ../assets/energy_plot.png  used on input line 217.
+(pdftex.def)             Requested size: 172.5pt x 129.37639pt.
+<../assets/pdr_plot.png, id=89, 462.528pt x 346.896pt>
+File: ../assets/pdr_plot.png Graphic file (type png)
+<use ../assets/pdr_plot.png>
+Package pdftex.def Info: ../assets/pdr_plot.png  used on input line 222.
+(pdftex.def)             Requested size: 172.5pt x 129.37639pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--236
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 241.
+[10
+
+ <../assets/energy_plot.png> <../assets/pdr_plot.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 241.
  (/home/leo/Git/Thesis-TFA/report_greenwup/report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 228.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 228.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 241.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 241.
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: DE7010DE2D46A0945ACE9E757AD75C41;258.
  ) 
 Here is how much of TeX's memory you used:
  7349 strings out of 483058
  115241 string characters out of 5963219
- 386576 words of memory out of 5000000
+ 387576 words of memory out of 5000000
  22248 multiletter control sequences out of 15000+600000
  538451 words of font info for 44 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  41i,10n,42p,839b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on /home/leo/Git/Thesis-TFA/report_greenwup/report.pdf (11 pages, 273092 bytes).
+Output written on /home/leo/Git/Thesis-TFA/report_greenwup/report.pdf (11 pages, 275323 bytes).
 PDF statistics:
  145 PDF objects out of 1000 (max. 8388607)
  108 compressed objects within 2 object streams

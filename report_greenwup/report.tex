@@ -33,21 +33,22 @@ risvegliare i nodi della rete.\\
 Inizialmente il sink node invia un primo \emph{command packet} che viene successivamente distribuito ai nodi sensori utilizzando l'algoritmo di \emph{flooding}.
 L'obiettivo di questo processo è di assegnare a ciascun nodo della rete un valore di hop count secondo un algoritmo iterativo: questo
 avrà valore 0 nel solo caso del sink node, altrimenti assume un valore $h$ se $h-1$ è il valore di hop count del nodo precedente. Al termine
-di questa fase ciascun nodo sarà fornito di un indirizzo di wake up $w=w_{h}w_{e}$ della lunghezza di 8 bit, con $w_{h}$ definito dall'hop count $h$
-e $w_{e}$ che rappresenta la classe energetica del nodo. In particolare, ciascun nodo considera
+di questa fase ciascun nodo sarà fornito di un indirizzo di wake up $w=w_{h}w_{e}$ della lunghezza di 8 bit, con $w_{h}$ definito dal valore di hop
+count $h$ e $w_{e}$ che rappresenta la classe energetica del nodo. In particolare, ciascun nodo considera
 l'energia disponibile come quella rimamente nelle batterie assieme a quella derivata da sorgenti esterne. In definitiva, la codifica del suffisso $w_{e}$
 viene calcolata a partire dalla discretizzazione in $k$ classi della disponibilità energetica di un nodo, dove $k$ rappresenta il numero delle classi
 disponibili.\\
 
-Al termine della fase di interest dissemination ciascun nodo è in grado di calcolare il proprio indirizzo di wake up, che sarà periodicamente aggiornato in base alla loro
-disponibilità energetica corrente. Questa idea realizza il principio del semantic addressing poiché in questo scenario
+Ciascun nodo è in grado di calcolare i propri indirizzi di wake up. Nel caso di GREEN-WUP sono presenti due indirizzi: un primo indirizzo che identifica
+univocamente il nodo nella rete e rimane invariato nel tempo, e un secondo che tiene conto del valore di hop count e che sarà periodicamente aggiornato
+in base alla disponibilità energetica corrente. Questa idea realizza il principio del semantic addressing poiché in questo scenario
 è possibile far riferimento ad un sottoinsieme di nodi della rete a partire dai loro valori di hop count e da quello della classe energetica. \\
 
 %image source: https://www.researchgate.net/figure/Topology-of-wireless-sensor-network-and-hop-count-of-sensors_fig7_285956270
 \begin{figure}
     \begin{center}
         \includegraphics[scale=1.7]{hop-count-algorithm.png}
-        \caption{Topologia della rete a seguito dell'assegnazione degli hop count}
+        \caption{Topologia della rete a seguito dell'assegnazione degli hop count.}
     \end{center}
 \end{figure}
 
@@ -58,15 +59,16 @@ a seguito della quale verrà inviata una conferma a certificare l'avvenuta ricez
 In particolare,
 consideriamo un nodo $a$ non a diretto collegamento col sink node, dunque si ha un valore di hop count $l>1$. Al momento della richiesta di trasmissione dati,
 $a$ prepara una sequenza di wake up $w$ con semantic addressing, scegliendo inizialmente la massima classe energetica $k$, e verifica facendo
-\emph{carrier sensing} che il canale di comunicazione sia libero. Se il canale è libero allora procede inviando la sequenza di wake up che sveglierà tutti
-e soli i nodi con classe energetica massima. Esso attende un contingente di tempo necessario affinchè i nodi destinatari, siano questi $B_1, B_2, \ldots B_n$
-possano accendere le antenne principali (RX) ed invia in broadcast un pacchetto \emph{Request To Send} (RTS). Al momento della ricezione
-i nodi $B_1, B_2, \ldots B_n$ spengono la radio principale (SLEEP). Successivamente inviano al nodo $a$ una sequenza di wake up seguita da un pacchetto
-\emph{Clear To Send} (CTS) utilizzando come indirizzo quello contenuto all'interno del pacchetto RTS precedentemente ricevuto. Per evitare collisioni
-durante l'invio del pacchetto CTS i nodi ne rimandano la trasmissione utilizzando un tempo di \emph{jitter} randomico.
-Al momento della ricezione del primo CTS, $a$ seleziona il nodo $B_i$ che lo ha inviato per la ricezione del pacchetto dati.
-Quindi $a$ verifica che il canale di comunicazione sia libero ed in caso positivo invia a $B_i$ una sequenza di wake up
-seguita dal pacchetto dati. Dunque, $B_i$ ricevuto il pacchetto dati invia un \emph{acknowledgement packet} (ACK) ad $a$, va a dormire e prosegue la
+\emph{carrier sensing} che il canale di comunicazione sia libero. Se il canale è libero allora procede inviando la sequenza di wake up con semantic addressing
+che sveglierà tutti e soli i nodi con classe energetica massima. Esso attende un contingente di tempo necessario affinchè i nodi destinatari, siano
+questi $B_1, B_2, \ldots B_n$ possano accendere le antenne principali (RX) ed invia in broadcast un pacchetto \emph{Request To Send} (RTS), all'interno
+del quale viene incluso l'indirizzo di wake up che indentifica univocamente $a$. Al momento della ricezione, i nodi $B_1, B_2, \ldots B_n$ spengono la
+radio principale (SLEEP). Successivamente questi svegliano il nodo $a$, utilizzando la sequenza di wake up contenuta nel pacchetto RTS ricevuto, ed in
+seguito inviano un pacchetto \emph{Clear To Send} (CTS), in cui è presente l'indirizzo di wake up che identifica univocamente gli stessi. Per evitare
+collisioni durante l'invio del pacchetto CTS i nodi ne rimandano la trasmissione utilizzando un tempo di \emph{jitter} randomico.
+Al momento della ricezione del primo CTS $a$ seleziona il nodo $B_i$ per la ricezione del pacchetto dati. Quindi $a$ verifica che il canale di comunicazione
+sia libero ed in caso positivo sveglia $B_i$ utilizzando la sequenza di wake up contenuta nel pacchetto CTS in questione ed in seguito il \emph{DATA packet}.
+Dunque, $B_i$ ricevuto il pacchetto dati invia un \emph{acknowledgement packet} (ACK) ad $a$, va a dormire e prosegue la
 ritrasmissione del pacchetto ricevuto sino ad arrivare al sink node. Infine $a$ va a dormire in attesa di svolgere una nuova operazione.\\
 
 Il design del protocollo prevede che ciascun nodo consideri dapprima i soli nodi con classe energetica più alta. Se, a seguito di un numero massimo di tentativi,
@@ -107,8 +109,8 @@ stesso e può portare a consumi energetici superflui.
 
 \section{Soluzioni proposte e risultati}
 
-Le proposte avanzate sono state testate attraverso il framework \emph{GreenCastalia} che permette di eseguire simulazioni di WSN che utilizzano le tecniche
-di \emph{energy harvesting} e \emph{wake up radios}. I risultati e i dati di seguito forniti sono considerati su un numero minimo di simulazioni
+Le proposte avanzate sono state testate mediante una versione particolare del framework \emph{GreenCastalia} che supporta \emph{wake up radios}
+e \emph{energy harvesting}. I risultati e i dati di seguito forniti sono considerati su un numero minimo di simulazioni 
 necessario a fornire veridicità alle considerazioni affermate.\\
 
 In questo lavoro si propone una variante del protocollo di base di GREEN-WUP che adotta alcune modifiche in risposta alle problematiche emerse nel capitolo
@@ -156,19 +158,6 @@ soglia $t$ da noi fissata. Ma questo accade con una probabilità che dipende dal
 ad ogni tentativo. Nello scenario considerato, con $n=3$ è possibile ottenere un \emph{Packet Delivery Ratio} (PDR) medio del 99-100\% che permette di abbattere i
 consumi energetici dal 7\% al 13\%.\\
 
-\begin{figure}
-    \begin{center}
-        \includegraphics[scale=0.5]{energy_plot.png}
-        \caption{Benchmark comparativo dei consumi energetici dei due protocolli.}
-    \end{center}
-\end{figure}
-
-I risultati a cui si fa riferimento all'interno di questo documento fanno tutti riferimento ad uno scenario in cui si utilizza un terreno di dimensioni
-$100 \times 100$, il sink node è piazzato nel centro, sono presenti 140 nodi uniformemente distribuiti all'interno dello scenario e varia il valore
-dell'\emph{inter-arrival time} (\emph{iaTime}) per regolare la frequenza di generazione ed invio di dati da parte dei nodi della rete. Inoltre, tutti
-i nodi sono forniti di pannelli solari per derivare nuova energia dall'ambiente esterno e, nel caso della variante impiegata, gli energy predictor
-vengono allenati per circa 3 giorni prima dell'inizio della simulazione per poter generare predizioni di energia nel futuro.\\
-
 \begin{table}[hb]
     \centering
     \begin{tabular}{ |p{5cm}|p{3cm}|  }
@@ -186,14 +175,21 @@ vengono allenati per circa 3 giorni prima dell'inizio della simulazione per pote
         retriesBeforeChangingLevel & 3                              \\
         \hline
     \end{tabular}
+    \caption{Tabella riepilogativa della configurazione usata nelle simulazioni.}
 \end{table}
+
+I risultati a cui si fa riferimento all'interno di questo documento fanno tutti riferimento ad uno scenario in cui si utilizza un terreno di dimensioni
+$100 \times 100$, il sink node è piazzato nel centro, sono presenti 140 nodi uniformemente distribuiti all'interno dello scenario e varia il valore
+dell'\emph{inter-arrival time} (\emph{iaTime}) per regolare la frequenza di generazione ed invio di dati da parte dei nodi della rete. Inoltre, tutti
+i nodi sono forniti di pannelli solari per derivare nuova energia dall'ambiente esterno e, nel caso della variante impiegata, gli energy predictor
+vengono allenati per circa 3 giorni prima dell'inizio della simulazione per poter generare predizioni di energia nel futuro.\\
 
 
 \begin{figure}
     \centering
     \begin{minipage}{.5\textwidth}
         \centering
-        \includegraphics[width=1\linewidth]{pdr_plot.png}
+        \includegraphics[width=1\linewidth]{overhead_plot.png}
         \caption*{(a)}
     \end{minipage}%
     \begin{minipage}{.5\textwidth}
@@ -201,27 +197,44 @@ vengono allenati per circa 3 giorni prima dell'inizio della simulazione per pote
         \includegraphics[width=1\linewidth]{latency_plot.png}
         \caption*{(b)}
     \end{minipage}
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \includegraphics[width=1\linewidth]{overhead_plot.png}
-        \caption*{(c)}
-    \end{minipage}%
-    \caption{Comparazione fra i due protocolli: (a) il packet delivery ratio, (b) le latenze ottenute e (c) l'overhead di rete richiesto.}
+    \caption{Comparazione fra i due protocolli: (a) l'overhead di rete e (b) le latenze sperimentate.}
 \end{figure}
 
-%\clearpage
+Osservando la Figura 1.2 è evidente che l'overhead diminuisca nella variante proposta in quanto diminuisce il numero totale di pacchetti di controllo inviati
+per garantire il corretto trasferimento dei pacchetti dati. Si può notare come questo scenda dal 22.3\% medio richiesto dall'implementazione originale
+di GREEN-WUP al 17.5\% medio richiesto dalla variante. In particolare, il numero dei pacchetti CTS inviati è di circa il 27\% in meno rispetto
+al precedente approccio e questa è una diretta conseguenza del fatto che in questo caso un minor numero di nodi viene coinvolto ad ogni step di
+selezione del nodo intermedio. In altri termini, con la variante proposta si vogliono ridurre i nodi coinvolti allo stretto necessario per permettere
+una corretta selezione del \emph{relay node} e contemporaneamente evitare sprechi energetici. Conseguentemente, la latenza media richiesta per far
+recapitare un pacchetto dati al sink node è più bassa nella variante, in quanto minore il numero di pacchetti in circolazione e quindi nei buffer
+dei nodi della rete.\\
 
-Osservando la Figura 1.2 è chiaro che il principale vantaggio della variante qui proposta è l'efficienza energetica. In particolare, la massima efficienza
-energetica è raggiunta in condizioni di maggiore stress della rete in quanto maggiore la probabilità che numerosi messaggi di wake up sveglino
-nodi candidati che saranno successivamente scartati. L'efficienza energetica è favorita anche dalla stessa applicazione di jitter che
-vengono calcolati a partire dallo stato dei nodi, e non puramente randomici come nel caso di GREEN-WUP. Si noti come la variante proposta migliori
-l'efficienza energetica di GREEN-WUP senza peggiorarne le performance in generale, mantendendo ad esempio il PDR e la latenza molto simili
-all'implementazione originale (Figura 1.3) ed in alcuni casi questi vengono anche migliorati. Inoltre osservando l'overhead di rete
-si può notare come questo scenda dal 22.3\% medio richiesto dall'implementazione originale di GREEN-WUP al 17.5\% medio richiesto dalla variante
-proposta. Questo accade poichè nella variante il numero dei pacchetti CTS inviati è di circa il 27\% in meno dell'originale e questa è una
-diretta conseguenza del fatto che molti meno nodi di quelli necessari al funzionamento del protocollo sono ora svegliati.\\
+\clearpage
+\begin{figure}
+    \centering
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{energy_plot.png}
+        \caption*{(a)}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{pdr_plot.png}
+        \caption*{(b)}
+    \end{minipage}
+    \caption{Comparazione fra i due protocolli: (a) l'energia spesa dalla rete e (b) il packet delivery ratio.}
+\end{figure}
 
-Tutti i dati riportati fanno riferimento ad un numero di esecuzioni sufficientemente grande da fornire un intervallo di confidenza del 95\% con una precisione
+Analizzando la Figura 1.3 si può notare come l'energia richiesta dalla rete è inferiore nel caso della variante. Come diretta conseguenza di quanto 
+sopra esposto, i consumi energetici sono ridotti in quanto i nodi della rete rispondono alle sequenze di wake up con sematic addressing in
+numero minore rispetto alla versione originale. In particolare, la massima efficienza energetica è raggiunta in condizioni di maggiore stress
+della rete in quanto maggiore la probabilità che un più alto numero di messaggi di wake up con semantic addressing svegli i nodi candidati. In altri
+termini, la rete subisce un forte aumento dei pacchetti in circolazione, e quindi di messaggi di wake up, e in questo scenario gli effetti della
+modifica che permette ai nodi di scegliere se attivare o meno la radio principale è ancor più evidente. L'efficienza energetica è favorita non solo
+da questa modifica ma anche dalla stessa applicazione di jitter che vengono calcolati a partire dallo stato dei nodi
+e che non sono puramente randomici come nel caso di GREEN-WUP.\\
+
+Tutti i dati riportati fanno riferimento ad un numero di esecuzioni sufficientemente elevato da fornire un intervallo di confidenza del 95\% con una precisione
 del 5\% e i risultati finali sono considerati come la media di tutte le esecuzioni.
 
 \phantomsection % Give this command only if hyperref is loaded
