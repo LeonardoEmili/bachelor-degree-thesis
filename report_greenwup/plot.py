@@ -4,16 +4,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.ticker import PercentFormatter
 
-# Names and labels
-types = ["energy", "latency", "pdr", "overhead"]
-labels = ["Energy spent by the network [J]", "Latency [ms]", "Packet delivery ratio", "Packets overhead"]
-
 # Choose a value:
 # 0 - energy
 # 1 - latency
 # 2 - pdr
 # 3 - overhead
 m_type = 0
+
+# Select if plotting simulation with interest dissemination phase
+interest_active = True
+
+# Names and labels
+types = ["energy", "latency", "pdr", "overhead"]
+labels = ["Energy spent by the network [J]", "Latency [ms]", "Packet delivery ratio", "Packets overhead"]
+filename = types[m_type] + '_plot.png'
+if interest_active:
+	filename = "interest_" + filename
 
 # Raw data to plot (parsed from GC simulations)
 n = 140
@@ -26,8 +32,12 @@ pdr2 = [99.512, 99.662, 99.696, 99.766, 99.821]
 overhead1 = [x/100 for x in [22.3, 22.2, 22.6, 22.3, 22.0]]
 overhead2 = [x/100 for x in [17.8, 17.8, 18.1, 17.8, 16.5]]
 
-base_protocol = [energy1, latency1, pdr1, overhead1]
-variant_protocol = [energy2, latency2, pdr2, overhead2]
+# Data from simulation with dissemination active
+i_energy1 = [x*n for x in [50.05983, 21.04029, 11.56739, 5.52101, 3.57804]]
+i_energy2 = [x*n for x in [39.85348, 16.97311, 9.58707, 4.70979, 3.15845]]
+
+base_protocol = [i_energy1, latency1, pdr1, overhead1]
+variant_protocol = [i_energy2, latency2, pdr2, overhead2]
 
 bars1 = base_protocol[m_type]
 bars2 = variant_protocol[m_type]
@@ -59,6 +69,5 @@ plt.locator_params(axis='y', nbins=6)
 
 # Create legend & Show graphic
 plt.legend(loc="upper right")
-# plt.show()
-plt.savefig('../assets/' + types[m_type] + '_plot.png')
+plt.savefig('../assets/' + filename)
 plt.close()

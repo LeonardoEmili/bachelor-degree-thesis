@@ -149,6 +149,11 @@ INPUT ../assets/energy_plot.png
 INPUT /home/leo/Git/Thesis-TFA/report_greenwup/../assets/pdr_plot.png
 INPUT ../assets/pdr_plot.png
 INPUT ../assets/pdr_plot.png
+INPUT /home/leo/Git/Thesis-TFA/report_greenwup/../assets/energy_plot.png
+INPUT ../assets/energy_plot.png
+INPUT /home/leo/Git/Thesis-TFA/report_greenwup/../assets/interest_energy_plot.png
+INPUT ../assets/interest_energy_plot.png
+INPUT ../assets/interest_energy_plot.png
 INPUT /home/leo/Git/Thesis-TFA/report_greenwup/report.aux
 INPUT /home/leo/Git/Thesis-TFA/report_greenwup/report.out
 INPUT /home/leo/Git/Thesis-TFA/report_greenwup/report.out
