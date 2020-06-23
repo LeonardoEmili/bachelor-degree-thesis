@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  22 JUN 2020 15:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  23 JUN 2020 12:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -568,39 +568,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--72
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 73--76
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
+Underfull \hbox (badness 10000) in paragraph at lines 77--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+Underfull \hbox (badness 10000) in paragraph at lines 81--84
 
  []
 
 [2]
 Capitolo 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--98
+Underfull \hbox (badness 10000) in paragraph at lines 91--97
 
  []
 
 
-Underfull \vbox (badness 1472) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 99--108
 
- [3
+ []
+
+[3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 99--109
+Underfull \hbox (badness 10000) in paragraph at lines 109--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--115
+Underfull \hbox (badness 10000) in paragraph at lines 115--121
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 122--128
 
  []
 
@@ -623,28 +630,28 @@ Capitolo 6.
 [11] [12
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
  [13
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
  (./relazione.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 150.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 150.
 Package rerunfilecheck Info: File `relazione.out' has not changed.
 (rerunfilecheck)             Checksum: 0D2F59CD28F12635DA9A1CB87E356D17;374.
  ) 
 Here is how much of TeX's memory you used:
- 11040 strings out of 483058
- 171826 string characters out of 5963219
+ 11062 strings out of 483058
+ 172062 string characters out of 5963219
  491616 words of memory out of 5000000
  25750 multiletter control sequences out of 15000+600000
- 588386 words of font info for 89 fonts, out of 8000000 for 9000
+ 589501 words of font info for 100 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  63i,11n,100p,796b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb>
-Output written on relazione.pdf (17 pages, 214420 bytes).
+Output written on relazione.pdf (17 pages, 216186 bytes).
 PDF statistics:
  170 PDF objects out of 1000 (max. 8388607)
  139 compressed objects within 2 object streams
