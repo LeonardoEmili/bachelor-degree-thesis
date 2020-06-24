@@ -23,7 +23,7 @@ if interest_active:
 
 # Raw data to plot (parsed from GC simulations)
 n = 140
-energy1 = [x*n for x in [38.46007, 16.37003, 9.12696, 4.64407, 3.13403]]
+energy1 = [x*n for x in [37.73876, 16.07003, 8.88417, 4.47382, 3.13403]]
 energy2 = [x*n for x in [33.60001, 14.31184, 8.14755, 4.2216, 2.92407]]
 latency1 = [392.87577, 386.10047, 385.0174, 382.8534, 380.6449]
 latency2 = [382.4569, 373.7848, 374.4934, 372.6346, 376.6205]
@@ -33,8 +33,8 @@ overhead1 = [x/100 for x in [22.3, 22.2, 22.6, 22.3, 22.0]]
 overhead2 = [x/100 for x in [17.8, 17.8, 18.1, 17.8, 16.5]]
 
 # Data from simulation with dissemination active
-i_energy1 = [x*n for x in [50.05983, 21.04029, 11.56739, 5.52101, 3.57804]]
-i_energy2 = [x*n for x in [39.85348, 16.97311, 9.58707, 4.70979, 3.15845]]
+i_energy1 = [x*n for x in [38.44381, 16.35294, 9.149, 4.56977, 3.08084]]
+i_energy2 = [x*n for x in [34.49227, 14.65808, 8.32379, 4.26025, 2.93325]]
 
 base_protocol = [i_energy1, latency1, pdr1, overhead1]
 variant_protocol = [i_energy2, latency2, pdr2, overhead2]
