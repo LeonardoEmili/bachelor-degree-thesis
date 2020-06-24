@@ -3,7 +3,9 @@
 \contentsline {chapter}{\numberline {1}Introduzione}{1}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Scenario di riferimento}{3}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Il protocollo GREEN-WUP}{5}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Soluzioni proposte}{9}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Valutazione delle prestazioni}{11}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusioni}{13}{chapter.6}%
-\contentsline {chapter}{Bibliografia}{15}{section*.3}%
+\contentsline {section}{\numberline {3.1}Descrizione del protocollo}{5}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Interest dissemination}{9}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Soluzioni proposte}{11}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Valutazione delle prestazioni}{13}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Conclusioni}{15}{chapter.6}%
+\contentsline {chapter}{Bibliografia}{17}{section*.3}%

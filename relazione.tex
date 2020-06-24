@@ -12,6 +12,15 @@
 \usepackage[Algoritmo]{algorithm}
 \usepackage{algorithmic}
 \usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset { %
+    language=C++,
+    backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
+\usepackage[chapter]{minted}
+
 
 \onehalfspacing
 \graphicspath{ {assets/} }
@@ -125,6 +134,8 @@ un'opportuna scelta del percorso da seguire per permettere la ricezione dati da 
 
 \chapter{Il protocollo GREEN-WUP}
 
+\section{Descrizione del protocollo}
+
 Il protocollo GREEN-WUP si inserisce nel contesto dei protocolli delle \emph{green wireless sensor network} e pone tra i suoi principali obiettivi
 la massima efficienza energetica della rete. Esso impiega le tecnologie di wake up radio, energy harvesting e semantic addressing. Inoltre, è
 di tipo \emph{converge casting} ed è basato sull'assegnazione di hop count a ciascun nodo per poter distribuire i pacchetti dati
@@ -141,10 +152,12 @@ il calcolo degli hop count dei nodi della rete.\\
 In GREEN-WUP ciascun nodo è fornito di una coppia di indirizzi di wake up. Si tratta infatti di un primo indirizzo che identifica univocamente
 il nodo nella rete e rimane invariato nel tempo e di un altro che è mutabile nel tempo ed è definito a partire dallo stato corrente del nodo.
 Quest'ultimo indirizzo di wake up è definito da una sequenza $w=w_{h}w_{e}$ della lunghezza di 8 bit, dove $w_{h}$ rappresenta il valore di hop
-count $h$ del nodo in questione, $w_{e}$ invece rappresenta la sua attuale classe energetica. Si noti come questo secondo indirizzo di venga
-aggiornato periodicamente per riflettere la sua disponibilità energetica nel tempo. Questa idea realizza il principio del semantic addressing
-poiché in questo scenario è possibile far riferimento ad un sottoinsieme di nodi della rete a partire dai loro valori di hop count
-e da quello della classe energetica. \\
+count $h$ del nodo in questione, $w_{e}$ invece rappresenta la sua attuale classe energetica. In particolare, ciascun nodo considera
+l'energia disponibile come quella rimamente nelle batterie assieme a quella derivata da sorgenti esterne. In definitiva, la codifica del suffisso
+$w_{e}$ viene calcolata a partire dalla discretizzazione in $k$ classi della disponibilità energetica di un nodo, dove $k$ rappresenta il
+numero delle classi disponibili. Si noti come quest'ultimo indirizzo venga periodicamente aggiornato per riflettere la disponibilità
+energetica del nodo nel tempo. Questa idea realizza il principio del semantic addressing poiché in questo scenario è possibile far riferimento
+ad un sottoinsieme di nodi della rete a partire dai loro valori di hop count e da quello della classe energetica. \\
 
 %image source: https://www.researchgate.net/figure/Topology-of-wireless-sensor-network-and-hop-count-of-sensors_fig7_285956270
 \begin{figure}
@@ -228,14 +241,75 @@ viene descritto il comportamento che questo assume quando agisce da nodo interme
 \end{algorithm}
 
 Si noti come in \textbf{Algoritmo 1} si abbia come precondizione fondamentale che il valore di hop count (\emph{level}) sia maggiore strettamente
-di zero in quanto il design del protocollo preveda che il sink node agisca da mero destinatario delle comunicazioni della rete. Si osservi come
-nel caso in cui il nodo sia a diretto contatto con il sink node ($level=1$) la trasmissione del pacchetto dati avvenga senza alcuna forma di
+di zero in quanto il design del protocollo prevede che il sink node agisca da mero destinatario delle comunicazioni della rete. Nel caso in cui
+il nodo è a diretto contatto con il sink node ($level=1$) la trasmissione del pacchetto dati avviene senza alcuna forma di
 selezione del nodo intermedio, in quanto superflua. D'altra parte se il nodo non può trasmettere direttamente il pacchetto al sink node ($level>1$)
-si procede contattando i nodi vicini al nodo in questione. I nodi candidati vengono considerati in base alla loro classe energetica corrente,
-a partire dai nodi con classe energetica massima \\
+si procede contattando i nodi vicini al nodo in questione. I nodi candidati vengono considerati in base alla loro classe energetica corrente:
+a partire dai nodi con classe energetica massima si procede poi considerando i nodi con classi energetica inferiore. Infine, si noti come i nodi in fase
+di trasmissione di pacchetti RTS/CTS includano gli indirizzi univoci (i rispettivi ID) mediante i quali potranno essere ricontattati attraverso una
+comunicazione in \emph{unicast}.\\
 
-La descrizione teorica del protocollo non comprende le fasi di CSMA/CA and backoff until channel is CLEAR e di retries che vengono fatti
-per l'invio di ciascun pacchetto in quanto sono comuni a tutti i protocolli di rete.
+Osservando invece \textbf{Algoritmo 2} si può notare che all'inizio il nodo ricevente intercetti una sequenza di wake up a lui destinata. In risposta
+al segnale di wake up ricevuto, il nodo ricevente attiva la radio principale (RX) ed attende di ricevere un pacchetto RTS. Si noti come il
+protocollo preveda la presenza di un jitter randomico per evitare che avvengano collisioni durante la trasmissione dei pacchetti CTS da parte
+dei nodi candidati. Analogamente a quanto sopra descritto i nodi riceventi includonono un indirizzo univoco a cui essere eventualmente ricontattati.\\
+
+Si noti come le descrizioni teoriche del protocollo sopra esposte non comprendano alcuni dettagli inerenti al meccanismo di trasmissione
+dei pacchetti. In particolare questi comprendono una fase di \emph{Carrier Sensing} (CSMA/CA) per evitare che avvengano collisioni e
+inizando a trasmettere solo quando il canale di comunicazione è libero. Inoltre, un'importante convenzione in ambito di reti consiste
+nell'introdurre un massimo numero di ritrasmissioni per ciascun pacchetto. Nel contesto di GREEN-WUP troviamo una diretta applicazione di questa
+idea e ciascun pacchetto viene ritrasmesso al più un numero fissato di volte prima di passare alla prossima classe energetica, oppure, nel caso
+di esaurimento delle classi energetiche disponibili, al prossimo pacchetto.
+
+\section{Interest dissemination}
+
+Per completezza in questo lavoro si è scelto di fornire una versione del protocollo GREEN-WUP in cui la determinazione dell'hop count avviene
+durante la fase di interest dissemination. Tutto ciò avviene per mezzo di un protocollo di flooding (FLOOD-WUP) che permette di distribuire pacchetti
+a tutti i nodi della rete senza incorrere in \emph{broadcast storm}.\\
+
+L'obbiettivo della fase di interest dissemination è di assegnare a ciascun nodo della rete un valore di hop count. Nel caso di FLOOD-WUP ciò
+avviene secondo un algoritmo iterativo: questo avrà valore 0 nel solo caso del sink node, altrimenti assume un valore $h$ se $h-1$ è il valore
+di hop count del nodo precedente.
+\clearpage
+\begin{listing}[H]
+    \caption{Codice di aggiornamento della sequenza di wake up usata dal sink node per distribuire il command packet}
+    \begin{minted}[mathescape,
+                   linenos,
+                   numbersep=10pt,
+                   gobble=0,
+                   fontsize=\small,
+                   frame=lines,
+                   framesep=2mm]{c}
+// New packet received from network layer (either a DATA or INTEREST pkt)
+GreenWupPacket *macFrame;
+if (isSink) {
+    macFrame = new GreenWupInterest("GreenWupInterest", MAC_LAYER_PACKET);
+} else {
+    macFrame= new GreenWupData("GreenWupData", MAC_LAYER_PACKET);
+}
+
+encapsulatePacket(macFrame, pkt);
+macFrame->setDestination(destination);
+macFrame->setNetAddress(self);
+macFrame->setNetSN(netSN++);
+macFrame->setSource(SELF_MAC_ADDRESS);
+
+if ( isSink ) {
+    // This is a dissemination packet - update associated wur
+    macFrame->setWurAddress(wurDisseminationAddresses[fromNetAddressIndex]);
+    int n = wurDisseminationAddresses.size();
+    fromNetAddressIndex = ( fromNetAddressIndex + 1 ) % n;
+    macFrame->setType( PKT_GREEN_WUP_INTEREST );
+    dynamic_cast <GreenWupInterest*>( macFrame )->setHopCount(level);
+    trace() << "New packet from APP, type: PKT_GREEN_WUP_INTEREST";
+} else {
+    macFrame->setType( PKT_GREEN_WUP_DATA );
+    seenData[self].push_back( macFrame->getNetSN() );
+    trace() << "New packet from APP, type: PKT_GREEN_WUP_DATA";
+}
+
+    \end{minted}
+\end{listing}
 
 \chapter{Soluzioni proposte}
 
