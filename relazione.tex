@@ -11,8 +11,10 @@
 \usepackage{setspace}
 \usepackage[Algoritmo]{algorithm}
 \usepackage{algorithmic}
+\usepackage{graphicx}
 
 \onehalfspacing
+\graphicspath{ {assets/} }
 
 \hypersetup{pdftitle={Green IoT: Design e valutazione delle prestazioni di protocolli per sistemi IoT dotati di wake up radio},pdfauthor={Leonardo Emili}}
 
@@ -128,6 +130,43 @@ la massima efficienza energetica della rete. Esso impiega le tecnologie di wake 
 di tipo \emph{converge casting} ed è basato sull'assegnazione di hop count a ciascun nodo per poter distribuire i pacchetti dati
 all'interno della rete.\\
 
+L'approccio tradizionale dei protocolli di rete prevede due fasi principali: in primo luogo avviene la fase di \emph{interest dissemination} dove si
+definisce la topologia della rete da rispettare affinchè i nodi realizzino un corretto flusso di scambio dati; successivamente si assume che gli
+indirizzi di wake up siano stati assegnati e si procede con lo scambio di dati che è governato da sequenze di wake up che vengono utilizzate per
+risvegliare i nodi della rete. Nel caso specifico di GREEN-WUP la fase di interest dissemination non viene eseguita per motivi di efficienza
+e gli hop count vengono determinati indirettamente prima ancora dell'inizio della simulazione. Per ragioni completezza in questo lavoro verrà
+mostrata sia alla versione originale di GREEN-WUP che non comprende la fase di interest dissemination che una versione che la utilizza per
+il calcolo degli hop count dei nodi della rete.\\
+
+In GREEN-WUP ciascun nodo è fornito di una coppia di indirizzi di wake up. Si tratta infatti di un primo indirizzo che identifica univocamente
+il nodo nella rete e rimane invariato nel tempo e di un altro che è mutabile nel tempo ed è definito a partire dallo stato corrente del nodo.
+Quest'ultimo indirizzo di wake up è definito da una sequenza $w=w_{h}w_{e}$ della lunghezza di 8 bit, dove $w_{h}$ rappresenta il valore di hop
+count $h$ del nodo in questione, $w_{e}$ invece rappresenta la sua attuale classe energetica. Si noti come questo secondo indirizzo di venga
+aggiornato periodicamente per riflettere la sua disponibilità energetica nel tempo. Questa idea realizza il principio del semantic addressing
+poiché in questo scenario è possibile far riferimento ad un sottoinsieme di nodi della rete a partire dai loro valori di hop count
+e da quello della classe energetica. \\
+
+%image source: https://www.researchgate.net/figure/Topology-of-wireless-sensor-network-and-hop-count-of-sensors_fig7_285956270
+\begin{figure}
+    \begin{center}
+        \includegraphics[scale=1.7]{hop-count-algorithm.png}
+        \caption{Topologia della rete a seguito dell'assegnazione degli hop count.}
+    \end{center}
+\end{figure}
+
+Nel momento in cui un nodo deve inviare un pacchetto dati può farlo seguendo degli step fondamentali di seguito descritti.
+La prima fase consiste nell'instaurare una comunicazione con i nodi elegibili alla ritrasmissione del pacchetto: il suddetto nodo sensore
+entra in uno stato di ricerca di un nodo che si farà carico della sua richiesta di ritrasmissione. La ricerca si considera conclusa
+nel momento in cui viene selezionato un nodo tra quelli disponibili come nodo intermediario tra il nodo che invia i dati (sender) e il sink
+node, cui la richiesta di ricezione dati è destinata. Infine si procede alla trasmissione del pacchetto, a seguito della quale
+verrà inviata una conferma a certificare l'avvenuta ricezione dello stesso e si ripete in questo modo sino a raggiungere
+il sink node.\\
+
+Nel seguito sarà descritto il comportamento del protocollo da un punto di vista algoritmico ed in seguito alcune osservazioni su di esso.
+Per facilitarne la lettura, il duplice ruolo che ciascun nodo assume viene scomposto in due parti: rispettivamente in \textbf{Algoritmo 1}
+viene descritto il comportamento che ciascun nodo assume nel momento in cui deve inviare dei dati (sender), mentre in \textbf{Algoritmo 2}
+viene descritto il comportamento che questo assume quando agisce da nodo intermediario (receiver).
+
 \begin{algorithm}
     \caption{Sender in GREEN-WUP}
     \begin{algorithmic}
@@ -135,20 +174,14 @@ all'interno della rete.\\
 
         \WHILE{queue is not empty}
             \STATE $dataPkt \leftarrow$ queue.head()
-            \STATE $acked \leftarrow$ false
             %\STATE do CSMA/CA and backoff until channel is CLEAR
 
             \IF{level = 1}
-                \STATE $retries \leftarrow$ maxRetries
-                \WHILE{$retries>0$ $and$ not $acked$}
-                    \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$
-                    \IF{ACK packet is received within $\delta_{ACK}$}
-                        \STATE $acked \leftarrow$ true
-                    \ENDIF
-                    \STATE $retries \leftarrow retries-1$
-                \ENDWHILE
+                \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$ to receive the relative ACK packet
+
             \ELSE
                 \STATE $k \leftarrow$ maxEnergyClass
+                \STATE $acked \leftarrow$ false
                 \WHILE{$k>0$ $and$ not $acked$}
                     \STATE $address_{RTS} \leftarrow$ createWurAddress(level - 1, k)
                     \STATE send $address_{RTS}$ and wait for nearby nodes to wake up
@@ -157,15 +190,11 @@ all'interno della rete.\\
                     
                     \IF{CTS packet is received within $\delta_{CTS}$}
                         \STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
-                        \STATE $retries \leftarrow$ maxRetries
-                        \WHILE{$retries>0$ $and$ not $acked$}
-                            \STATE send $dataPkt$ and wait for some time $delta_{ACK}$
+                        \STATE send $dataPkt$ and wait for some time $delta_{ACK}$
 
-                            \IF{ACK packet is received within $\delta_{ACK}$}
-                                \STATE $acked \leftarrow$ true
-                            \ENDIF
-                            \STATE $retries \leftarrow retries-1$
-                        \ENDWHILE
+                        \IF{ACK packet is received within $\delta_{ACK}$}
+                            \STATE $acked \leftarrow$ true
+                        \ENDIF
                     \ENDIF
                     \STATE $k \leftarrow k-1$
                 \ENDWHILE
@@ -179,8 +208,6 @@ all'interno della rete.\\
     \caption{Receiver in GREEN-WUP}
     \begin{algorithmic}
         \REQUIRE the node detects a wake up signal $address_{RTS}$
-
-        %\STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
 
             \STATE activate the main radio and wait for some time $\delta_{RTS}$
 
@@ -200,6 +227,15 @@ all'interno della rete.\\
     \end{algorithmic}
 \end{algorithm}
 
+Si noti come in \textbf{Algoritmo 1} si abbia come precondizione fondamentale che il valore di hop count (\emph{level}) sia maggiore strettamente
+di zero in quanto il design del protocollo preveda che il sink node agisca da mero destinatario delle comunicazioni della rete. Si osservi come
+nel caso in cui il nodo sia a diretto contatto con il sink node ($level=1$) la trasmissione del pacchetto dati avvenga senza alcuna forma di
+selezione del nodo intermedio, in quanto superflua. D'altra parte se il nodo non può trasmettere direttamente il pacchetto al sink node ($level>1$)
+si procede contattando i nodi vicini al nodo in questione. I nodi candidati vengono considerati in base alla loro classe energetica corrente,
+a partire dai nodi con classe energetica massima \\
+
+La descrizione teorica del protocollo non comprende le fasi di CSMA/CA and backoff until channel is CLEAR e di retries che vengono fatti
+per l'invio di ciascun pacchetto in quanto sono comuni a tutti i protocolli di rete.
 
 \chapter{Soluzioni proposte}
 
@@ -210,19 +246,13 @@ all'interno della rete.\\
 
         \WHILE{queue is not empty}
             \STATE $dataPkt \leftarrow$ queue.head()
-            \STATE $acked \leftarrow$ false
 
             \IF{level = 1}
-                \STATE $retries \leftarrow$ maxRetries
-                \WHILE{$retries>0$ $and$ not $acked$}
-                    \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$
-                    \IF{ACK packet is received within $\delta_{ACK}$}
-                        \STATE $acked \leftarrow$ true
-                    \ENDIF
-                    \STATE $retries \leftarrow retries-1$
-                \ENDWHILE
+                \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$ to receive the relative ACK packet
+
             \ELSE
                 \STATE $k \leftarrow$ maxEnergyClass
+                \STATE $acked \leftarrow$ false
                 \WHILE{$k>0$ $and$ not $acked$}
                     \STATE $u \leftarrow$ maxBufferClass
                     \WHILE{$u>0$ $and$ not $acked$}
@@ -232,16 +262,12 @@ all'interno della rete.\\
                         \STATE send $rtsPkt$ in broadcast and wait for some time $\delta_{CTS}$
                         
                         \IF{CTS packet is received within $\delta_{CTS}$}
-                        \STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
-                        \STATE $retries \leftarrow$ maxRetries
-                        \WHILE{$retries>0$ $and$ not $acked$}
+                            \STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
                             \STATE send $dataPkt$ and wait for some time $delta_{ACK}$
 
                             \IF{ACK packet is received within $\delta_{ACK}$}
                                 \STATE $acked \leftarrow$ true
                             \ENDIF
-                            \STATE $retries \leftarrow retries-1$
-                        \ENDWHILE
                         \ENDIF
                         \STATE $u \leftarrow u-1$
                     \ENDWHILE
@@ -260,16 +286,13 @@ all'interno della rete.\\
 
             \STATE $r \leftarrow$ random value in $[0,maxEnergy]$
             \IF{$r < predictEnergy($t$)$}
-                %activate the main radio and wait for some time $\delta_{RTS}$
                 \STATE activate the main radio and wait for some time $\delta_{RTS}$
 
                 \IF{RTS packet is received within $\delta_{RTS}$}
 
                     \STATE $\delta_{W} \leftarrow$ random value in $[0,maxJitter)$
-                    %\STATE $\delta_{W} \leftarrow$ $\delta_{RANDOM} \cdot maxJitter$
                     \STATE $\delta_{E} \leftarrow$ $(maxJitter-\delta_{W}) \cdot s \cdot (1 - energyRatio)$
                     \STATE $\delta_{B} \leftarrow$ $(maxJitter-\delta_{W}) \cdot p \cdot bufferState$
-                    %\STATE $\delta_{JITTER} \leftarrow$ $\delta_{RANDOM} \cdot maxJitter$
                     \STATE $\delta_{JITTER} \leftarrow$ $\delta_{W} + \delta_{E} + \delta_{B}$
                     \STATE wait for $\delta_{JITTER}$ and then send a wake up signal using the address contained inside the RTS packet
                     \STATE $ctsPkt \leftarrow$ createCTS(self)
