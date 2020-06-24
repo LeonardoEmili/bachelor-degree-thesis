@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  23 JUN 2020 22:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  24 JUN 2020 10:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -650,46 +650,46 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 134.
 [5
 
-] [6]
+] [6] [7] [8
+
+]
 Capitolo 4.
-[7
+[9] [10] [11] [12
 
-] [8]
+]
 Capitolo 5.
-[9
-
-] [10
+[13] [14
 
 ]
 Capitolo 6.
-[11] [12
+[15] [16
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 288.
- [13
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 308.
+ [17
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 288.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 308.
  (./relazione.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 288.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 288.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 308.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 308.
 Package rerunfilecheck Info: File `relazione.out' has not changed.
 (rerunfilecheck)             Checksum: 0D2F59CD28F12635DA9A1CB87E356D17;374.
  ) 
 Here is how much of TeX's memory you used:
- 11466 strings out of 483058
- 177293 string characters out of 5963219
- 501453 words of memory out of 5000000
+ 11489 strings out of 483058
+ 177573 string characters out of 5963219
+ 503453 words of memory out of 5000000
  26046 multiletter control sequences out of 15000+600000
- 603450 words of font info for 113 fonts, out of 8000000 for 9000
+ 603367 words of font info for 112 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 63i,11n,100p,796b,1120s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,11n,100p,796b,1220s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on relazione.pdf (17 pages, 250878 bytes).
+Output written on relazione.pdf (21 pages, 252152 bytes).
 PDF statistics:
- 289 PDF objects out of 1000 (max. 8388607)
- 254 compressed objects within 3 object streams
- 112 named destinations out of 1000 (max. 500000)
+ 331 PDF objects out of 1000 (max. 8388607)
+ 292 compressed objects within 3 object streams
+ 137 named destinations out of 1000 (max. 500000)
  21566 words of extra memory for PDF output out of 24883 (max. 10000000)
 

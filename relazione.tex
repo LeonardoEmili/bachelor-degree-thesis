@@ -133,16 +133,22 @@ all'interno della rete.\\
     \begin{algorithmic}
         \REQUIRE $level > 0$
 
-        \WHILE{buffer is not empty}
-            \STATE $dataPkt \leftarrow$ buffer.pop()
+        \WHILE{queue is not empty}
+            \STATE $dataPkt \leftarrow$ queue.head()
+            \STATE $acked \leftarrow$ false
             %\STATE do CSMA/CA and backoff until channel is CLEAR
 
             \IF{level = 1}
-                \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$ to receive the relative ACK packet
-
+                \STATE $retries \leftarrow$ maxRetries
+                \WHILE{$retries>0$ $and$ not $acked$}
+                    \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$
+                    \IF{ACK packet is received within $\delta_{ACK}$}
+                        \STATE $acked \leftarrow$ true
+                    \ENDIF
+                    \STATE $retries \leftarrow retries-1$
+                \ENDWHILE
             \ELSE
                 \STATE $k \leftarrow$ maxEnergyClass
-                \STATE $acked \leftarrow$ false
                 \WHILE{$k>0$ $and$ not $acked$}
                     \STATE $address_{RTS} \leftarrow$ createWurAddress(level - 1, k)
                     \STATE send $address_{RTS}$ and wait for nearby nodes to wake up
@@ -151,11 +157,15 @@ all'interno della rete.\\
                     
                     \IF{CTS packet is received within $\delta_{CTS}$}
                         \STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
-                        \STATE send $dataPkt$ and wait for some time $delta_{ACK}$
+                        \STATE $retries \leftarrow$ maxRetries
+                        \WHILE{$retries>0$ $and$ not $acked$}
+                            \STATE send $dataPkt$ and wait for some time $delta_{ACK}$
 
-                        \IF{ACK packet is received within $\delta_{ACK}$}
-                            \STATE $acked \leftarrow$ true
-                        \ENDIF
+                            \IF{ACK packet is received within $\delta_{ACK}$}
+                                \STATE $acked \leftarrow$ true
+                            \ENDIF
+                            \STATE $retries \leftarrow retries-1$
+                        \ENDWHILE
                     \ENDIF
                     \STATE $k \leftarrow k-1$
                 \ENDWHILE
@@ -176,7 +186,7 @@ all'interno della rete.\\
 
             \IF{RTS packet is received within $\delta_{RTS}$}
                 \STATE $\delta_{JITTER} \leftarrow$ random value in $[0,maxJitter)$
-                \STATE wait for $\delta_{JITTER}$ and then send a wake up signal using the address contained inside $rtsPkt$
+                \STATE wait for $\delta_{JITTER}$ and then send a wake up signal using the address contained inside the RTS packet
                 \STATE $ctsPkt \leftarrow$ createCTS(self)
                 \STATE send $ctsPkt$ and wait for some time $\delta_{DATA}$
 
@@ -198,15 +208,21 @@ all'interno della rete.\\
     \begin{algorithmic}
         \REQUIRE $level > 0$
 
-        \WHILE{buffer is not empty}
-            \STATE $dataPkt \leftarrow$ buffer.pop()
+        \WHILE{queue is not empty}
+            \STATE $dataPkt \leftarrow$ queue.head()
+            \STATE $acked \leftarrow$ false
 
             \IF{level = 1}
-                \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$ to receive the relative ACK packet
-
+                \STATE $retries \leftarrow$ maxRetries
+                \WHILE{$retries>0$ $and$ not $acked$}
+                    \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$
+                    \IF{ACK packet is received within $\delta_{ACK}$}
+                        \STATE $acked \leftarrow$ true
+                    \ENDIF
+                    \STATE $retries \leftarrow retries-1$
+                \ENDWHILE
             \ELSE
                 \STATE $k \leftarrow$ maxEnergyClass
-                \STATE $acked \leftarrow$ false
                 \WHILE{$k>0$ $and$ not $acked$}
                     \STATE $u \leftarrow$ maxBufferClass
                     \WHILE{$u>0$ $and$ not $acked$}
@@ -216,12 +232,16 @@ all'interno della rete.\\
                         \STATE send $rtsPkt$ in broadcast and wait for some time $\delta_{CTS}$
                         
                         \IF{CTS packet is received within $\delta_{CTS}$}
-                            \STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
+                        \STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
+                        \STATE $retries \leftarrow$ maxRetries
+                        \WHILE{$retries>0$ $and$ not $acked$}
                             \STATE send $dataPkt$ and wait for some time $delta_{ACK}$
 
                             \IF{ACK packet is received within $\delta_{ACK}$}
                                 \STATE $acked \leftarrow$ true
                             \ENDIF
+                            \STATE $retries \leftarrow retries-1$
+                        \ENDWHILE
                         \ENDIF
                         \STATE $u \leftarrow u-1$
                     \ENDWHILE
@@ -245,13 +265,13 @@ all'interno della rete.\\
 
                 \IF{RTS packet is received within $\delta_{RTS}$}
 
-                    \STATE $\delta_{RANDOM} \leftarrow$ random value in $[0,1)$
-                    \STATE $\delta_{W} \leftarrow$ $\delta_{RANDOM} \cdot maxJitter$
+                    \STATE $\delta_{W} \leftarrow$ random value in $[0,maxJitter)$
+                    %\STATE $\delta_{W} \leftarrow$ $\delta_{RANDOM} \cdot maxJitter$
                     \STATE $\delta_{E} \leftarrow$ $(maxJitter-\delta_{W}) \cdot s \cdot (1 - energyRatio)$
                     \STATE $\delta_{B} \leftarrow$ $(maxJitter-\delta_{W}) \cdot p \cdot bufferState$
                     %\STATE $\delta_{JITTER} \leftarrow$ $\delta_{RANDOM} \cdot maxJitter$
                     \STATE $\delta_{JITTER} \leftarrow$ $\delta_{W} + \delta_{E} + \delta_{B}$
-                    \STATE wait for $\delta_{JITTER}$ and then send a wake up signal using the address contained inside $rtsPkt$
+                    \STATE wait for $\delta_{JITTER}$ and then send a wake up signal using the address contained inside the RTS packet
                     \STATE $ctsPkt \leftarrow$ createCTS(self)
                     \STATE send $ctsPkt$ and wait for some time $\delta_{DATA}$
 
