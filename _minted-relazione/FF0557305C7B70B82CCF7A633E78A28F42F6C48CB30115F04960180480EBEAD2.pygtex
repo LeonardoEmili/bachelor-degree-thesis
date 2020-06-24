@@ -15,7 +15,7 @@
     \PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setType}\PYG{p}{(}\PYG{n}{PKT\PYGZus{}GREEN\PYGZus{}WUP\PYGZus{}DATA}\PYG{p}{);}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{c+c1}{// Add MAC header and provide required fields}
+\PYG{c+c1}{// Add MAC header and provide the required fields}
 \PYG{n}{encapsulatePacket}\PYG{p}{(}\PYG{n}{macFrame}\PYG{p}{,} \PYG{n}{pkt}\PYG{p}{);}
 \PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setDestination}\PYG{p}{(}\PYG{n}{destination}\PYG{p}{);}
 \PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setNetAddress}\PYG{p}{(}\PYG{n}{self}\PYG{p}{);}
