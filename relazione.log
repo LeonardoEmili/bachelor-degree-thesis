@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  23 JUN 2020 12:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  23 JUN 2020 22:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -368,30 +368,52 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 \Hy@SectionHShift=\skip63
 ) (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating environment
+ (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count290
+\float@exts=\toks32
+\float@box=\box47
+\@float@everytoks=\toks33
+\@floatcapt=\box48
+) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks34
+\c@algorithm=\count291
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count292
+\c@ALC@line=\count293
+\c@ALC@rem=\count294
+\c@ALC@depth=\count295
+\ALC@tlm=\skip64
+\algorithmicindent=\skip65
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count290
-\l__pdf_internal_box=\box47
+\l__kernel_color_stack_int=\count296
+\l__pdf_internal_box=\box49
 ) (./relazione.aux)
 \openout1 = `relazione.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 32.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -433,46 +455,47 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count291
+\scratchcounter=\count297
 \scratchdimen=\dimen180
-\scratchbox=\box48
-\nofMPsegments=\count292
-\nofMParguments=\count293
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count294
+\scratchbox=\box50
+\nofMPsegments=\count298
+\nofMParguments=\count299
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count300
 \MPscratchDim=\dimen181
-\MPnumerator=\count295
-\makeMPintoPDFobject=\count296
-\everyMPtoPDFconversion=\toks33
+\MPnumerator=\count301
+\makeMPintoPDFobject=\count302
+\everyMPtoPDFconversion=\toks36
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \textsubscript on input line 33.
-LaTeX Info: Redefining \microtypecontext on input line 33.
+LaTeX Info: Redefining \textsubscript on input line 32.
+LaTeX Info: Redefining \microtypecontext on input line 32.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 33.
+LaTeX Info: Redefining \showhyphens on input line 32.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
  (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-LaTeX Info: Redefining \it@ocap on input line 33.
-LaTeX Info: Redefining \it@ccap on input line 33.
-\AtBeginShipoutBox=\box49
-Package hyperref Info: Link coloring OFF on input line 33.
+LaTeX Info: Redefining \it@ocap on input line 32.
+LaTeX Info: Redefining \it@ccap on input line 32.
+\AtBeginShipoutBox=\box51
+Package hyperref Info: Link coloring OFF on input line 32.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -480,16 +503,16 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count297
+\c@section@level=\count303
 )
-LaTeX Info: Redefining \ref on input line 33.
-LaTeX Info: Redefining \pageref on input line 33.
-LaTeX Info: Redefining \nameref on input line 33.
+LaTeX Info: Redefining \ref on input line 32.
+LaTeX Info: Redefining \pageref on input line 32.
+LaTeX Info: Redefining \nameref on input line 32.
  (./relazione.out) (./relazione.out)
 \@outlinefile=\write3
 \openout3 = `relazione.out'.
 
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 39.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 38.
  (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -500,45 +523,45 @@ Package microtype Info: Loading generic protrusion settings for font family
 <sapienza-MLred-pos.pdf, id=32, 288.07625pt x 89.33376pt>
 File: sapienza-MLred-pos.pdf Graphic file (type pdf)
 <use sapienza-MLred-pos.pdf>
-Package pdftex.def Info: sapienza-MLred-pos.pdf  used on input line 39.
+Package pdftex.def Info: sapienza-MLred-pos.pdf  used on input line 38.
 (pdftex.def)             Requested size: 142.26378pt x 44.11742pt.
  [1
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./sapienza-MLred-pos.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 39.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 38.
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 39--39
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 39.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 38.
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 39.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 38.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 39.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 38.
  (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 39.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 38.
  (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 39.
+(Font)              <10> on input line 38.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 39.
+(Font)              <7> on input line 38.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 39.
+(Font)              <5> on input line 38.
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--39
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 
  []
 
@@ -556,105 +579,117 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--39
 ]
 Capitolo 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--57
+Underfull \hbox (badness 10000) in paragraph at lines 44--52
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--72
+Underfull \hbox (badness 10000) in paragraph at lines 53--67
 
  []
 
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 73--76
+Underfull \hbox (badness 10000) in paragraph at lines 68--71
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 77--80
+Underfull \hbox (badness 10000) in paragraph at lines 72--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--84
+Underfull \hbox (badness 10000) in paragraph at lines 76--79
 
  []
 
 [2]
 Capitolo 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 91--97
+Underfull \hbox (badness 10000) in paragraph at lines 86--92
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--108
+Underfull \hbox (badness 10000) in paragraph at lines 94--103
 
  []
 
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 109--114
+Underfull \hbox (badness 10000) in paragraph at lines 104--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--121
+Underfull \hbox (badness 10000) in paragraph at lines 110--116
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--128
+Underfull \hbox (badness 10000) in paragraph at lines 117--123
 
  []
 
 [4]
 Capitolo 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--130
+
+ []
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 132.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 134.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 134.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 134.
 [5
 
-] [6
-
-]
+] [6]
 Capitolo 4.
-[7] [8
+[7
 
-]
+] [8]
 Capitolo 5.
-[9] [10
+[9
+
+] [10
 
 ]
 Capitolo 6.
 [11] [12
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 150.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 288.
  [13
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 150.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 288.
  (./relazione.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 150.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 150.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 288.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 288.
 Package rerunfilecheck Info: File `relazione.out' has not changed.
 (rerunfilecheck)             Checksum: 0D2F59CD28F12635DA9A1CB87E356D17;374.
  ) 
 Here is how much of TeX's memory you used:
- 11060 strings out of 483058
- 172038 string characters out of 5963219
- 491583 words of memory out of 5000000
- 25749 multiletter control sequences out of 15000+600000
- 589501 words of font info for 100 fonts, out of 8000000 for 9000
+ 11466 strings out of 483058
+ 177293 string characters out of 5963219
+ 501453 words of memory out of 5000000
+ 26046 multiletter control sequences out of 15000+600000
+ 603450 words of font info for 113 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 63i,11n,100p,796b,414s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb>
-Output written on relazione.pdf (17 pages, 217242 bytes).
+ 63i,11n,100p,796b,1120s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
+Output written on relazione.pdf (17 pages, 250878 bytes).
 PDF statistics:
- 170 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 500000)
- 17982 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 289 PDF objects out of 1000 (max. 8388607)
+ 254 compressed objects within 3 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 21566 words of extra memory for PDF output out of 24883 (max. 10000000)
 

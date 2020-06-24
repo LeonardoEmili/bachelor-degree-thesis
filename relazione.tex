@@ -9,6 +9,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[hidelinks]{hyperref}
 \usepackage{setspace}
+\usepackage[Algoritmo]{algorithm}
+\usepackage{algorithmic}
+
 \onehalfspacing
 
 \hypersetup{pdftitle={Green IoT: Design e valutazione delle prestazioni di protocolli per sistemi IoT dotati di wake up radio},pdfauthor={Leonardo Emili}}
@@ -26,10 +29,6 @@
 \tutorcoord{Dr. Georgia Koutsandria}
 \authoremail{emili.1802989@studenti.uniroma1.it}
 
-%\schoolname{Sapienza, Università di Roma}
-%\schooladdress{Piazzale Aldo Moro 5, 00185 Roma}
-%\schoolprincipal{Dr. Alessandro Mei, PhD}
-
 \begin{document}
 \large
 
@@ -41,10 +40,6 @@
 
 \mainmatter
 \chapter{Introduzione}
-
-%Sviluppo dell'Iot nel mondo: quando, dove perchè e come.
-%WSN reti di nodi sensori con applicazioni in, permettono di, hanno queste sfide (energia, latenza, disponibilità)
-%Nel mio percorso mi sono concentrato su green WSN: studio di protocolli e delle metodologie impiegate, implementazione di GreenWup un protocollo fatto così, e variazioni.
 
 Nell'ultimo decennio abbiamo assistito ad uno sviluppo portentoso del settore dell'Internet of Things che ha contribuito alla diffusione
 di un enorme numero di dispositivi wireless. Il numero di questi dispositivi ha registrato crescite costanti negli anni e loro applicazioni sono ormai infinite.
@@ -119,7 +114,7 @@ sottoinsieme di nodi della rete. A meno di errori di interpretazione della seque
 saranno svegliati. In questo scenario, i consumi energetici risultano essere ulteriormente ridotti poichè viene virtualmente azzerato il numero dei nodi
 che sono riattivati a seguito di sequenze di wake up non a loro destinate ma che si trovano all'interno del loro range.\\
 
-Questo lavoro si concentra sullo studio di protocolli delle cosiddette \emph{green wireless networks}, ovverosia di quei protocolli che si basano
+Questo lavoro si concentra sullo studio di protocolli delle cosiddette \emph{green wireless sensor network}, ovverosia di quei protocolli che si basano
 sulle tecnologie sopra esposte e che implementano la comunicazione tra nodi minimizzandone gli sprechi energetici al fine di massimizzare
 i tempi di attività e il corretto funzionamento delle comunicazioni all'interno delle reti. Nella letteratura scientifica
 sono presenti molti protocolli di questo tipo (es. CTP-WUR, GREENROUTES, WHARP) e ciascuno di loro punta a risolvere diverse problematiche.
@@ -127,7 +122,150 @@ Nel seguito verrà analizzato in dettaglio il comportamento del protocollo GREEN
 un'opportuna scelta del percorso da seguire per permettere la ricezione dati da parte del sink node.\\
 
 \chapter{Il protocollo GREEN-WUP}
+
+Il protocollo GREEN-WUP si inserisce nel contesto dei protocolli delle \emph{green wireless sensor network} e pone tra i suoi principali obiettivi
+la massima efficienza energetica della rete. Esso impiega le tecnologie di wake up radio, energy harvesting e semantic addressing. Inoltre, è
+di tipo \emph{converge casting} ed è basato sull'assegnazione di hop count a ciascun nodo per poter distribuire i pacchetti dati
+all'interno della rete.\\
+
+\begin{algorithm}
+    \caption{Sender in GREEN-WUP}
+    \begin{algorithmic}
+        \REQUIRE $level > 0$
+
+        \WHILE{buffer is not empty}
+            \STATE $dataPkt \leftarrow$ buffer.pop()
+            %\STATE do CSMA/CA and backoff until channel is CLEAR
+
+            \IF{level = 1}
+                \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$ to receive the relative ACK packet
+
+            \ELSE
+                \STATE $k \leftarrow$ maxEnergyClass
+                \STATE $acked \leftarrow$ false
+                \WHILE{$k>0$ $and$ not $acked$}
+                    \STATE $address_{RTS} \leftarrow$ createWurAddress(level - 1, k)
+                    \STATE send $address_{RTS}$ and wait for nearby nodes to wake up
+                    \STATE $rtsPkt \leftarrow$ createRTS(self)
+                    \STATE send $rtsPkt$ in broadcast and wait for some time $\delta_{CTS}$
+                    
+                    \IF{CTS packet is received within $\delta_{CTS}$}
+                        \STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
+                        \STATE send $dataPkt$ and wait for some time $delta_{ACK}$
+
+                        \IF{ACK packet is received within $\delta_{ACK}$}
+                            \STATE $acked \leftarrow$ true
+                        \ENDIF
+                    \ENDIF
+                    \STATE $k \leftarrow k-1$
+                \ENDWHILE
+            \ENDIF
+        
+        \ENDWHILE
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+    \caption{Receiver in GREEN-WUP}
+    \begin{algorithmic}
+        \REQUIRE the node detects a wake up signal $address_{RTS}$
+
+        %\STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
+
+            \STATE activate the main radio and wait for some time $\delta_{RTS}$
+
+            \IF{RTS packet is received within $\delta_{RTS}$}
+                \STATE $\delta_{JITTER} \leftarrow$ random value in $[0,maxJitter)$
+                \STATE wait for $\delta_{JITTER}$ and then send a wake up signal using the address contained inside $rtsPkt$
+                \STATE $ctsPkt \leftarrow$ createCTS(self)
+                \STATE send $ctsPkt$ and wait for some time $\delta_{DATA}$
+
+                \IF{DATA packet is received within $\delta_{DATA}$}
+                    \STATE send an acknowledgement packet to the sender
+                \ENDIF
+            \ENDIF
+
+            \STATE process buffered packets if there are any, otherwise go back to sleep
+        
+    \end{algorithmic}
+\end{algorithm}
+
+
 \chapter{Soluzioni proposte}
+
+\begin{algorithm}
+    \caption{Sender nella variante}
+    \begin{algorithmic}
+        \REQUIRE $level > 0$
+
+        \WHILE{buffer is not empty}
+            \STATE $dataPkt \leftarrow$ buffer.pop()
+
+            \IF{level = 1}
+                \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$ to receive the relative ACK packet
+
+            \ELSE
+                \STATE $k \leftarrow$ maxEnergyClass
+                \STATE $acked \leftarrow$ false
+                \WHILE{$k>0$ $and$ not $acked$}
+                    \STATE $u \leftarrow$ maxBufferClass
+                    \WHILE{$u>0$ $and$ not $acked$}
+                        \STATE $address_{RTS} \leftarrow$ createWurAddress(level - 1, k, u)
+                        \STATE send $address_{RTS}$ and wait for nearby nodes to wake up
+                        \STATE $rtsPkt \leftarrow$ createRTS(self)
+                        \STATE send $rtsPkt$ in broadcast and wait for some time $\delta_{CTS}$
+                        
+                        \IF{CTS packet is received within $\delta_{CTS}$}
+                            \STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
+                            \STATE send $dataPkt$ and wait for some time $delta_{ACK}$
+
+                            \IF{ACK packet is received within $\delta_{ACK}$}
+                                \STATE $acked \leftarrow$ true
+                            \ENDIF
+                        \ENDIF
+                        \STATE $u \leftarrow u-1$
+                    \ENDWHILE
+                    \STATE $k \leftarrow k-1$
+                \ENDWHILE
+            \ENDIF
+        
+        \ENDWHILE
+    \end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+    \caption{Receiver nella variante}
+    \begin{algorithmic}
+        \REQUIRE $s+p=1$, the node detects a wake up signal $address_{RTS}$
+
+            \STATE $r \leftarrow$ random value in $[0,maxEnergy]$
+            \IF{$r < predictEnergy($t$)$}
+                %activate the main radio and wait for some time $\delta_{RTS}$
+                \STATE activate the main radio and wait for some time $\delta_{RTS}$
+
+                \IF{RTS packet is received within $\delta_{RTS}$}
+
+                    \STATE $\delta_{RANDOM} \leftarrow$ random value in $[0,1)$
+                    \STATE $\delta_{W} \leftarrow$ $\delta_{RANDOM} \cdot maxJitter$
+                    \STATE $\delta_{E} \leftarrow$ $(maxJitter-\delta_{W}) \cdot s \cdot (1 - energyRatio)$
+                    \STATE $\delta_{B} \leftarrow$ $(maxJitter-\delta_{W}) \cdot p \cdot bufferState$
+                    %\STATE $\delta_{JITTER} \leftarrow$ $\delta_{RANDOM} \cdot maxJitter$
+                    \STATE $\delta_{JITTER} \leftarrow$ $\delta_{W} + \delta_{E} + \delta_{B}$
+                    \STATE wait for $\delta_{JITTER}$ and then send a wake up signal using the address contained inside $rtsPkt$
+                    \STATE $ctsPkt \leftarrow$ createCTS(self)
+                    \STATE send $ctsPkt$ and wait for some time $\delta_{DATA}$
+
+                    \IF{DATA packet is received within $\delta_{DATA}$}
+                        \STATE send an acknowledgement packet to the sender
+                    \ENDIF
+                \ENDIF
+
+                \STATE process buffered packets if there are any, otherwise go back to sleep
+            \ENDIF
+        
+    \end{algorithmic}
+\end{algorithm}
+
 \chapter{Valutazione delle prestazioni}
 \chapter{Conclusioni}
 
