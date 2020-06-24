@@ -21,6 +21,7 @@
 }
 \usepackage[chapter]{minted}
 
+\renewcommand\listingscaption{Codice}
 
 \onehalfspacing
 \graphicspath{ {assets/} }
@@ -269,44 +270,87 @@ a tutti i nodi della rete senza incorrere in \emph{broadcast storm}.\\
 
 L'obbiettivo della fase di interest dissemination è di assegnare a ciascun nodo della rete un valore di hop count. Nel caso di FLOOD-WUP ciò
 avviene secondo un algoritmo iterativo: questo avrà valore 0 nel solo caso del sink node, altrimenti assume un valore $h$ se $h-1$ è il valore
-di hop count del nodo precedente.
+di hop count del nodo precedente.\\
+
+L'inizio della fase di interest dissemination viene sancito nel momento in cui il sink node invia un primo pacchetto con cui richiede
+ai nodi della rete di iniziare a determinare il proprio hop count. Suddetto pacchetto prende il nome di \emph{command packet} e contiene
+al suo interno un campo contenente il valore di hop count del nodo che lo ha inviato. L'hop count vale inizialmente 0 
+e viene incrementato di uno ad ogni nuova ricezione da parte degli altri nodi. In questo modo è possibile assegnare gli hop count ai nodi
+della rete semplicemente seguendone la definizione ricorsiva.\\
+
+Come precedente accennato, in FLOOD-WUP il traffico generato non provoca broadcast storm e questo è possibile grazie all'impiego dei messaggi
+di wake up. Infatti, ciascun nodo fa riferimento ad una pool di indirizzi di wake up condivisa $w_1, w_2, \cdots, w_n$ e ha inizialmente
+settato come indirizzo di wake up $w_1$. Quando il primo pacchetto di interest viene inviato dal sink node si utilizza $w_1$ come sequenza
+di wake up che lo precede. Al momento della ricezione del paccheto, i nodi cambiano il loro indirizzo di wake up in $w_b$ e lo redistribuiscono
+precedendolo con la stessa sequenza di wake up con la quale è stato spedito. Il successivo pacchetto viene spedito dal sink
+node utilizzando $w_b$ come sequenza di wake up e questo evita di ricevere pacchetti duplicati in quanto i nodi che hanno già ricevuto un
+pacchetto non saranno successivamente svegliati da quella stessa sequenza di wake up.
+
 \clearpage
-\begin{listing}[H]
-    \caption{Codice di aggiornamento della sequenza di wake up usata dal sink node per distribuire il command packet}
+\begin{listing}
+    \caption{Codice di aggiornamento della sequenza di wake up utilizzata dal sink node per distribuire il command packet}
     \begin{minted}[mathescape,
                    linenos,
                    numbersep=10pt,
                    gobble=0,
                    fontsize=\small,
                    frame=lines,
-                   framesep=2mm]{c}
-// New packet received from network layer (either a DATA or INTEREST pkt)
+                   framesep=2mm]{cpp}
+// New packet received from the upper layer (either a DATA or INTEREST pkt)
 GreenWupPacket *macFrame;
 if (isSink) {
+    // This is a dissemination packet - Update associated wur
     macFrame = new GreenWupInterest("GreenWupInterest", MAC_LAYER_PACKET);
+    macFrame->setWurAddress(wurDisseminationAddresses[fromNetAddressIndex]);
+    int n = wurDisseminationAddresses.size();
+    fromNetAddressIndex = (fromNetAddressIndex + 1) % n;
+    macFrame->setType(PKT_GREEN_WUP_INTEREST);
+    // Initialize the hop count to 0
+    macFrame->setHopCount(level);
 } else {
     macFrame= new GreenWupData("GreenWupData", MAC_LAYER_PACKET);
+    macFrame->setType(PKT_GREEN_WUP_DATA);
 }
 
+// Add MAC header and provide required fields
 encapsulatePacket(macFrame, pkt);
 macFrame->setDestination(destination);
 macFrame->setNetAddress(self);
 macFrame->setNetSN(netSN++);
 macFrame->setSource(SELF_MAC_ADDRESS);
 
-if ( isSink ) {
-    // This is a dissemination packet - update associated wur
-    macFrame->setWurAddress(wurDisseminationAddresses[fromNetAddressIndex]);
-    int n = wurDisseminationAddresses.size();
-    fromNetAddressIndex = ( fromNetAddressIndex + 1 ) % n;
-    macFrame->setType( PKT_GREEN_WUP_INTEREST );
-    dynamic_cast <GreenWupInterest*>( macFrame )->setHopCount(level);
-    trace() << "New packet from APP, type: PKT_GREEN_WUP_INTEREST";
-} else {
-    macFrame->setType( PKT_GREEN_WUP_DATA );
-    seenData[self].push_back( macFrame->getNetSN() );
-    trace() << "New packet from APP, type: PKT_GREEN_WUP_DATA";
+    \end{minted}
+\end{listing}
+
+\begin{listing}
+    \caption{Codice di aggiornamento della sequenza di wake up usata dai nodi.}
+    \begin{minted}[mathescape,
+                   linenos,
+                   numbersep=10pt,
+                   gobble=0,
+                   fontsize=\small,
+                   frame=lines,
+                   framesep=2mm]{cpp}
+// Interest packet received from the network
+GreenWupInterest *macPkt = dynamic_cast <GreenWupInterest*>(pkt);
+
+// Update current hop count
+updateLevel (macPkt->getHopCount());
+
+// Ignore duplicated packtes
+if (isNotDuplicatePacket(pkt) == false) {
+    // Drop duplicate packets (i.e. received while doing CSMA/CA)
+    return;
 }
+
+// Update next hop count
+GreenWupInterest *newPkt = dynamic_cast <GreenWupInterest*>(pkt->dup());
+newPkt->setHopCount(level);
+
+// Update current wur address (replace i-th address with address (i+1) mod n)
+wurModule->removeWakeupAddress(wurDisseminationAddresses[addressIndex]);
+addressIndex = (addressIndex + 1) % (wurDisseminationAddresses.size());
+wurModule->addWakeupAddress(wurDisseminationAddresses[addressIndex]);
 
     \end{minted}
 \end{listing}

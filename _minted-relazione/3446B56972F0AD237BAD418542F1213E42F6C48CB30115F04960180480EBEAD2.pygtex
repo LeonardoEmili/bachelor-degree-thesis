@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{// Interest packet received from the network}
+\PYG{n}{GreenWupInterest} \PYG{o}{*}\PYG{n}{macPkt} \PYG{o}{=} \PYG{k}{dynamic\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{n}{GreenWupInterest}\PYG{o}{*\PYGZgt{}}\PYG{p}{(}\PYG{n}{pkt}\PYG{p}{);}
+
+\PYG{c+c1}{// Update current hop count}
+\PYG{n}{updateLevel} \PYG{p}{(}\PYG{n}{macPkt}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{getHopCount}\PYG{p}{());}
+
+\PYG{c+c1}{// Ignore duplicated packtes}
+\PYG{k}{if} \PYG{p}{(}\PYG{n}{isNotDuplicatePacket}\PYG{p}{(}\PYG{n}{pkt}\PYG{p}{)} \PYG{o}{==} \PYG{n+nb}{false}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// Drop duplicate packets (i.e. received while doing CSMA/CA)}
+    \PYG{k}{return}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// Update next hop count}
+\PYG{n}{GreenWupInterest} \PYG{o}{*}\PYG{n}{newPkt} \PYG{o}{=} \PYG{k}{dynamic\PYGZus{}cast} \PYG{o}{\PYGZlt{}}\PYG{n}{GreenWupInterest}\PYG{o}{*\PYGZgt{}}\PYG{p}{(}\PYG{n}{pkt}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{dup}\PYG{p}{());}
+\PYG{n}{newPkt}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setHopCount}\PYG{p}{(}\PYG{n}{level}\PYG{p}{);}
+
+\PYG{c+c1}{// Update current wur address (replace i\PYGZhy{}th address with address (i+1) mod n)}
+\PYG{n}{wurModule}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{removeWakeupAddress}\PYG{p}{(}\PYG{n}{wurDisseminationAddresses}\PYG{p}{[}\PYG{n}{addressIndex}\PYG{p}{]);}
+\PYG{n}{addressIndex} \PYG{o}{=} \PYG{p}{(}\PYG{n}{addressIndex} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n}{wurDisseminationAddresses}\PYG{p}{.}\PYG{n}{size}\PYG{p}{());}
+\PYG{n}{wurModule}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{addWakeupAddress}\PYG{p}{(}\PYG{n}{wurDisseminationAddresses}\PYG{p}{[}\PYG{n}{addressIndex}\PYG{p}{]);}
+\end{Verbatim}

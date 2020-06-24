@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{c+c1}{// New packet received from the upper layer (either a DATA or INTEREST pkt)}
+\PYG{n}{GreenWupPacket} \PYG{o}{*}\PYG{n}{macFrame}\PYG{p}{;}
+\PYG{k}{if} \PYG{p}{(}\PYG{n}{isSink}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{// This is a dissemination packet \PYGZhy{} Update associated wur}
+    \PYG{n}{macFrame} \PYG{o}{=} \PYG{k}{new} \PYG{n}{GreenWupInterest}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}GreenWupInterest\PYGZdq{}}\PYG{p}{,} \PYG{n}{MAC\PYGZus{}LAYER\PYGZus{}PACKET}\PYG{p}{);}
+    \PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setWurAddress}\PYG{p}{(}\PYG{n}{wurDisseminationAddresses}\PYG{p}{[}\PYG{n}{fromNetAddressIndex}\PYG{p}{]);}
+    \PYG{k+kt}{int} \PYG{n}{n} \PYG{o}{=} \PYG{n}{wurDisseminationAddresses}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}
+    \PYG{n}{fromNetAddressIndex} \PYG{o}{=} \PYG{p}{(}\PYG{n}{fromNetAddressIndex} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{n}{n}\PYG{p}{;}
+    \PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setType}\PYG{p}{(}\PYG{n}{PKT\PYGZus{}GREEN\PYGZus{}WUP\PYGZus{}INTEREST}\PYG{p}{);}
+    \PYG{c+c1}{// Initialize the hop count to 0}
+    \PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setHopCount}\PYG{p}{(}\PYG{n}{level}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{p}{\PYGZob{}}
+    \PYG{n}{macFrame}\PYG{o}{=} \PYG{k}{new} \PYG{n}{GreenWupData}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}GreenWupData\PYGZdq{}}\PYG{p}{,} \PYG{n}{MAC\PYGZus{}LAYER\PYGZus{}PACKET}\PYG{p}{);}
+    \PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setType}\PYG{p}{(}\PYG{n}{PKT\PYGZus{}GREEN\PYGZus{}WUP\PYGZus{}DATA}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// Add MAC header and provide required fields}
+\PYG{n}{encapsulatePacket}\PYG{p}{(}\PYG{n}{macFrame}\PYG{p}{,} \PYG{n}{pkt}\PYG{p}{);}
+\PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setDestination}\PYG{p}{(}\PYG{n}{destination}\PYG{p}{);}
+\PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setNetAddress}\PYG{p}{(}\PYG{n}{self}\PYG{p}{);}
+\PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setNetSN}\PYG{p}{(}\PYG{n}{netSN}\PYG{o}{++}\PYG{p}{);}
+\PYG{n}{macFrame}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{setSource}\PYG{p}{(}\PYG{n}{SELF\PYGZus{}MAC\PYGZus{}ADDRESS}\PYG{p}{);}
+\end{Verbatim}
