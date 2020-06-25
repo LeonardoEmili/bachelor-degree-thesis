@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  25 JUN 2020 00:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  25 JUN 2020 23:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -674,7 +674,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<sapienza-MLred-pos.pdf, id=44, 288.07625pt x 89.33376pt>
+<sapienza-MLred-pos.pdf, id=56, 288.07625pt x 89.33376pt>
 File: sapienza-MLred-pos.pdf Graphic file (type pdf)
 <use sapienza-MLred-pos.pdf>
 Package pdftex.def Info: sapienza-MLred-pos.pdf  used on input line 50.
@@ -818,7 +818,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--165
 [7
 
 ]
-<assets/hop-count-algorithm.png, id=120, 144.54pt x 94.1919pt>
+<assets/hop-count-algorithm.png, id=135, 144.54pt x 94.1919pt>
 File: assets/hop-count-algorithm.png Graphic file (type png)
 <use assets/hop-count-algorithm.png>
 Package pdftex.def Info: assets/hop-count-algorithm.png  used on input line 169.
@@ -883,17 +883,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 362--369
  []
 
 [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 383--385
+Underfull \hbox (badness 10000) in paragraph at lines 383--386
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--396
+Underfull \hbox (badness 10000) in paragraph at lines 387--397
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 397--405
+Underfull \hbox (badness 10000) in paragraph at lines 398--406
 
  []
 
@@ -902,45 +902,146 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14] [15]
 Capitolo 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 421--423
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 433--436
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--442
+
+ []
+
 [16
 
-] [17]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 443--452
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 453--467
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+\openout3 = `relazione.pyg'.
+
+ (./_minted-relazione/FA2583D25A0FEAD2FB7EBC175ADF60BF42F6C48CB30115F04960180480EBEAD2.pygtex
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 5.
+ (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+Package microtype Info: Character `texttrademark ' is missing
+(microtype)             in font `TS1/lmtt/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `texttrademark ' is missing
+(microtype)             in font `TS1/lmtt/m/n/10'.
+(microtype)             Ignoring protrusion settings for this character.
+)
+Underfull \vbox (badness 7925) has occurred while \output is active []
+
+ [18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 572--576
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 587--591
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 619--622
+
+ []
+
+[21]
+<assets/overhead_plot.png, id=301, 462.528pt x 346.896pt>
+File: assets/overhead_plot.png Graphic file (type png)
+<use assets/overhead_plot.png>
+Package pdftex.def Info: assets/overhead_plot.png  used on input line 632.
+(pdftex.def)             Requested size: 198.0pt x 148.50072pt.
+<assets/latency_plot.png, id=302, 462.528pt x 346.896pt>
+File: assets/latency_plot.png Graphic file (type png)
+<use assets/latency_plot.png>
+Package pdftex.def Info: assets/latency_plot.png  used on input line 637.
+(pdftex.def)             Requested size: 198.0pt x 148.50072pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 643--649
+
+ []
+
+[22 <./assets/overhead_plot.png> <./assets/latency_plot.png>]
+<assets/energy_plot.png, id=310, 462.528pt x 346.896pt>
+File: assets/energy_plot.png Graphic file (type png)
+<use assets/energy_plot.png>
+Package pdftex.def Info: assets/energy_plot.png  used on input line 661.
+(pdftex.def)             Requested size: 198.0pt x 148.50072pt.
+<assets/pdr_plot.png, id=311, 462.528pt x 346.896pt>
+File: assets/pdr_plot.png Graphic file (type png)
+<use assets/pdr_plot.png>
+Package pdftex.def Info: assets/pdr_plot.png  used on input line 666.
+(pdftex.def)             Requested size: 198.0pt x 148.50072pt.
+ [23 <./assets/energy_plot.png> <./assets/pdr_plot.png>]
+File: assets/energy_plot.png Graphic file (type png)
+<use assets/energy_plot.png>
+Package pdftex.def Info: assets/energy_plot.png  used on input line 687.
+(pdftex.def)             Requested size: 198.0pt x 148.50072pt.
+<assets/interest_energy_plot.png, id=319, 462.528pt x 346.896pt>
+File: assets/interest_energy_plot.png Graphic file (type png)
+<use assets/interest_energy_plot.png>
+Package pdftex.def Info: assets/interest_energy_plot.png  used on input line 692.
+(pdftex.def)             Requested size: 198.0pt x 148.50072pt.
+ [24 <./assets/interest_energy_plot.png>]
 Capitolo 5.
-[18
+[25
 
 ]
 Capitolo 6.
-[19
+[26
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 507.
- [20
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 724.
+ [27
 
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 507.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 724.
  (./relazione.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 507.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 507.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 724.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 724.
 Package rerunfilecheck Info: File `relazione.out' has not changed.
-(rerunfilecheck)             Checksum: 9E9E6E80511560AB67071D1218F77146;584.
+(rerunfilecheck)             Checksum: 14DF4F5537E1F6B0E7D6CBBF64DDA36D;813.
 runsystem(rm relazione.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 16176 strings out of 483058
- 263749 string characters out of 5963219
- 714294 words of memory out of 5000000
- 30608 multiletter control sequences out of 15000+600000
- 618451 words of font info for 137 fonts, out of 8000000 for 9000
+ 16281 strings out of 483058
+ 265928 string characters out of 5963219
+ 718294 words of memory out of 5000000
+ 30679 multiletter control sequences out of 15000+600000
+ 622225 words of font info for 142 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
- 63i,12n,100p,800b,1150s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on relazione.pdf (24 pages, 451396 bytes).
+ 63i,15n,100p,800b,1148s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
+Output written on relazione.pdf (31 pages, 547228 bytes).
 PDF statistics:
- 367 PDF objects out of 1000 (max. 8388607)
- 316 compressed objects within 4 object streams
- 124 named destinations out of 1000 (max. 500000)
- 26715 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 437 PDF objects out of 1000 (max. 8388607)
+ 369 compressed objects within 4 object streams
+ 140 named destinations out of 1000 (max. 500000)
+ 28300 words of extra memory for PDF output out of 29859 (max. 10000000)
 

@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{string} \PYG{n+nf}{createWurAddress}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{level}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{energyClass}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{bufferClass}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{broadcast}\PYG{p}{)}
+        \PYG{c+c1}{// Send \PYGZsq{}11111111\PYGZsq{} to wake up all nearby nodes}
+        \PYG{k}{return} \PYG{n}{wurDisseminationAddresses}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{];}
+
+    \PYG{c+c1}{// The new wake up address to be created}
+    \PYG{n}{string} \PYG{n}{newWurAddress}\PYG{p}{;}
+
+    \PYG{c+c1}{// Convert bufferState using 2 bits}
+    \PYG{n}{string} \PYG{n}{bs} \PYG{o}{=} \PYG{n}{toWurAddress}\PYG{p}{(}\PYG{n}{bufferClass}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{);}
+    \PYG{c+c1}{// Convert the hop count using 3 bits}
+    \PYG{n}{string} \PYG{n}{hc} \PYG{o}{=} \PYG{n}{toWurAddress}\PYG{p}{(}\PYG{n}{level}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{);}
+    \PYG{c+c1}{// Last two bits are for energy class}
+    \PYG{n}{string} \PYG{n}{tc} \PYG{o}{=} \PYG{n}{toWurAddress}\PYG{p}{(}\PYG{n}{energyClass}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{);}
+
+    \PYG{c+c1}{// Prepend a \PYGZsq{}1\PYGZsq{} to detect energy using an OOK modulation}
+    \PYG{n}{newWurAddress} \PYG{o}{=} \PYG{n}{string}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+s+sc}{\PYGZsq{}1\PYGZsq{}}\PYG{p}{)} \PYG{o}{+} \PYG{n}{bs} \PYG{o}{+} \PYG{n}{hc} \PYG{o}{+} \PYG{n}{tc}\PYG{p}{;}
+
+    \PYG{k}{return} \PYG{n}{newWurAddress}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
