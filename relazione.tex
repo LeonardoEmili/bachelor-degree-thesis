@@ -46,7 +46,6 @@
 
 \frontmatter
 \maketitle
-%\dedication{Dedicato a\\ Donald Knuth}
 
 \tableofcontents
 
@@ -81,20 +80,23 @@ Nel seguito verranno descritte le principali problematiche che motivano ricerca 
 Nel capitolo seguente analizzeremo lo scenario di riferimento e le principali considerazioni che nel tempo sono state adottate e che ad oggi
 definiscono il panorama delle Wireless Sensor Networks.\\
 
-Nel capitolo 3 verrà presentato uno specifico protocollo di rete per sistemi IoT: il protocollo GREEN-WUP. In questo lavoro ci concentreremo sullo
+Nel \textbf{Capitolo 3} verrà presentato uno specifico protocollo di rete per sistemi IoT: il protocollo GREEN-WUP. In questo lavoro ci concentreremo sullo
 studio dei principi che regolano il design dei protocolli di rete e sulla loro applicazione in riferimento al protocollo in questione. Analizzeremo
 in dettaglio il comportamento del protocollo e le sue caratteristiche. Verranno inoltre presentati i suoi principali vantaggi ed il suo comportamento
 di fronte a problematiche comuni ai protocolli di comunicazione.\\
 
-Nel capitolo 4 verrà presentata una variante del protocollo originale che punta a risolvere le problematiche osservate nel capitolo precedente. Le
+Nel \textbf{Capitolo 4} verrà presentata una variante del protocollo originale che punta a risolvere le problematiche osservate nel capitolo precedente. Le
 modifiche apportate saranno descritte in dettaglio sia a livello teorico che a livello di implementazione all'interno di Castalia che è
 il simulatore utilizzato e a cui faremo diffusamente riferimento all'interno di questa relazione. In particolare, tutto il codice
 a cui si fa riferimento in questo documento sono stati testati mediante una versione particolare del framework \emph{GreenCastalia}
 che supporta \emph{wake up radios} e \emph{energy harvesting}.\\
 
-Nel capitolo 5 saranno analizzate le prestazioni della variante proposta e quelle del protocollo originale. In particolare, verranno mostrati i
+Nel \textbf{Capitolo 5} saranno analizzate le prestazioni della variante proposta e quelle del protocollo originale. In particolare, verranno mostrati i
 comportamenti di entrambe le implementazioni all'interno di uno stesso ambiente reale ed infine nel Capitolo 6 trarremo le conclusioni di quanto osservato.
 
+\let\cleardoublepage    % probably not a good decision
+\clearpage
+\let\cleardoublepage\clearpage  % restore changes
 
 \chapter{Scenario di riferimento}
 
