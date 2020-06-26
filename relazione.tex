@@ -592,13 +592,14 @@ Inoltre, tutti i nodi sono forniti di pannelli solari per derivare nuova energia
 vengono allenati per 3 giorni prima dell'inizio della simulazione per generare predizioni energetiche nel futuro.\\
 
 \begin{table}[hb]
+    \setlength\doublerulesep{1mm} 
     \centering
     \caption{Tabella riepilogativa della configurazione usata nelle simulazioni.}
     \begin{tabular}{ |p{8cm}|p{4cm}|  }
         \hline
-        \multicolumn{2}{|c|}{Scenario di simulazione}                                               \\
-        \hline
-        Parametro                                       & Valore                                    \\
+        \multicolumn{2}{|c|}{\textbf{Scenario di simulazione}}                                      \\
+        \hline \hline
+        \textbf{Parametro}                              & \textbf{Valore}                           \\
         \hline
         Tempo limite di simulazione                     & 72h                                       \\
         Nodi coinvolti                                  & 140                                       \\
@@ -682,7 +683,7 @@ randomici come nel caso dell'implementazione originale di GREEN-WUP.\\
 
 Infine, è stata implementata anche la fase di interest dissemination sia per GREEN-WUP che per la variante. In questo caso, i costi energetici
 aggiuntivi richiesti da questa ulteriore fase possono essere considerati costanti in quanto essa viene eseguita solo inizialmente prima della
-fase di scambio dati. In effetti l'overhead energetico richiesto rimane costante sotto 1J per ciascun valore assunto da \emph{iaTime}. Per
+fase di scambio dati. In effetti l'overhead energetico richiesto rimane costante al di sotto del joule per ciascun valore assunto da \emph{iaTime}. Per
 un riferimento grafico è possibile far riferimento alla Figura 4.2 (a) in quanto non apprezzabile l'overhead energetico rispetto alla versione
 senza interest dissemination.
 

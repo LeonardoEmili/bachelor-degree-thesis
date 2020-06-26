@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  26 JUN 2020 11:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  26 JUN 2020 11:42
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -964,7 +964,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 589--593
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 621--624
+Underfull \hbox (badness 10000) in paragraph at lines 622--625
 
  []
 
@@ -972,15 +972,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 621--624
 <assets/overhead_plot.png, id=296, 462.528pt x 346.896pt>
 File: assets/overhead_plot.png Graphic file (type png)
 <use assets/overhead_plot.png>
-Package pdftex.def Info: assets/overhead_plot.png  used on input line 634.
+Package pdftex.def Info: assets/overhead_plot.png  used on input line 635.
 (pdftex.def)             Requested size: 198.0pt x 148.50072pt.
 <assets/latency_plot.png, id=297, 462.528pt x 346.896pt>
 File: assets/latency_plot.png Graphic file (type png)
 <use assets/latency_plot.png>
-Package pdftex.def Info: assets/latency_plot.png  used on input line 639.
+Package pdftex.def Info: assets/latency_plot.png  used on input line 640.
 (pdftex.def)             Requested size: 198.0pt x 148.50072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 645--651
+Underfull \hbox (badness 10000) in paragraph at lines 646--652
 
  []
 
@@ -988,15 +988,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 645--651
 <assets/energy_plot.png, id=306, 462.528pt x 346.896pt>
 File: assets/energy_plot.png Graphic file (type png)
 <use assets/energy_plot.png>
-Package pdftex.def Info: assets/energy_plot.png  used on input line 663.
+Package pdftex.def Info: assets/energy_plot.png  used on input line 664.
 (pdftex.def)             Requested size: 198.0pt x 148.50072pt.
 <assets/pdr_plot.png, id=307, 462.528pt x 346.896pt>
 File: assets/pdr_plot.png Graphic file (type png)
 <use assets/pdr_plot.png>
-Package pdftex.def Info: assets/pdr_plot.png  used on input line 668.
+Package pdftex.def Info: assets/pdr_plot.png  used on input line 669.
 (pdftex.def)             Requested size: 198.0pt x 148.50072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 674--682
+Underfull \hbox (badness 10000) in paragraph at lines 675--683
 
  []
 
@@ -1009,43 +1009,34 @@ Capitolo 6.
 [24
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 709.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 710.
  [25
 
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 709.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 710.
  (./relazione.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 709.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 709.
-
-
-Package rerunfilecheck Warning: File `relazione.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `relazione.out':
-(rerunfilecheck)             Before: 14DF4F5537E1F6B0E7D6CBBF64DDA36D;813
-(rerunfilecheck)             After:  553BB2B0D1AC2D5456392E36950CBE2B;813.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 710.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 710.
+Package rerunfilecheck Info: File `relazione.out' has not changed.
+(rerunfilecheck)             Checksum: 553BB2B0D1AC2D5456392E36950CBE2B;813.
 runsystem(rm relazione.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 16275 strings out of 483058
- 265737 string characters out of 5963219
+ 16274 strings out of 483058
+ 265727 string characters out of 5963219
  718294 words of memory out of 5000000
  30674 multiletter control sequences out of 15000+600000
  622320 words of font info for 143 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  63i,15n,100p,800b,1148s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section*.7} has been referenced but does not exist, replaced by a fixed one
-
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on relazione.pdf (29 pages, 531484 bytes).
+Output written on relazione.pdf (29 pages, 531453 bytes).
 PDF statistics:
- 425 PDF objects out of 1000 (max. 8388607)
- 361 compressed objects within 4 object streams
- 138 named destinations out of 1000 (max. 500000)
+ 424 PDF objects out of 1000 (max. 8388607)
+ 360 compressed objects within 4 object streams
+ 137 named destinations out of 1000 (max. 500000)
  28295 words of extra memory for PDF output out of 29859 (max. 10000000)
 
