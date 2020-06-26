@@ -362,7 +362,7 @@ wurModule->addWakeupAddress(wurDisseminationAddresses[addressIndex]);
 \let\cleardoublepage    % probably not a good decision
 
 La porzione di codice in \textbf{Codice 3.1} mostra il comportamento del sink node quando questo genera un command packet. L'idea in questo caso è
-di generare $m \geq $ command packets, cui saranno trasferiti sino al livello MAC per essere instradati nella rete. Si noti come generalmente si
+di generare $m \geq 1 $ command packets, cui saranno trasferiti sino al livello MAC per essere instradati nella rete. Si noti come generalmente si
 spediscono più command packet distanziandoli di un certo tempo $\delta$ per permettere che tutti i nodi della rete siano raggiunti. In questa
 implementazione si è scelto di utilizzare $m=3$ e $\delta=60s$. Dunque il sink node procede fornendo i campi richiesti alla creazione del
 pacchetto di interest ed in particolare setta il tipo del pacchetto da inviare che sarà poi utile in fase di ricezione dei pacchetti
@@ -677,31 +677,14 @@ numero minore rispetto alla versione originale. In particolare, la massima effic
 della rete in quanto più alta la probabilità che un maggior numero di messaggi di wake up con semantic addressing svegli i nodi candidati. In altri
 termini, la rete subisce un forte aumento dei pacchetti in circolazione, e quindi di messaggi di wake up, ed in questo scenario gli effetti della
 modifica che permette ai nodi di scegliere se attivare o meno la radio principale è ancor più evidente. L'efficienza energetica è favorita non solo
-da questa modifica ma anche dalla stessa applicazione di jitter che vengono calcolati a partire dallo stato dei nodi
-e che non sono puramente randomici come nel caso dell'implementazione originale di GREEN-WUP.
+da questa modifica ma anche dalla stessa applicazione di jitter che vengono calcolati a partire dallo stato dei nodi e che non sono puramente
+randomici come nel caso dell'implementazione originale di GREEN-WUP.\\
 
-\newpage
-
-\begin{figure}
-    \centering
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \includegraphics[width=1\linewidth]{energy_plot.png}
-        \caption*{(a)}
-    \end{minipage}%
-    \begin{minipage}{.5\textwidth}
-        \centering
-        \includegraphics[width=1\linewidth]{interest_energy_plot.png}
-        \caption*{(b)}
-    \end{minipage}
-    \caption{Comparazione energetica di GREEN-WUP e variante senza (a) e con (b) fase di interest dissemination per determinare l'hop count.}
-\end{figure}
-
-I risultati in \textbf{Figura 4.3} mostrano i costi energetici aggiuntivi richiesti implementando anche la fase di interest
-dissemination sia in GREEN-WUP che nella variante. Si noti come i consumi energetici aggiuntivi possono essere considerati costanti in quanto
-la fase di interest dissemination viene eseguita solo inizialmente prima della fase di scambio dati. In effetti l'overhead energetico
-richiesto rimane costante sotto 1J per ciascun valore assunto da \emph{iaTime}.
-
+Infine, è stata implementata anche la fase di interest dissemination sia per GREEN-WUP che per la variante. In questo caso, i costi energetici
+aggiuntivi richiesti da questa ulteriore fase possono essere considerati costanti in quanto essa viene eseguita solo inizialmente prima della
+fase di scambio dati. In effetti l'overhead energetico richiesto rimane costante sotto 1J per ciascun valore assunto da \emph{iaTime}. Per
+un riferimento grafico è possibile far riferimento alla Figura 4.2 (a) in quanto non apprezzabile l'overhead energetico rispetto alla versione
+senza interest dissemination.
 
 \chapter{Ottimizzazione dei parametri}
 

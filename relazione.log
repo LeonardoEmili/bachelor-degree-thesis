@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  25 JUN 2020 23:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  26 JUN 2020 11:17
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -995,53 +995,57 @@ File: assets/pdr_plot.png Graphic file (type png)
 <use assets/pdr_plot.png>
 Package pdftex.def Info: assets/pdr_plot.png  used on input line 668.
 (pdftex.def)             Requested size: 198.0pt x 148.50072pt.
- [22 <./assets/energy_plot.png> <./assets/pdr_plot.png>]
-File: assets/energy_plot.png Graphic file (type png)
-<use assets/energy_plot.png>
-Package pdftex.def Info: assets/energy_plot.png  used on input line 689.
-(pdftex.def)             Requested size: 198.0pt x 148.50072pt.
-<assets/interest_energy_plot.png, id=315, 462.528pt x 346.896pt>
-File: assets/interest_energy_plot.png Graphic file (type png)
-<use assets/interest_energy_plot.png>
-Package pdftex.def Info: assets/interest_energy_plot.png  used on input line 694.
-(pdftex.def)             Requested size: 198.0pt x 148.50072pt.
- [23 <./assets/interest_energy_plot.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 674--682
+
+ []
+
+[22 <./assets/energy_plot.png> <./assets/pdr_plot.png>]
 Capitolo 5.
-[24
+[23
 
 ]
 Capitolo 6.
-[25
+[24
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 726.
- [26
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 709.
+ [25
 
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 726.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 709.
  (./relazione.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 726.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 726.
-Package rerunfilecheck Info: File `relazione.out' has not changed.
-(rerunfilecheck)             Checksum: 14DF4F5537E1F6B0E7D6CBBF64DDA36D;813.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 709.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 709.
+
+
+Package rerunfilecheck Warning: File `relazione.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `relazione.out':
+(rerunfilecheck)             Before: 14DF4F5537E1F6B0E7D6CBBF64DDA36D;813
+(rerunfilecheck)             After:  553BB2B0D1AC2D5456392E36950CBE2B;813.
 runsystem(rm relazione.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 16282 strings out of 483058
- 265941 string characters out of 5963219
+ 16275 strings out of 483058
+ 265737 string characters out of 5963219
  718294 words of memory out of 5000000
- 30679 multiletter control sequences out of 15000+600000
- 622316 words of font info for 143 fonts, out of 8000000 for 9000
+ 30674 multiletter control sequences out of 15000+600000
+ 622320 words of font info for 143 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  63i,15n,100p,800b,1148s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{section*.7} has been referenced but does not exist, replaced by a fixed one
+
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on relazione.pdf (30 pages, 546746 bytes).
+Output written on relazione.pdf (29 pages, 531484 bytes).
 PDF statistics:
- 432 PDF objects out of 1000 (max. 8388607)
- 365 compressed objects within 4 object streams
- 139 named destinations out of 1000 (max. 500000)
- 28300 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 425 PDF objects out of 1000 (max. 8388607)
+ 361 compressed objects within 4 object streams
+ 138 named destinations out of 1000 (max. 500000)
+ 28295 words of extra memory for PDF output out of 29859 (max. 10000000)
 
