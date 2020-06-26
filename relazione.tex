@@ -209,7 +209,7 @@ viene descritto il comportamento che questo assume quando agisce da nodo interme
                     
                     \IF{CTS packet is received within $\delta_{CTS}$}
                         \STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
-                        \STATE send $dataPkt$ and wait for some time $delta_{ACK}$
+                        \STATE send $dataPkt$ and wait for some time $\delta_{ACK}$
 
                         \IF{ACK packet is received within $\delta_{ACK}$}
                             \STATE $acked \leftarrow$ true
@@ -525,7 +525,7 @@ string createWurAddress(int level, int energyClass, int bufferClass) {
                         
                         \IF{CTS packet is received within $\delta_{CTS}$}
                             \STATE send a wake up signal using the address contained inside the first CTS packet received and wait for the receiver to wake up
-                            \STATE send $dataPkt$ and wait for some time $delta_{ACK}$
+                            \STATE send $dataPkt$ and wait for some time $\delta_{ACK}$
 
                             \IF{ACK packet is received within $\delta_{ACK}$}
                                 \STATE $acked \leftarrow$ true
@@ -594,7 +594,7 @@ vengono allenati per 3 giorni prima dell'inizio della simulazione per generare p
 \begin{table}[hb]
     \setlength\doublerulesep{1mm} 
     \centering
-    \caption{Tabella riepilogativa della configurazione usata nelle simulazioni.}
+    \caption{Tabella riepilogativa della configurazione utilizzata nelle simulazioni.}
     \begin{tabular}{ |p{8cm}|p{4cm}|  }
         \hline
         \multicolumn{2}{|c|}{\textbf{Scenario di simulazione}}                                      \\
