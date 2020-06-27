@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  26 JUN 2020 20:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  27 JUN 2020 11:55
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -412,7 +412,10 @@ File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
 File: listings.cfg 2019/09/10 1.8c listings configuration
 ))
 Package: listings 2019/09/10 1.8c (Carsten Heinz)
- (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+ (/usr/share/texlive/texmf-dist/tex/latex/dirtytalk/dirtytalk.sty
+Package: dirtytalk 2010/11/21 A package making "quoting" easier
+\c@dirtytalk@qdepth=\count304
+) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
  (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -440,65 +443,65 @@ Package: minted 2017/07/19 v2.5 Yet another Pygments shim for LaTeX
 Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
  (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2020/01/13 v3.5 verbatim text (tvz,hv)
-\FV@CodeLineNo=\count304
+\FV@CodeLineNo=\count305
 \FV@InFile=\read3
 \FV@TabBox=\box51
-\c@FancyVerbLine=\count305
-\FV@StepNumber=\count306
+\c@FancyVerbLine=\count306
+\FV@StepNumber=\count307
 \FV@OutFile=\write3
 ) (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim
 ) (/usr/share/texlive/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count307
+\linenopenalty=\count308
 \output=\toks36
-\linenoprevgraf=\count308
+\linenoprevgraf=\count309
 \linenumbersep=\dimen184
 \linenumberwidth=\dimen185
-\c@linenumber=\count309
-\c@pagewiselinenumber=\count310
-\c@LN@truepage=\count311
-\c@internallinenumber=\count312
-\c@internallinenumbers=\count313
+\c@linenumber=\count310
+\c@pagewiselinenumber=\count311
+\c@LN@truepage=\count312
+\c@internallinenumber=\count313
+\c@internallinenumbers=\count314
 \quotelinenumbersep=\dimen186
 \bframerule=\dimen187
 \bframesep=\dimen188
 \bframebox=\box52
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count314
-\c@FV@TrueTabCounter=\count315
+\c@FV@TrueTabGroupLevel=\count315
+\c@FV@TrueTabCounter=\count316
 \FV@TabBox@Group=\box53
 \FV@TmpLength=\skip66
-\c@FV@HighlightLinesStart=\count316
-\c@FV@HighlightLinesStop=\count317
-\FV@LoopCount=\count318
+\c@FV@HighlightLinesStart=\count317
+\c@FV@HighlightLinesStop=\count318
+\FV@LoopCount=\count319
 \FV@NCharsBox=\box54
 \FV@BreakIndent=\dimen189
-\FV@BreakIndentNChars=\count319
+\FV@BreakIndentNChars=\count320
 \FV@BreakSymbolSepLeft=\dimen190
-\FV@BreakSymbolSepLeftNChars=\count320
+\FV@BreakSymbolSepLeftNChars=\count321
 \FV@BreakSymbolSepRight=\dimen191
-\FV@BreakSymbolSepRightNChars=\count321
+\FV@BreakSymbolSepRightNChars=\count322
 \FV@BreakSymbolIndentLeft=\dimen192
-\FV@BreakSymbolIndentLeftNChars=\count322
+\FV@BreakSymbolIndentLeftNChars=\count323
 \FV@BreakSymbolIndentRight=\dimen193
-\FV@BreakSymbolIndentRightNChars=\count323
-\c@FancyVerbLineBreakLast=\count324
+\FV@BreakSymbolIndentRightNChars=\count324
+\c@FancyVerbLineBreakLast=\count325
 \FV@LineBox=\box55
 \FV@LineIndentBox=\box56
 \FV@LineWidth=\dimen194
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count325
-\calc@Bcount=\count326
+\calc@Acount=\count326
+\calc@Bcount=\count327
 \calc@Adimen=\dimen195
 \calc@Bdimen=\dimen196
 \calc@Askip=\skip67
 \calc@Bskip=\skip68
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count327
+\calc@Ccount=\count328
 \calc@Cskip=\skip69
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/shellesc.sty
 Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
@@ -516,8 +519,8 @@ runsystem(uname -s > "relazione.w18")...executed.
 runsystem(rm -- "relazione.w18")...executed.
 
 ) (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.sty (/usr/share/texlive/texmf-dist/tex/generic/xstring/xstring.tex
-\integerpart=\count328
-\decimalpart=\count329
+\integerpart=\count329
+\decimalpart=\count330
 )
 Package: xstring 2019/02/06 v1.83 String manipulations (CT)
 ) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
@@ -531,10 +534,10 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \minted@appexistsfile=\read4
 \minted@bgbox=\box57
 \minted@code=\write4
-\c@minted@FancyVerbLineTemp=\count330
-\c@minted@pygmentizecounter=\count331
+\c@minted@FancyVerbLineTemp=\count331
+\c@minted@pygmentizecounter=\count332
 \@float@every@listing=\toks37
-\c@listing=\count332
+\c@listing=\count333
 )
 runsystem(mkdir -p _minted-relazione)...executed.
 
@@ -544,28 +547,28 @@ runsystem(rm relazione.aex)...executed.
 
  (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count333
+\l__kernel_color_stack_int=\count334
 \l__pdf_internal_box=\box58
 ) (./relazione.aux)
 \openout1 = `relazione.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 45.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -613,16 +616,16 @@ Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count334
+\scratchcounter=\count335
 \scratchdimen=\dimen257
 \scratchbox=\box59
-\nofMPsegments=\count335
-\nofMParguments=\count336
+\nofMPsegments=\count336
+\nofMParguments=\count337
 \everyMPshowfont=\toks38
-\MPscratchCnt=\count337
+\MPscratchCnt=\count338
 \MPscratchDim=\dimen258
-\MPnumerator=\count338
-\makeMPintoPDFobject=\count339
+\MPnumerator=\count339
+\makeMPintoPDFobject=\count340
 \everyMPtoPDFconversion=\toks39
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -630,25 +633,25 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \textsubscript on input line 44.
-LaTeX Info: Redefining \microtypecontext on input line 44.
+LaTeX Info: Redefining \textsubscript on input line 45.
+LaTeX Info: Redefining \microtypecontext on input line 45.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 44.
+LaTeX Info: Redefining \showhyphens on input line 45.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
  (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-LaTeX Info: Redefining \it@ocap on input line 44.
-LaTeX Info: Redefining \it@ccap on input line 44.
+LaTeX Info: Redefining \it@ocap on input line 45.
+LaTeX Info: Redefining \it@ccap on input line 45.
 \AtBeginShipoutBox=\box60
-Package hyperref Info: Link coloring OFF on input line 44.
+Package hyperref Info: Link coloring OFF on input line 45.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -656,17 +659,17 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count340
+\c@section@level=\count341
 )
-LaTeX Info: Redefining \ref on input line 44.
-LaTeX Info: Redefining \pageref on input line 44.
-LaTeX Info: Redefining \nameref on input line 44.
+LaTeX Info: Redefining \ref on input line 45.
+LaTeX Info: Redefining \pageref on input line 45.
+LaTeX Info: Redefining \nameref on input line 45.
  (./relazione.out) (./relazione.out)
 \@outlinefile=\write5
 \openout5 = `relazione.out'.
 
-\c@lstlisting=\count341
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 49.
+\c@lstlisting=\count342
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 50.
  (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -677,45 +680,45 @@ Package microtype Info: Loading generic protrusion settings for font family
 <sapienza-MLred-pos.pdf, id=56, 288.07625pt x 89.33376pt>
 File: sapienza-MLred-pos.pdf Graphic file (type pdf)
 <use sapienza-MLred-pos.pdf>
-Package pdftex.def Info: sapienza-MLred-pos.pdf  used on input line 49.
+Package pdftex.def Info: sapienza-MLred-pos.pdf  used on input line 50.
 (pdftex.def)             Requested size: 142.26378pt x 44.11742pt.
  [1
 
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./sapienza-MLred-pos.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 49.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 50.
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
 
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 49.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 50.
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 49.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 50.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 49.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 50.
  (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 49.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 50.
  (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 49.
+(Font)              <10> on input line 50.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 49.
+(Font)              <7> on input line 50.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 49.
+(Font)              <5> on input line 50.
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
+Underfull \hbox (badness 10000) in paragraph at lines 50--50
 
  []
 
@@ -740,29 +743,29 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 ]
 Capitolo 1.
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--63
+Underfull \hbox (badness 10000) in paragraph at lines 56--64
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--78
+Underfull \hbox (badness 10000) in paragraph at lines 65--79
 
  []
 
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 79--82
+Underfull \hbox (badness 10000) in paragraph at lines 80--83
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--87
+Underfull \hbox (badness 10000) in paragraph at lines 84--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--93
+Underfull \hbox (badness 10000) in paragraph at lines 89--94
 
  []
 
@@ -772,68 +775,68 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [2] [3]
 Capitolo 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--109
+Underfull \hbox (badness 10000) in paragraph at lines 104--110
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--120
+Underfull \hbox (badness 10000) in paragraph at lines 112--121
 
  []
 
 [4
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 121--126
+Underfull \hbox (badness 10000) in paragraph at lines 122--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--133
+Underfull \hbox (badness 10000) in paragraph at lines 128--134
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--140
+Underfull \hbox (badness 10000) in paragraph at lines 135--141
 
  []
 
 [5]
 Capitolo 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--149
+Underfull \hbox (badness 10000) in paragraph at lines 146--150
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--157
+Underfull \hbox (badness 10000) in paragraph at lines 151--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 158--167
+Underfull \hbox (badness 10000) in paragraph at lines 159--168
 
  []
 
 [6
 
 ]
-<assets/hop-count-algorithm.png, id=131, 144.54pt x 94.1919pt>
+<assets/hop-count-algorithm.png, id=133, 144.54pt x 94.1919pt>
 File: assets/hop-count-algorithm.png Graphic file (type png)
 <use assets/hop-count-algorithm.png>
-Package pdftex.def Info: assets/hop-count-algorithm.png  used on input line 171.
+Package pdftex.def Info: assets/hop-count-algorithm.png  used on input line 172.
 (pdftex.def)             Requested size: 245.71692pt x 160.1255pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 176--183
+Underfull \hbox (badness 10000) in paragraph at lines 177--184
 
  []
 
 [7 <./assets/hop-count-algorithm.png>]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 190.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 191.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 192.
+(Font)              <10.95> on input line 193.
 
-Underfull \hbox (badness 10000) in paragraph at lines 249--257
+Underfull \hbox (badness 10000) in paragraph at lines 250--258
 
  []
 
@@ -841,26 +844,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 249--257
 Underfull \vbox (badness 1303) has occurred while \output is active []
 
  [8]
-Underfull \hbox (badness 10000) in paragraph at lines 258--262
+Underfull \hbox (badness 10000) in paragraph at lines 259--263
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 272--275
+Underfull \hbox (badness 10000) in paragraph at lines 273--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 276--279
+Underfull \hbox (badness 10000) in paragraph at lines 277--280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 280--285
+Underfull \hbox (badness 10000) in paragraph at lines 281--286
 
  []
 
-Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 295.
+Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 296.
 \openout3 = `relazione.pyg'.
 
 (./_minted-relazione/default-pyg-prefix.pygstyle) (./_minted-relazione/default.pygstyle) (./_minted-relazione/FF0557305C7B70B82CCF7A633E78A28F42F6C48CB30115F04960180480EBEAD2.pygtex
@@ -878,22 +881,22 @@ LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 \openout3 = `relazione.pyg'.
 
  (./_minted-relazione/3446B56972F0AD237BAD418542F1213E42F6C48CB30115F04960180480EBEAD2.pygtex)
-Underfull \hbox (badness 10000) in paragraph at lines 364--371
+Underfull \hbox (badness 10000) in paragraph at lines 365--372
 
  []
 
 [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 385--388
+Underfull \hbox (badness 10000) in paragraph at lines 386--389
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--399
+Underfull \hbox (badness 10000) in paragraph at lines 390--400
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 400--408
+Underfull \hbox (badness 10000) in paragraph at lines 401--409
 
  []
 
@@ -903,29 +906,29 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [13] [14]
 Capitolo 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 423--425
+Underfull \hbox (badness 10000) in paragraph at lines 424--426
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 435--438
+Underfull \hbox (badness 10000) in paragraph at lines 436--439
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 439--444
+Underfull \hbox (badness 10000) in paragraph at lines 440--445
 
  []
 
 [15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 445--454
+Underfull \hbox (badness 10000) in paragraph at lines 446--455
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 455--469
+Underfull \hbox (badness 10000) in paragraph at lines 456--470
 
  []
 
@@ -954,49 +957,49 @@ Package microtype Info: Character `texttrademark ' is missing
 Underfull \vbox (badness 7925) has occurred while \output is active []
 
  [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 574--578
+Underfull \hbox (badness 10000) in paragraph at lines 575--579
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 589--593
+Underfull \hbox (badness 10000) in paragraph at lines 590--594
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 622--625
+Underfull \hbox (badness 10000) in paragraph at lines 623--626
 
  []
 
 [20]
-<assets/overhead_plot.png, id=296, 462.528pt x 346.896pt>
+<assets/overhead_plot.png, id=301, 462.528pt x 346.896pt>
 File: assets/overhead_plot.png Graphic file (type png)
 <use assets/overhead_plot.png>
-Package pdftex.def Info: assets/overhead_plot.png  used on input line 635.
+Package pdftex.def Info: assets/overhead_plot.png  used on input line 636.
 (pdftex.def)             Requested size: 198.0pt x 148.50072pt.
-<assets/latency_plot.png, id=297, 462.528pt x 346.896pt>
+<assets/latency_plot.png, id=302, 462.528pt x 346.896pt>
 File: assets/latency_plot.png Graphic file (type png)
 <use assets/latency_plot.png>
-Package pdftex.def Info: assets/latency_plot.png  used on input line 640.
+Package pdftex.def Info: assets/latency_plot.png  used on input line 641.
 (pdftex.def)             Requested size: 198.0pt x 148.50072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 646--652
+Underfull \hbox (badness 10000) in paragraph at lines 647--653
 
  []
 
 [21 <./assets/overhead_plot.png> <./assets/latency_plot.png>]
-<assets/energy_plot.png, id=306, 462.528pt x 346.896pt>
+<assets/energy_plot.png, id=311, 462.528pt x 346.896pt>
 File: assets/energy_plot.png Graphic file (type png)
 <use assets/energy_plot.png>
-Package pdftex.def Info: assets/energy_plot.png  used on input line 664.
+Package pdftex.def Info: assets/energy_plot.png  used on input line 665.
 (pdftex.def)             Requested size: 198.0pt x 148.50072pt.
-<assets/pdr_plot.png, id=307, 462.528pt x 346.896pt>
+<assets/pdr_plot.png, id=312, 462.528pt x 346.896pt>
 File: assets/pdr_plot.png Graphic file (type png)
 <use assets/pdr_plot.png>
-Package pdftex.def Info: assets/pdr_plot.png  used on input line 669.
+Package pdftex.def Info: assets/pdr_plot.png  used on input line 670.
 (pdftex.def)             Requested size: 198.0pt x 148.50072pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 675--683
+Underfull \hbox (badness 10000) in paragraph at lines 676--684
 
  []
 
@@ -1009,34 +1012,53 @@ Capitolo 6.
 [24
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 710.
- [25
+Underfull \hbox (badness 1430) in paragraph at lines 718--720
+[]\T1/lmr/m/n/12 (+20) A Di-stri-bu-ted Ener-gy Op-ti-mi-zed Rou-ting Using Vir-tual Po-ten-tial
+ []
+
+
+Underfull \hbox (badness 1742) in paragraph at lines 718--720
+\T1/lmr/m/n/12 (+20) Field in Wi-re-less Sen-sor Net-works - Scien-ti-fic Fi-gu-re on Re-sear-
+ []
+
+
+Underfull \hbox (badness 4899) in paragraph at lines 718--720
+\T1/lmr/m/n/12 (+20) ch-Ga-te. Avai-la-ble from: []$\T1/lmtt/m/n/12 https : / / www . researchgate . net / figure /
+ []
+
+
+Overfull \hbox (2.1269pt too wide) in paragraph at lines 718--720
+\T1/lmtt/m/n/12 Topology-[]of-[]wireless-[]sensor-[]network-[]and-[]hop-[]count-[]of-[]sensors _
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 723.
+[25
 
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 710.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 723.
  (./relazione.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 710.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 710.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 723.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 723.
 Package rerunfilecheck Info: File `relazione.out' has not changed.
 (rerunfilecheck)             Checksum: 553BB2B0D1AC2D5456392E36950CBE2B;813.
 runsystem(rm relazione.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 16274 strings out of 483058
- 265727 string characters out of 5963219
- 718294 words of memory out of 5000000
- 30674 multiletter control sequences out of 15000+600000
- 622320 words of font info for 143 fonts, out of 8000000 for 9000
+ 16313 strings out of 483058
+ 266470 string characters out of 5963219
+ 718570 words of memory out of 5000000
+ 30702 multiletter control sequences out of 15000+600000
+ 622850 words of font info for 146 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  63i,15n,100p,800b,1148s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on relazione.pdf (29 pages, 531436 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
+Output written on relazione.pdf (29 pages, 559801 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
- 360 compressed objects within 4 object streams
- 137 named destinations out of 1000 (max. 500000)
- 28295 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 437 PDF objects out of 1000 (max. 8388607)
+ 371 compressed objects within 4 object streams
+ 139 named destinations out of 1000 (max. 500000)
+ 28807 words of extra memory for PDF output out of 29859 (max. 10000000)
 

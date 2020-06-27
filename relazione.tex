@@ -13,6 +13,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{dirtytalk}
 \usepackage{xcolor}
 \lstset { %
     language=C++,
@@ -56,8 +57,8 @@ Nell'ultimo decennio abbiamo assistito ad uno sviluppo portentoso del settore de
 di un enorme numero di dispositivi wireless. Il numero di questi dispositivi ha registrato crescite costanti negli anni e loro applicazioni sono ormai infinite.
 Essi trovano impiego in ambito domestico dove realizzano l'automatizzazione dei compiti quotidiani, in quello sanitario in cui monitorano lo stato di salute
 dei pazienti e in ambito sottomarino dove gli obbiettivi spaziano da quello di realizzare campionamenti di dati sino a creare vaste reti di comunicazione sottomarine.
-L'immissione di questo enorme contingente di dati nella rete ha reso possibili nuove interpretazioni e lo sviluppo di soluzioni che puntano a
-migliorare la qualità della vita delle persone, anche in quei settori noti esser di difficile comprensione. Ad esempio, l'impiego di sensori IoT in ambito di
+L'immissione di questo enorme contingente di dati nella rete ha reso possibili nuove interpretazioni del mondo che ci circonda e lo sviluppo di soluzioni che puntano
+a migliorare la qualità della vita delle persone, anche in quei settori noti esser di difficile comprensione. Ad esempio, l'impiego di sensori IoT in ambito di
 monitoraggio del crosta terrestre ha reso disponibili informazioni fino a prima sconosciute sulla presenza di terremoti e tsunami, migliorando radicalmente
 la nostra percezione degli eventi sismici nel mondo.\\
 
@@ -67,18 +68,18 @@ lo stato corrente dell'arte punta a realizzare tecnologie hardware e software ch
 settore dell'IoT si occupa di realizzare vaste reti di nodi sensori interconnessi, note come \emph{Wireless Sensor Networks},
 che realizzano una comunicazione wireless con consumi minimi al fine di prolungare i tempi di servizio dell'intera rete. In questo caso,
 le principali problematiche sono chiaramente settoriali e sono identificate dallo specifico campo di applicazione: come la richiesta di tecnologie
-altamente performanti per i monitoraggio clinici oppure di altre che garantiscano elevate lifetime nel caso di sensori ambientali. Tuttavia esistono
+altamente performanti per i monitoraggi clinici oppure di altre che garantiscano elevate lifetime nel caso di sensori ambientali. Tuttavia esistono
 problematiche comuni a queste tipologie di reti, ad esempio spesso si richiede che l'intera rete sia connessa e che tutti i nodi siano,
-anche parzialmente, a conoscenza della topologia della rete. Nel caso, si richiede l'impiego di protocolli che ne prevedano il
+anche parzialmente, a conoscenza della topologia della rete. Si richiede quindi l'impiego di protocolli che ne prevedano il
 costante aggiornamento e favoriscano una comunicazione efficiente. Inoltre, in queste reti la principale fonte di consumo energetico risiede
-nella comunicazione e nell'attesa che la precede, è quindi di vitale importanza prevedere che i nodi della rete siano
-oggetto di scaricamento delle batterie che li alimentano. Infatti, la morte prematura di un nodo può spesso avere conseguenze più grandi della semplice
-disconnessione dello stesso, poichè frequentemente si tratta di reti \emph{multi-hop} che realizzano la comunicazione passando attraverso nodi intermedi, si può
-verificare perfino la disconnessione dell'intera rete.\\
+nella comunicazione tra nodi ma anche nell'attesa che la precede: è quindi di vitale importanza prevedere lo scaricamento delle batterie che li alimentano
+e studiare soluzioni che ne favoriscano durate sufficientemente elevate per garantire l'operatività della rete. Infatti, la morte prematura di un nodo
+può spesso avere conseguenze più grandi della semplice disconnessione dello stesso poichè frequentemente si tratta di reti \emph{multi-hop} che
+realizzano la comunicazione passando attraverso nodi intermedi ed in alcuni casi si può verificare perfino la disconnessione dell'intera rete.\\
 
-Nel seguito verranno descritte le principali problematiche che motivano ricerca di nuove idee per la costruzione di protocolli di rete efficienti.
-Nel capitolo seguente analizzeremo lo scenario di riferimento e le principali considerazioni che nel tempo sono state adottate e che ad oggi
-definiscono il panorama delle Wireless Sensor Networks.\\
+Nel seguito verranno affrontate le principali problematiche che spingono la ricerca a sviluppare nuove idee per la costruzione di protocolli di rete
+altamente efficienti. Nel \textbf{Capitolo 2} verrà presentato lo scenario di riferimento e le principali considerazioni che nel tempo sono state adottate
+e che ad oggi definiscono il panorama delle Wireless Sensor Networks.\\
 
 Nel \textbf{Capitolo 3} verrà presentato uno specifico protocollo di rete per sistemi IoT: il protocollo GREEN-WUP. In questo lavoro ci concentreremo sullo
 studio dei principi che regolano il design dei protocolli di rete e sulla loro applicazione in riferimento al protocollo in questione. Analizzeremo
@@ -88,7 +89,7 @@ di fronte a problematiche comuni ai protocolli di comunicazione.\\
 Nel \textbf{Capitolo 4} verrà presentata una variante del protocollo originale che punta a risolvere le problematiche osservate nel capitolo precedente. Le
 modifiche apportate saranno descritte in dettaglio sia a livello teorico che a livello di implementazione all'interno di Castalia che è
 il simulatore utilizzato e a cui faremo diffusamente riferimento all'interno di questa relazione. In particolare, tutto il codice
-a cui si fa riferimento in questo documento sono stati testati mediante una versione particolare del framework \emph{GreenCastalia}
+a cui si fa riferimento in questo documento sono stati testati mediante una versione particolare del framework \emph{GreenCastalia} \cite{greencastalia-paper}
 che supporta \emph{wake up radios} e \emph{energy harvesting}.\\
 
 Nel \textbf{Capitolo 5} saranno analizzate le prestazioni della variante proposta e quelle del protocollo originale. In particolare, verranno mostrati i
@@ -169,7 +170,7 @@ ad un sottoinsieme di nodi della rete a partire dai loro valori di hop count e d
 \begin{figure}
     \begin{center}
         \includegraphics[scale=1.7]{hop-count-algorithm.png}
-        \caption{Topologia della rete a seguito dell'assegnazione degli hop count.}
+        \caption{Topologia della rete a seguito dell'assegnazione degli hop count. Sorgente: \cite{hop-count-figure}}
     \end{center}
 \end{figure}
 
@@ -699,12 +700,24 @@ senza interest dissemination.
 \begin{thebibliography}{9}
 
     \bibitem{energy-harvesting-paper}
-    Stefano Basagni, Georgia Koutsandria, Chiara Petrioli.
-    \textit{A Comparative Performance Evaluation of Wake-up Radio-based Data Forwarding for Green Wireless Networks}.
+    S. Basagni, G. Koutsandria, C. Petrioli.
+    \say{A Comparative Performance Evaluation of Wake-Up Radio-Based Data Forwarding for Green Wireless Networks}.
+    In: \textit{2018 27th International Conference on Computer Communication and Networks (ICCCN). Hangzhou, China, July 30-August 2 2018}.
 
     \bibitem{wake-up-radios-paper}
-    Stefano Basagni, Valerio Di Valerio, Georgia Koutsandria, Chiara Petrioli.
-    \textit{Wake-up Radio-enabled Routing for Green Wireless Sensor Networks}
+    S. Basagni, V. Di Valerio, G. Koutsandria, C. Petrioli.
+    \say{Wake-up Radio-enabled Routing for Green Wireless Sensor Networks}.
+    In: \textit{2017 IEEE 86th Vehicular Technology Conference (VTC-Fall). Toronto, ON, Canada, September 24-27 2017}.
+
+    \bibitem{greencastalia-paper}
+    D. Benedetti, C. Petrioli and D. Spenza.
+    \say{GreenCastalia: An Energy-Harvesting-Enabled Framework for the Castalia Simulator}.
+    In: \textit{Proceeding of the ACM 1st International Workshop on Energy Neutral Sensing Systems, ACM ENSSys 2013. Rome, Italy, November 11-14 2013.}
+
+    \bibitem{hop-count-figure}
+    A Distributed Energy Optimized Routing Using Virtual Potential Field in Wireless Sensor Networks - Scientific Figure on ResearchGate.
+    Available from: \url{https://www.researchgate.net/figure/Topology-of-wireless-sensor-network-and-hop-count-of-sensors_fig7_285956270} [accessed 27 Jun, 2020]
+
 \end{thebibliography}
 
 \end{document}
