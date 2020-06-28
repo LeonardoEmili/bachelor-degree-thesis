@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  27 JUN 2020 13:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.5.12)  28 JUN 2020 17:30
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1005,60 +1005,114 @@ Underfull \hbox (badness 10000) in paragraph at lines 676--684
 
 [22 <./assets/energy_plot.png> <./assets/pdr_plot.png>]
 Capitolo 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--695
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 696--700
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 701--707
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 708--712
+
+ []
+
 [23
 
 ]
+<assets/latency_comparison_plot.png, id=324, 462.528pt x 346.896pt>
+File: assets/latency_comparison_plot.png Graphic file (type png)
+<use assets/latency_comparison_plot.png>
+Package pdftex.def Info: assets/latency_comparison_plot.png  used on input line 720.
+(pdftex.def)             Requested size: 198.0pt x 148.50072pt.
+<assets/pdr_comparison_plot.png, id=325, 462.528pt x 346.896pt>
+File: assets/pdr_comparison_plot.png Graphic file (type png)
+<use assets/pdr_comparison_plot.png>
+Package pdftex.def Info: assets/pdr_comparison_plot.png  used on input line 725.
+(pdftex.def)             Requested size: 198.0pt x 148.50072pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--734
+
+ []
+
+<assets/energy_comparison_plot.png, id=326, 462.528pt x 346.896pt>
+File: assets/energy_comparison_plot.png Graphic file (type png)
+<use assets/energy_comparison_plot.png>
+Package pdftex.def Info: assets/energy_comparison_plot.png  used on input line 741.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 746--749
+
+ []
+
+[24 <./assets/latency_comparison_plot.png> <./assets/pdr_comparison_plot.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 750--757
+
+ []
+
+
+Underfull \vbox (badness 3078) has occurred while \output is active []
+
+ [25 <./assets/energy_comparison_plot.png>] [26]
 Capitolo 6.
-[24
+[27
 
 ]
-Underfull \hbox (badness 1430) in paragraph at lines 718--720
+Underfull \hbox (badness 1430) in paragraph at lines 787--789
 []\T1/lmr/m/n/12 (+20) A Di-stri-bu-ted Ener-gy Op-ti-mi-zed Rou-ting Using Vir-tual Po-ten-tial
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 718--720
+Underfull \hbox (badness 1742) in paragraph at lines 787--789
 \T1/lmr/m/n/12 (+20) Field in Wi-re-less Sen-sor Net-works - Scien-ti-fic Fi-gu-re on Re-sear-
  []
 
 
-Underfull \hbox (badness 4899) in paragraph at lines 718--720
+Underfull \hbox (badness 4899) in paragraph at lines 787--789
 \T1/lmr/m/n/12 (+20) ch-Ga-te. Avai-la-ble from: []$\T1/lmtt/m/n/12 https : / / www . researchgate . net / figure /
  []
 
 
-Overfull \hbox (2.1269pt too wide) in paragraph at lines 718--720
+Overfull \hbox (2.1269pt too wide) in paragraph at lines 787--789
 \T1/lmtt/m/n/12 Topology-[]of-[]wireless-[]sensor-[]network-[]and-[]hop-[]count-[]of-[]sensors _
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 723.
-[25
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 792.
+[28
 
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 723.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 792.
  (./relazione.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 723.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 723.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 792.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 792.
 Package rerunfilecheck Info: File `relazione.out' has not changed.
-(rerunfilecheck)             Checksum: 553BB2B0D1AC2D5456392E36950CBE2B;813.
+(rerunfilecheck)             Checksum: E8C35E2CF1DA7397A51F4D6CF155C38F;813.
 runsystem(rm relazione.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 16313 strings out of 483058
- 266470 string characters out of 5963219
+ 16357 strings out of 483058
+ 267390 string characters out of 5963219
  718570 words of memory out of 5000000
- 30702 multiletter control sequences out of 15000+600000
- 622850 words of font info for 146 fonts, out of 8000000 for 9000
+ 30723 multiletter control sequences out of 15000+600000
+ 636379 words of font info for 155 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  63i,15n,100p,800b,1148s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
-Output written on relazione.pdf (29 pages, 559801 bytes).
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb>
+Output written on relazione.pdf (32 pages, 629027 bytes).
 PDF statistics:
- 437 PDF objects out of 1000 (max. 8388607)
- 371 compressed objects within 4 object streams
- 139 named destinations out of 1000 (max. 500000)
- 28807 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 462 PDF objects out of 1000 (max. 8388607)
+ 386 compressed objects within 4 object streams
+ 144 named destinations out of 1000 (max. 500000)
+ 31894 words of extra memory for PDF output out of 35830 (max. 10000000)
 

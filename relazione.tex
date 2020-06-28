@@ -690,6 +690,75 @@ senza interest dissemination.
 
 \chapter{Ottimizzazione dei parametri}
 
+In questo capitolo verranno studiati i principali parametri che hanno influenzato i risultati e le prestazioni delle simulazioni eseguite nell'ambito di
+questo lavoro. In particolare, i risultati di seguito esposti fanno riferimento all'implementazione originale di GREEN-WUP descritta nel \textbf{Capitolo 3}.\\
+
+Parte fondante di questo tirocinio comprendeva studiare l'aspetto teorico ed algoritmico degli algoritmi di rete ma anche la sperimentazione tramite
+simulatori del comportamento che questi protocolli assumono in ambito reale. Le prestazioni degli algoritmi impiegati nelle Wireless Sensor Network
+tengono conto di una moltitudine di fattori che possono influenzarne in maniera importante i risultati raggiunti. Nel seguito verranno presentati
+alcuni tra questi parametri che in maggior misura contribuiscono alle prestazioni del protocollo in questione.\\
+
+In primo luogo troviamo il parametro che misura il contingente di tempo necessario alla trasmissione di un pacchetto CTS da parte dei nodi intermedi. Da
+questo punto in poi ci riferiremo al suddetto parametro come \emph{ctsMaxJitter}. Il \emph{ctsMaxJitter} viene introdotto originariamente per
+aggiungere un jitter randomico alla trasmissione dei pacchetti \emph{Clear To Send}, quindi per evitare che avvengano delle collisioni dovute a multiple
+trasmissioni di pacchetti nello stesso momento da parte dei nodi della rete. Possiamo vedere tale parametro come una finestra temporale all'interno
+della quale ciascun nodo sceglie randomicamente un tempo $t \in [0, ctsMaxJitter]$ a cui inviare il pacchetto richiesto. Tale finestra, se sufficientemente
+ampia, permette ai nodi di selezionare momenti di trasmissione diversi per inviare i pacchetti CTS.\\
+
+Nei protocolli di rete la scelta di un buon valore di jitter è di fondamentale importanza per garantire che le prestazioni siano ottimali. Si osservi
+come elevati valori di jitter comportino l'aumento della latenza media richiesta per far recapitare i pacchetti al sink node, dualmente
+scegliere un valore di jitter troppo piccolo può comportare il degrado delle prestazioni della rete a causa delle collisioni che questo comporta.
+Quest'ultima condizione in particolare comporta un numero ulteriore di ritrasmissioni per far recapitare i pacchetti non ricevuti al nodo destinatario.\\
+
+Nel seguito verranno analizzati i risultati ottenuti al variare dei valori assunti dal parametro $\emph{ctsMaxJitter}=\{25,50,100,150\}$. Si noti come
+questi valori espressi in millisecondi rappresentano il massimo valore di jitter che i nodi possono attendere prima di inviare il pacchetto \emph{Clear To Send}.
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{latency_comparison_plot.png}
+        \caption*{(a)}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{pdr_comparison_plot.png}
+        \caption*{(b)}
+    \end{minipage}
+    \caption{Confronto delle prestazioni del protocollo al variare del parametro \emph{ctsMaxJitter}.}
+\end{figure}
+
+Come sopra anticipato, è possibile osservare in \textbf{Figura 5.1} che l'introduzione di un jitter impatta direttamente sulle latenze sperimentate dalla rete.
+In particolare, al crescere del valore di jitter impiegato crescono i tempi di attesa per far recepitare il pacchetto al sink node. Si noti inoltre come le latenze
+diminuiscono al diminuire del traffico presente in rete, ovvero al crescere del valore assunto da inter-arrival time (\emph{iaTime}).\\
+
+Analizzando \textbf{(b)} si può inoltre notare come il \emph{Packet Delivery Ratio} risenta dei valori di jitter selezionati, raggiungendo valori ottimali per
+alti valori di \emph{ctsMaxJitter}. Ciò è una diretta conseguenza del fatto che i nodi hanno una probabilità maggiore che i pacchetti da loro inviati siano
+recapitati dal nodo destinatario e di ricevere quindi \emph{Acknowledgement Packet}.
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[scale=0.5]{energy_comparison_plot.png}
+        \caption{Confronto dei consumi energetici del protocollo al variare del parametro \emph{ctsMaxJitter}.}
+    \end{center}
+\end{figure}
+
+Continuiamo l'analisi degli effetti del parametro \emph{ctsMaxJitter} mostrandone l'influenza su un ulteriore aspetto: i consumi energetici della rete. In
+particolare, i consumi di energia della rete dipendono sia dal traffico in essa presente che dal valore di jitter selezionato per i nodi della rete. Si può
+notare come questi aumentino al crescere della quantità di pacchetti in circolazione, raggiungendo il massimo in corrispondenza di $\emph{ctsMaxJitter}=150ms$.\\
+
+Ricordiamo che un aspetto fondamentale analizando in consumi energetici delle reti consiste nell'attesa che precede l'invio dei pacchetti. In particolare essa
+consiste in un'operazione di \emph{carrier sensing} del canale di comunicazione per verificare che nessun nodo abbia precedentemente iniziato a trasmettere dati.
+Dunque, i nodi intermedi rispondono inviando un pacchetto CTS con un jitter randomico che è proporzionale al valore di \emph{ctsMaxJitter} ed è da esso superiormente
+limitato. La durata del carrier sensing dipende quindi dalla durata del jitter che i nodi intermedi hanno selezionato, in quanto essi prima di poter inviare un nuovo
+pacchetto devono necessariamente attendere il tempo richiesto affinchè i nodi intermedi inizino a trasmettere il pacchetto CTS. Ne segue quindi che al crescere del
+parametro \emph{ctsMaxJitter} vengono prolungate le attività di ascolto (RX) dei nodi prima che questi possano iniziare a trasmettere e quindi i consumi energetici
+della rete subiscono un aumento.\\
+
+Risulta quindi evidente che la scelta di questo parametro non è un'operazione banale e in ambienti reali comporta risultati fortemente diversi tra di loro.
+In generale questo è uno degli esempi di trade-off che vengono costantamente affrontati in ambito di reti ed è di vitale importanza in questi casi valutare
+la metrica di riferimento che si intende ottimizzare.
+
 \chapter{Conclusioni}
 
 \backmatter
