@@ -406,17 +406,21 @@ Inoltre, durante lo scambio di RTS e CTS viene scelto un nodo che opererà da in
 al sink node. Si noti come i nodi sono considerati sulla base della loro posizione rispetto al sink node (hop count) e alla loro
 disponibilità energetica corrente. Tuttavia questa procedura non garantisce che i nodi svegliati siano abilitati alla ricezione di nuovi pacchetti,
 poichè, in maniera simile a quanto sopra descritto, un nodo può essere nella condizione di non poter bufferizzare nuovi pacchetti, verificandosi
-quindi sprechi di energia ed ulteriori ritrasmissioni per far recapitare il pacchetto. In generale, l'approccio utilizzato da GREEN-WUP non garantisce
+quindi sprechi di energia ed ulteriori ritrasmissioni per far recapitare il pacchetto.\\
+
+In generale, l'approccio utilizzato da GREEN-WUP non garantisce
 la massima efficienza energetica della rete, nè tantomeno permette di ottenere latenze ottimali. Si osservi come un nodo che è impegnato
 nel processamento di uno o più pacchetti possa essere selezionato come nodo intermediario rispetto ad un altro che si trova alla stessa distanza
 dal sink node e che ha coda di ricezione vuota, se questo ha, ad esempio, classe energetica inferiore al nodo in questione. \\
 
 Osservando in dettaglio il comportamento dei nodi durante la fase di selezione del nodo intermedio si nota un dettaglio degno di nota.
-Al momento della ricezione di una sequenza di wake up con semantic addressing da parte di un nodo, esso attiverà la radio principale e si metterà in
-ascolto di nuovi dati. Questo accade poichè la risposta al trigger della sequenza di wake up genera un evento in ciascun nodo che lo porta
+Al momento della ricezione di una sequenza di wake up con semantic addressing da parte di un nodo, esso attiverà la radio principale (RX) e si metterà
+in ascolto di nuovi dati. Questo accade poichè la risposta al trigger della sequenza di wake up genera un evento in ciascun nodo che lo porta
 inevitabilmente ad attivare la radio principale. Se tuttavia i nodi candidati a svegliarsi in seguito alla ricezione del messaggio di wake up sono
 numerosi, si può avere uno spreco energetico considerevole (soprattutto considerando che questo costo cresce linearmente con l'aumento del traffico
-di rete). Un'analisi del comportamento di GREEN-WUP ci permette di osservare come i nodi riceventi non hanno possibilità di scegliere l'azione
+di rete).\\
+
+Un'analisi del comportamento di GREEN-WUP ci permette di osservare come i nodi riceventi non hanno possibilità di scegliere l'azione
 intrapresa in seguito alla ricezione di un messaggio di wake up. Essi semplicemente reagiscono al messaggio ricevuto e si preparano alla ricezione
 di un eventuale pacchetto dati. Analogamente alla prima problematica emersa, anche in questo caso la scelta da parte di un nodo di attivare la
 radio principale (RX) è presa senza considerare lo stato dello stesso e può portare a consumi energetici superflui.
@@ -679,12 +683,21 @@ di selezione dei nodi disponibili (attraverso lo scambio di RTS/CTS) diminuisce,
 
 Analizzando la \textbf{Figura 4.2} si può notare come l'energia richiesta dalla rete è inferiore nel caso della variante. Come diretta conseguenza di quanto
 sopra esposto i consumi energetici sono ridotti in quanto i nodi della rete rispondono alle sequenze di wake up con sematic addressing in
-numero minore rispetto alla versione originale. In particolare, la massima efficienza energetica è raggiunta in condizioni di elevato stress
+numero minore rispetto alla versione originale.\\
+
+In particolare, la massima efficienza energetica è raggiunta in condizioni di elevato stress
 della rete in quanto più alta la probabilità che un maggior numero di messaggi di wake up con semantic addressing svegli i nodi candidati. In altri
 termini, la rete subisce un forte aumento dei pacchetti in circolazione, e quindi di messaggi di wake up, ed in questo scenario gli effetti della
 modifica che permette ai nodi di scegliere se attivare o meno la radio principale è ancor più evidente. L'efficienza energetica è favorita non solo
 da questa modifica ma anche dalla stessa applicazione di jitter che vengono calcolati a partire dallo stato dei nodi e che non sono puramente
 randomici come nel caso dell'implementazione originale di GREEN-WUP.\\
+
+Si noti come in \textbf{(b)} il \emph{Packet Delivery Ratio} ottenuto della variante sia leggermente inferiore rispetto a quello della versione originale.
+Questo segue dal fatto che, come discusso in \textbf{Capitolo 4.1}, esiste una probabilità che i nodi non si sveglino a seguito della ricezione di un
+messaggio di wake up e che il pacchetto venga scartato in seguito al raggiungimento del numero massimo di ritrasmissioni.\\
+
+Si faccia riferimento al \textbf{Capitolo 5} dove sono esposte particolari osservazioni per migliorare diversi aspetti delle
+prestazioni ottenute della variante proposta.\\
 
 Infine, viene fornita un'implementazione della fase di interest dissemination sia per GREEN-WUP che per la variante proposta. Si noti come i consumi
 derivati dall'introduzione di questa fase siano inferiori in ordini di grandezza rispetto ai costi energetici dovuti al normale funzionamento della rete. Inoltre, per
@@ -713,11 +726,12 @@ valore assunto dal parametro $\emph{iaTime}=\{2,5,10,25,50\}$. In questo caso mo
 di questa fase in quanto gli hop count determinati coincidono con quelli stimati nella versione che non esegue questa fase.
 Conseguentemente anche le latenze sperimentate e le prestazioni della rete in generale, ad eccezione dell'energia spesa, rimangono inalterate.\\
 
+\newpage
 In generale i consumi energetici aggiuntivi richiesti da questa ulteriore fase possono essere considerati costanti in quanto essa viene eseguita soltanto una
 volta prima dell'inizio della fase di scambio dati. Si noti inoltre come i consumi energetici richiesti da questa fase aumentino al crescere del
 numero di ripetizioni dell'invio del command packet da parte del sink node.\\
 
-I risultati sopra mostrati fanno riferimento all'implementazione dell'algoritmo descritto in \textbf{Capitolo 3.2}.
+I risultati relativi alla fase di interest dissemination sopra esposti fanno riferimento all'implementazione dell'algoritmo descritto in \textbf{Capitolo 3.2}.
 
 \chapter{Ottimizzazione dei parametri}
 
