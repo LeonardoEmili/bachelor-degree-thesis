@@ -11,5 +11,7 @@
 \contentsline {section}{\numberline {4.2}Scenario di simulazione e parametri}{20}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Valutazione delle prestazioni}{20}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Ottimizzazione dei parametri}{23}{chapter.5}%
-\contentsline {chapter}{\numberline {6}Conclusioni}{27}{chapter.6}%
-\contentsline {chapter}{Bibliografia}{28}{section*.8}%
+\contentsline {section}{\numberline {5.1}Scelta dei valori di jitter}{23}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Trasmissioni per classe energetica}{26}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Conclusioni}{29}{chapter.6}%
+\contentsline {chapter}{Bibliografia}{30}{section*.9}%

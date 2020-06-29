@@ -693,10 +693,15 @@ senza interest dissemination.
 In questo capitolo verranno studiati i principali parametri che hanno influenzato i risultati e le prestazioni delle simulazioni eseguite nell'ambito di
 questo lavoro. In particolare, i risultati di seguito esposti fanno riferimento all'implementazione originale di GREEN-WUP descritta nel \textbf{Capitolo 3}.\\
 
+% TODO move this paragraph into the Introduction section
 Parte fondante di questo tirocinio comprendeva studiare l'aspetto teorico ed algoritmico degli algoritmi di rete ma anche la sperimentazione tramite
-simulatori del comportamento che questi protocolli assumono in ambito reale. Le prestazioni degli algoritmi impiegati nelle Wireless Sensor Network
-tengono conto di una moltitudine di fattori che possono influenzarne in maniera importante i risultati raggiunti. Nel seguito verranno presentati
-alcuni tra questi parametri che in maggior misura contribuiscono alle prestazioni del protocollo in questione.\\
+simulatori del comportamento che questi protocolli assumono in ambito reale.\\
+
+Le prestazioni degli algoritmi impiegati nelle Wireless Sensor Network tengono conto di una moltitudine di fattori che possono influenzarne in
+maniera importante i risultati raggiunti. Nel seguito verranno presentati alcuni tra questi parametri che in maggior misura contribuiscono alle
+prestazioni del protocollo in questione.
+
+\section{Scelta dei valori di jitter}
 
 In primo luogo troviamo il parametro che misura il contingente di tempo necessario alla trasmissione di un pacchetto CTS da parte dei nodi intermedi. Da
 questo punto in poi ci riferiremo al suddetto parametro come \emph{ctsMaxJitter}. Il \emph{ctsMaxJitter} viene introdotto originariamente per
@@ -717,12 +722,12 @@ questi valori espressi in millisecondi rappresentano il massimo valore di jitter
     \centering
     \begin{minipage}{.5\textwidth}
         \centering
-        \includegraphics[width=1\linewidth]{latency_comparison_plot.png}
+        \includegraphics[width=1\linewidth]{latency_jitter_comparison_plot.png}
         \caption*{(a)}
     \end{minipage}%
     \begin{minipage}{.5\textwidth}
         \centering
-        \includegraphics[width=1\linewidth]{pdr_comparison_plot.png}
+        \includegraphics[width=1\linewidth]{pdr_jitter_comparison_plot.png}
         \caption*{(b)}
     \end{minipage}
     \caption{Confronto delle prestazioni del protocollo al variare del parametro \emph{ctsMaxJitter}.}
@@ -738,7 +743,7 @@ recapitati dal nodo destinatario e di ricevere quindi \emph{Acknowledgement Pack
 
 \begin{figure}
     \begin{center}
-        \includegraphics[scale=0.5]{energy_comparison_plot.png}
+        \includegraphics[scale=0.5]{energy_jitter_comparison_plot.png}
         \caption{Confronto dei consumi energetici del protocollo al variare del parametro \emph{ctsMaxJitter}.}
     \end{center}
 \end{figure}
@@ -758,6 +763,73 @@ della rete subiscono un aumento.\\
 Risulta quindi evidente che la scelta di questo parametro non è un'operazione banale e in ambienti reali comporta risultati fortemente diversi tra di loro.
 In generale questo è uno degli esempi di trade-off che vengono costantamente affrontati in ambito di reti ed è di vitale importanza in questi casi valutare
 la metrica di riferimento che si intende ottimizzare.
+
+\section{Trasmissioni per classe energetica}
+
+In questa sezione discuteremo gli effetti di trasmettere più volte un pacchetto dati, riferendoci alla metrica impiegata mediante il parametro
+\emph{energyClassRetries}. Esso controlla il grado di ritrasmissione di un pacchetto da parte dei nodi della rete.\\
+
+Il protocollo GREEN-WUP si basa sull'assunzione che la rete sottostante sia di tipologia \emph{multi-hop} e che i percorsi di rete da seguire non siano noti a priori.
+In particolare, se un nodo genera un pacchetto da far recapitare al sink node allora la comunicazione coinvolgerà più nodi intermedi che si faranno
+carico di ritrasmettere il pacchetto verso il sink node. La scelta dei nodi intermedi è condizionata ogni volta dalla scelta del nodo che gode
+di una buona disponibilità energetica e, una volta che questo è stato individuato, si procede poi ritrasmettendolo a quello specifico nodo. Se tuttavia
+il nodo non è stato individuato si procede considerando i nodi con classe energetica inferiore sino a che questo non è stato trovato. \\
+
+Analizzando quanto appena descritto è evidente che la scelta \emph{greedy} di un nodo intermedio secondo questi termini non sia ottimale in termini di prestazioni
+della rete. Infatti è possibile che un nodo, a seguito di un congestionamento del canale di comunicazione oppure a causa della sua temporanea indisponibilità,
+questo non sia momentaneamente in grado di ricevere un nuovo pacchetto. Vale quindi la pena analizzare il comportamento della rete introducendo un numero massimo di
+tentativi che ciascun nodo dispone per trasmettere il pacchetto ad una specifica classe energetica. Si noti come l'introduzione di questo parametro non
+comporti necessariamente variazioni nella latenza media sperimentata dalla rete, in quanto essa considera i pacchetti ricevuti dal sink node ed è definita
+dal tempo medio che questo ha richiesto per essere ricevuto. In altri termini, un pacchetto scartato a seguito di aver superato il numero massimo
+di ritrasmissioni non viene considerato nel calcolo della latenza media sperimentata dalla rete dal momento che il sink node non lo ha mai ricevuto.
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{latency_retries__comparison_plot.png}
+        \caption*{(a)}
+    \end{minipage}%
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{energy_retries__comparison_plot.png}
+        \caption*{(b)}
+    \end{minipage}
+    \begin{minipage}{.5\textwidth}
+        \centering
+        \includegraphics[width=1\linewidth]{pdr_retries__comparison_plot.png}
+        \caption*{(c)}
+    \end{minipage}
+    \caption{Confronto delle prestazioni del protocollo al variare del parametro \emph{energyClassRetries}.}
+\end{figure}
+
+È interessante notare in \textbf{Figura 5.3} che per quanto sopra osservato le latenze medie \textbf{(a)} non sono influenzate in maniera significativa dal
+parametro \emph{energyClassRetries}. Nello scenario considerato abbiamo osservato che esse sono influenzate essenzialmente dai tempi di trasmissione dei
+pacchetti e dai tempi di attesa previsti dal protocollo.\\
+
+In particolare, ciascun pacchetto dispone di un numero massimo di trasmissioni $n$ ed un numero massimo di ritrasmissioni per classe energetica
+$\emph{energyClassRetries}<n$ che, seppur fanno riferimento ad comportamenti simili, modellano aspetti diversi. Il primo fornisce un limite al
+numero di volte che i nodi provano gli stessi pacchetti e serve quindi ad evitare che questi rimangano bloccati nel processamento dello stesso pacchetto
+per sempre. Il secondo invece permette ai nodi riceventi di avere più tentativi per la ricezione dei pacchetti, favorendo in maniera indiretta
+i nodi di classe energetica superiore in quanto considerati in ordine decrescente di classe energetica. Risulta quindi evidente che essi svolgono
+un ruolo vitale nel regolamentare il comportamento dei protocolli di rete, in quanto un'errata scelta di questi due valori può portare ad un crollo
+delle prestazioni della rete. Ad esempio, alti valori di $n$ possono portare ad importanti aumenti nei consumi energetici fino anche alla morte di
+nodi della rete a seguito del loro scaricamento.\\
+
+Conseguentemente da \textbf{(b)} si può notare come i consumi energetici della rete crescano, seppur in maniera lieve, al crescere di \emph{energyClassRetries}.
+Questo accade poichè i nodi della rete sono attivi per più tempo dal momento che dispongono più tentativi di trasmettere i pacchetti.\\
+
+Si noti infine come in \textbf{(c)} le prestazioni della rete risentano maggiormente del valore di \emph{energyClassRetries} scelto. Il \emph{Packet Delivery Ratio}
+tocca il valore minimo di 98.8\% in prossimità di $\emph{energyClassRetries}=1$ e di elevate condizioni di stress della rete. Chiaramente la metrica considerata
+è influenzata dallo stato di traffico della rete come pure dal numero di tentativi per classe energetica poichè regola la profondità a cui ciascuna classe
+energetica viene analizzata. Infatti, per quanto osservato alcuni nodi di una classe energetica potrebbero non essere considerati in una prima fase di analisi
+ma essere successivamente disponibili. Da questo segue che una volta esaminate tutte le classi energetiche il pacchetto considerato viene scartato, portando
+ad una diminuizione dei valori del \emph{Packet Delivery Ratio}.\\
+
+In generale un cattiva scelta del parametro \emph{energyClassRetries} può comportare ad un degrado delle prestazioni della rete. Tuttavia si noti in \textbf{(c)}
+come nelle simulazioni eseguite l'aumento del valore di PDR subisca un forte rallentamento una volta raggiunto il valore $\emph{energyClassRetries}=5$. Ne
+consegue quindi che le prestazioni crescono in maniera proporzionale al valore di \emph{energyClassRetries} scelto fino ad una certa soglia e
+successivamente smettono di aumentare.
 
 \chapter{Conclusioni}
 
