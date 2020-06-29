@@ -10,8 +10,8 @@
 \contentsline {section}{\numberline {4.1}Descrizione delle modifiche}{15}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Scenario di simulazione e parametri}{20}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Valutazione delle prestazioni}{20}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Ottimizzazione dei parametri}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Scelta dei valori di jitter}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Trasmissioni per classe energetica}{26}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Conclusioni}{29}{chapter.6}%
-\contentsline {chapter}{Bibliografia}{30}{section*.9}%
+\contentsline {chapter}{\numberline {5}Ottimizzazione dei parametri}{24}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Scelta dei valori di jitter}{24}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Trasmissioni per classe energetica}{27}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Conclusioni}{30}{chapter.6}%
+\contentsline {chapter}{Bibliografia}{31}{section*.10}%
