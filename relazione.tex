@@ -78,7 +78,9 @@ può spesso avere conseguenze più grandi della semplice disconnessione dello st
 realizzano la comunicazione passando attraverso nodi intermedi ed in alcuni casi si può verificare perfino la disconnessione dell'intera rete.\\
 
 Nel seguito verranno affrontate le principali problematiche che spingono la ricerca a sviluppare nuove idee per la costruzione di protocolli di rete
-altamente efficienti. Nel \textbf{Capitolo 2} verrà presentato lo scenario di riferimento e le principali considerazioni che nel tempo sono state adottate
+altamente efficienti.\\
+
+Nel \textbf{Capitolo 2} verrà presentato lo scenario di riferimento e le principali considerazioni che nel tempo sono state adottate
 e che ad oggi definiscono il panorama delle Wireless Sensor Networks.\\
 
 Nel \textbf{Capitolo 3} verrà presentato uno specifico protocollo di rete per sistemi IoT: il protocollo GREEN-WUP. In questo lavoro ci concentreremo sullo
@@ -92,8 +94,12 @@ il simulatore utilizzato e a cui faremo diffusamente riferimento all'interno di 
 a cui si fa riferimento in questo documento sono stati testati mediante una versione particolare del framework \emph{GreenCastalia} \cite{greencastalia-paper}
 che supporta \emph{wake up radios} e \emph{energy harvesting}.\\
 
-Nel \textbf{Capitolo 5} saranno analizzate le prestazioni della variante proposta e quelle del protocollo originale. In particolare, verranno mostrati i
-comportamenti di entrambe le implementazioni all'interno di uno stesso ambiente reale ed infine nel Capitolo 6 trarremo le conclusioni di quanto osservato.
+Nel \textbf{Capitolo 5} saranno presentati i parametri dei protocolli di rete che in misura principale contribuiscono alle loro prestazioni e ne favoriscono
+il risparmio energetico. Parte fondante di questo tirocinio consiste nella sperimentazione tramite simulatori del comportamento che questi protocolli
+assumono in ambito reale. In questi termini questo capitolo punta ad ottimizzare i parametri utilizzati nell'implementazione del protocollo GREEN-WUP e
+che in generale rispecchiano i comportamenti comuni ai protocolli di rete utilizzati al giorno d'oggi.\\
+
+Nel \textbf{Capitolo 6} verranno tratte le conclusioni di quanto osservato e possibili direzioni future nell'ambito di protocolli per sistemi IoT.
 
 \let\cleardoublepage    % probably not a good decision
 \clearpage
@@ -417,9 +423,9 @@ intrapresa in seguito alla ricezione di un messaggio di wake up. Essi sempliceme
 di un eventuale pacchetto dati. Analogamente alla prima problematica emersa, anche in questo caso la scelta da parte di un nodo di attivare la
 radio principale (RX) è presa senza considerare lo stato dello stesso e può portare a consumi energetici superflui.
 
-\chapter{Varianti proposte}
+\chapter{La variante proposta}
 
-\section{Descrizione delle varianti}
+\section{Descrizione delle modifiche}
 
 In questo lavoro si propone una variante del protocollo di base di GREEN-WUP che adotta alcune modifiche in risposta alle problematiche emerse nel capitolo
 precedente. Nel seguito, per ciascuna problematica si descrivono le modifiche adottate, le implicazioni e i risultati che questi cambiamenti hanno comportato.\\
@@ -692,10 +698,6 @@ senza interest dissemination.
 
 In questo capitolo verranno studiati i principali parametri che hanno influenzato i risultati e le prestazioni delle simulazioni eseguite nell'ambito di
 questo lavoro. In particolare, i risultati di seguito esposti fanno riferimento all'implementazione originale di GREEN-WUP descritta nel \textbf{Capitolo 3}.\\
-
-% TODO move this paragraph into the Introduction section
-Parte fondante di questo tirocinio comprendeva studiare l'aspetto teorico ed algoritmico degli algoritmi di rete ma anche la sperimentazione tramite
-simulatori del comportamento che questi protocolli assumono in ambito reale.\\
 
 Le prestazioni degli algoritmi impiegati nelle Wireless Sensor Network tengono conto di una moltitudine di fattori che possono influenzarne in
 maniera importante i risultati raggiunti. Nel seguito verranno presentati alcuni tra questi parametri che in maggior misura contribuiscono alle

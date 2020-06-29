@@ -6,8 +6,8 @@
 \contentsline {section}{\numberline {3.1}Descrizione del protocollo}{6}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Interest dissemination}{10}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Le problematiche emerse}{12}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Varianti proposte}{15}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Descrizione delle varianti}{15}{section.4.1}%
+\contentsline {chapter}{\numberline {4}La variante proposta}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Descrizione delle modifiche}{15}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Scenario di simulazione e parametri}{20}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Valutazione delle prestazioni}{20}{section.4.3}%
 \contentsline {chapter}{\numberline {5}Ottimizzazione dei parametri}{23}{chapter.5}%
