@@ -81,10 +81,10 @@ altamente efficienti.\\
 Nel \textbf{Capitolo 2} verrà presentato lo scenario di riferimento e le principali considerazioni che nel tempo sono state adottate
 e che ad oggi definiscono il panorama delle Wireless Sensor Networks.\\
 
-Nel \textbf{Capitolo 3} verrà presentato uno specifico protocollo di rete per sistemi IoT: il protocollo GREEN-WUP. In questo lavoro ci concentreremo sullo
-studio dei principi che regolano il design dei protocolli di rete e sulla loro applicazione in riferimento al protocollo in questione. Analizzeremo
-in dettaglio il comportamento del protocollo e le sue caratteristiche. Verranno inoltre presentati i suoi principali vantaggi ed il suo comportamento
-di fronte a problematiche comuni ai protocolli di comunicazione.\\
+Nel \textbf{Capitolo 3} verrà presentato uno specifico protocollo di rete per sistemi IoT: il protocollo GREEN-WUP \cite{novel-wake-up-receiver-paper}.
+In questo lavoro ci concentreremo sullo studio dei principi che regolano il design dei protocolli di rete e sulla loro applicazione in riferimento al
+protocollo in questione. Analizzeremo in dettaglio il comportamento del protocollo e le sue caratteristiche. Verranno inoltre presentati i suoi principali
+vantaggi ed il suo comportamento di fronte a problematiche comuni ai protocolli di comunicazione.\\
 
 Nel \textbf{Capitolo 4} verrà presentata una variante del protocollo originale che punta a risolvere le problematiche osservate nel capitolo precedente. Le
 modifiche apportate saranno descritte in dettaglio sia a livello teorico che a livello di implementazione all'interno di Castalia che è
@@ -105,7 +105,7 @@ Nel \textbf{Capitolo 6} verranno tratte le conclusioni di quanto osservato e pos
 
 \chapter{Scenario di riferimento}
 
-Sino a qualche anno fa, la principale tendenza nello sviluppo di soluzioni ai problemi menzionati nel Capitolo 1 consisteva nell'introduzione di cicli di attività
+Sino a qualche anno fa, la principale tendenza nello sviluppo di soluzioni ai problemi menzionati nel \textbf{Capitolo 1} consisteva nell'introduzione di cicli di attività
 dei nodi. Il cosiddetto \emph{duty cycling}, definito come la frazione di tempo in cui un nodo è attivo, aveva come obbettivo quello di minimizzare i momenti
 in cui i nodi sensori sono accessi senza alcun processamento di dati attivo. Seppur questo approccio permetta di prolungare la durata della vita della rete,
 incrementa in maniera considerevole i ritardi nelle comunicazioni, dal momento che queste possono avvenire solamente all'interno delle finestre di attività
@@ -122,6 +122,11 @@ di wake-up che, svegliando il ricevente, lo abilita alla ricezione. In questo mo
 svolgere l'attività richiesta e lasciare spenta la radio principale nel tempo rimanente. Dal punto vista energetico questo approccio è altamente efficiente
 e non richiede alcuna forma di sincronizzazione che è generalmente non desiderata in quanto implicitamente introduce overhead dovuto alla gestione di timer
 aggiuntivi.\\
+
+In ambito di ricerca è possibile trovare molti paper scientifici in cui viene analizzata la transizione dall'utilizzo del duty cycling alle wake up radio.
+In \cite{beyond-duty-cycling-paper} viene presentato il protocollo ALBA-WUR come estensione del protocollo ALBA-R che utilizza la tecnologia delle wake up radio
+e che ha come obbiettivo quello di ridurre l'energia spesa dalla rete e fornire lifetime superiori rispetto a quelle precedentemente sperimentate.\\
+
 
 Più recentemente la tendenza è quella di equipaggiare i nodi sensori, dotati di wake up radios, con moduli per l'\emph{energy harvesting} come ulteriore
 supporto energetico alla loro durata di attività. In particolare, i nodi sono in grado di utilizzare l'energia fornita dalle pile elettriche di cui sono
@@ -385,7 +390,7 @@ potrebbe ricevere un pacchetto senza ricevere alcuna sequenza di wake up, dunque
 
 \let\cleardoublepage\clearpage  % restore changes
 
-\section{Le problematiche emerse}
+\section{Problematiche emerse}
 
 In questa sezione sono descritti i principali problemi che sono emersi durante lo studio di GREEN-WUP e che in alcuni particolari
 scenari potrebbero comportare un degrado delle prestazioni del protocollo stesso. Tutte le considerazioni di seguito esposte si riferiscono
@@ -413,6 +418,7 @@ la massima efficienza energetica della rete, nè tantomeno permette di ottenere 
 nel processamento di uno o più pacchetti possa essere selezionato come nodo intermediario rispetto ad un altro che si trova alla stessa distanza
 dal sink node e che ha coda di ricezione vuota, se questo ha, ad esempio, classe energetica inferiore al nodo in questione. \\
 
+\newpage
 Osservando in dettaglio il comportamento dei nodi durante la fase di selezione del nodo intermedio si nota un dettaglio degno di nota.
 Al momento della ricezione di una sequenza di wake up con semantic addressing da parte di un nodo, esso attiverà la radio principale (RX) e si metterà
 in ascolto di nuovi dati. Questo accade poichè la risposta al trigger della sequenza di wake up genera un evento in ciascun nodo che lo porta
@@ -591,8 +597,6 @@ di occupazione del buffer. Al momento della ricezione di un messaggio di wake up
 con una probabilità che è direttamente proporzionale al valore di energia predetto ad un certo tempo $t$ fornito in input. Inoltre, il pacchetto CTS
 inviato dal nodo intermedio viene ritardato in base allo stato energetico e del buffer del nodo stesso.
 
-\newpage
-
 \section{Scenario di simulazione e parametri}
 
 I risultati a cui si fa riferimento all'interno di questo documento fanno tutti riferimento ad uno scenario in cui si utilizza un terreno di dimensioni
@@ -626,6 +630,20 @@ vengono allenati per 3 giorni prima dell'inizio della simulazione per generare p
     \end{tabular}
 \end{table}
 
+\section{Metriche prestazionali}
+
+In questo lavoro valuteremo le prestazioni dell'implementazione del protocollo GREEN-WUP e della variante proposta in riferimento alle seguenti metriche:
+
+\vspace{0.3em}
+
+\begin{itemize}
+    \itemsep0em
+    \item \emph{packets overhead}, calcolato come il numero di byte di pacchetti di controllo (RTS/CTS) normalizzato per il numero di byte di pacchetti dati generati;
+    \item \emph{latenza}, calcolata come il tempo richiesto dal sink node per ricevere un pacchetto a partire da quando questo è stato generato;
+    \item \emph{energia spesa dalla rete}, calcolata come la somma dell'energia spesa da ciascun nodo della rete, con la sola eccezione del sink node;
+    \item \emph{packet delivery ratio}, calcolato come il numero dei pacchetti ricevuti dal sink node normalizzato per il numero dei pacchetti inviati;
+  \end{itemize}
+
 \section{Valutazione delle prestazioni}
 
 In questo lavoro abbiamo mantenuto costanti le configurazioni mostrate in \textbf{Tabella 4.1} per tutti gli esperimenti, variando il parametro
@@ -635,9 +653,7 @@ $1/iaTime$ millisecondi.\\
 Tutti i dati riportati fanno riferimento ad un numero di esecuzioni sufficientemente elevato da fornire un intervallo di confidenza del 95\% con una precisione
 del 5\% ed i risultati finali sono considerati come la media dei risultati individuali ottenuti da ciascuna di esse.
 
-\newpage
-
-\begin{figure}
+\begin{figure}[h]
     \centering
     \begin{minipage}{.5\textwidth}
         \centering
@@ -664,9 +680,7 @@ numero di pacchetti in circolazione, ovvero nei buffer dei nodi della rete. In p
 quanto nella variante l'insieme dei nodi candidati risulta essere ulteriormente partizionto, tuttavia questo è bilanciato dal fatto che i tempi
 di selezione dei nodi disponibili (attraverso lo scambio di RTS/CTS) diminuisce, favorendo quindi latenze più basse.
 
-\newpage
-
-\begin{figure}
+\begin{figure}[h]
     \centering
     \begin{minipage}{.5\textwidth}
         \centering
@@ -694,10 +708,8 @@ randomici come nel caso dell'implementazione originale di GREEN-WUP.\\
 
 Si noti come in \textbf{(b)} il \emph{Packet Delivery Ratio} ottenuto della variante sia leggermente inferiore rispetto a quello della versione originale.
 Questo segue dal fatto che, come discusso in \textbf{Capitolo 4.1}, esiste una probabilità che i nodi non si sveglino a seguito della ricezione di un
-messaggio di wake up e che il pacchetto venga scartato in seguito al raggiungimento del numero massimo di ritrasmissioni.\\
-
-Si faccia riferimento al \textbf{Capitolo 5} dove sono esposte particolari osservazioni per migliorare diversi aspetti delle
-prestazioni ottenute della variante proposta.\\
+messaggio di wake up e che il pacchetto venga scartato in seguito al raggiungimento del numero massimo di ritrasmissioni. Si faccia riferimento al
+\textbf{Capitolo 5} dove sono esposte particolari osservazioni per migliorare diversi aspetti delle prestazioni ottenute della variante proposta.\\
 
 Infine, viene fornita un'implementazione della fase di interest dissemination sia per GREEN-WUP che per la variante proposta. Si noti come i consumi
 derivati dall'introduzione di questa fase siano inferiori in ordini di grandezza rispetto ai costi energetici dovuti al normale funzionamento della rete. Inoltre, per
@@ -726,7 +738,6 @@ valore assunto dal parametro $\emph{iaTime}=\{2,5,10,25,50\}$. In questo caso mo
 di questa fase in quanto gli hop count determinati coincidono con quelli stimati nella versione che non esegue questa fase.
 Conseguentemente anche le latenze sperimentate e le prestazioni della rete in generale, ad eccezione dell'energia spesa, rimangono inalterate.\\
 
-\newpage
 In generale i consumi energetici aggiuntivi richiesti da questa ulteriore fase possono essere considerati costanti in quanto essa viene eseguita soltanto una
 volta prima dell'inizio della fase di scambio dati. Si noti inoltre come i consumi energetici richiesti da questa fase aumentino al crescere del
 numero di ripetizioni dell'invio del command packet da parte del sink node.\\
@@ -790,8 +801,9 @@ recapitati dal nodo destinatario e di ricevere quindi \emph{Acknowledgement Pack
 \end{figure}
 
 Continuiamo l'analisi degli effetti del parametro \emph{ctsMaxJitter} mostrandone l'influenza su un ulteriore aspetto: i consumi energetici della rete. In
-particolare, i consumi di energia della rete dipendono sia dal traffico in essa presente che dal valore di jitter selezionato per i nodi della rete. Si può
-notare come questi aumentino al crescere della quantità di pacchetti in circolazione, raggiungendo il massimo in corrispondenza di $\emph{ctsMaxJitter}=150ms$.\\
+particolare, i consumi di energia della rete dipendono sia dal traffico in essa presente che dal valore di jitter selezionato per i nodi della rete. Osservando
+\textbf{Figura 5.2} si può notare come questi aumentino al crescere della quantità di pacchetti in circolazione, raggiungendo il massimo in corrispondenza
+di $\emph{ctsMaxJitter}=150ms$.\\
 
 Ricordiamo che un aspetto fondamentale analizando in consumi energetici delle reti consiste nell'attesa che precede l'invio dei pacchetti. In particolare essa
 consiste in un'operazione di \emph{carrier sensing} del canale di comunicazione per verificare che nessun nodo abbia precedentemente iniziato a trasmettere dati.
@@ -892,13 +904,28 @@ successivamente smettono di aumentare.
     In: \textit{2017 IEEE 86th Vehicular Technology Conference (VTC-Fall). Toronto, ON, Canada, September 24-27 2017}.
 
     \bibitem{greencastalia-paper}
-    D. Benedetti, C. Petrioli and D. Spenza.
+    D. Benedetti, C. Petrioli, D. Spenza.
     \say{GreenCastalia: An Energy-Harvesting-Enabled Framework for the Castalia Simulator}.
     In: \textit{Proceeding of the ACM 1st International Workshop on Energy Neutral Sensing Systems, ACM ENSSys 2013. Rome, Italy, November 11-14 2013.}
 
     \bibitem{hop-count-figure}
     A Distributed Energy Optimized Routing Using Virtual Potential Field in Wireless Sensor Networks - Scientific Figure on ResearchGate.
     Available from: \url{https://www.researchgate.net/figure/Topology-of-wireless-sensor-network-and-hop-count-of-sensors_fig7_285956270} [accessed 27 Jun, 2020]
+
+    \bibitem{beyond-duty-cycling-paper}
+    D. Spenza, M. Magno, S. Basagni, L. Benini, M. Paoli, C. Petrioli.
+    \say{Beyond duty cycling: Wake-up radio with selective awakenings for long-lived wireless sensing systems}.
+    In: \textit{2015 IEEE Conference on Computer Communications (INFOCOM). Kowloon, Hong Kong, April 26-May 1 2015.}
+
+    \bibitem{novel-wake-up-receiver-paper}
+    C. Petrioli, D. Spenza, P. Tommasino, A. Trifiletti.
+    \say{A Novel Wake-Up Receiver with Addressing Capability for Wireless Sensor Nodes}.
+    In: \textit{2014 IEEE International Conference on Distributed Computing in Sensor Systems. Marina Del Rey, CA, USA, May 26-28 2014.}
+
+    \bibitem{novel-wake-up-receiver-papeaaar}
+    C. Petrioli, D. Spenza, P. Tommasino, A. Trifiletti.
+    \say{A Novel Wake-Up Receiver with Addressing Capability for Wireless Sensor Nodes}.
+    In: \textit{2014 IEEE International Conference on Distributed Computing in Sensor Systems. Marina Del Rey, CA, USA, May 26-28 2014.}
 
 \end{thebibliography}
 
