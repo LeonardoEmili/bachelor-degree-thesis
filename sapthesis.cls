@@ -852,25 +852,11 @@
     
     \makebox[11.9cm][l]{%
           \parbox[t]{5.9cm}{%
-            \ifcase\SAP@tutorcount
-              \ClassError{sapthesis}{You must specify at least one tutor in the preamble}%
-              {E.g. \protect\tutor{Prof. Name Surname}}
-            \or
-              \SAP@ThesisTutorLabel\\[2mm]
-            \else
-              \SAP@ThesisTutorsLabel\\[2mm]
-            \fi
+            
             \the\SAP@tutortoks}
             \hspace{1.5cm}
             \parbox[t]{5.9cm}{%
-            \ifcase\SAP@tutorcoordcount
-              \ClassError{sapthesis}{You must specify at least one tutor coordinatore in the preamble}%
-              {E.g. \protect\tutorcoord{Prof. Name Surname}}
-            \or
-              \SAP@ThesisTutorCoordLabel\\[2mm]
-            \else
-              \SAP@ThesisTutorCoordsLabel\\[2mm]
-            \fi
+            
             \the\SAP@tutorcoordtoks}
         }}
 
