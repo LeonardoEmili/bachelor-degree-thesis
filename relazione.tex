@@ -161,10 +161,8 @@ evidenziati i benefici energetici derivanti dall'utilizzo della tecnica del sema
 Questo lavoro si concentra sullo studio di protocolli delle cosiddette \emph{green wireless sensor network}, ovverosia di quei protocolli che si basano
 sulle tecnologie sopra esposte e che implementano la comunicazione tra nodi minimizzandone gli sprechi energetici al fine di massimizzare
 i tempi di attività e il corretto funzionamento delle comunicazioni all'interno delle reti. Nella letteratura scientifica
-sono presenti molti protocolli di questo tipo (es. CTP-WUR, GREENROUTES, WHARP) e ciascuno di loro punta a risolvere diverse problematiche.\\
-
-Nel seguito verrà analizzato in dettaglio il comportamento del protocollo GREEN-WUP che utilizza energy harvesting e wake up radio per realizzare
-un'opportuna scelta del percorso da seguire e permettere la corretta ricezione dei pacchetti dati da parte del sink node.\\
+sono presenti molti protocolli di questo tipo (es. CTP-WUR \cite{ctp-wur-paper}, GREENROUTES \cite{wake-up-radios-paper}, WHARP \cite{wharp-paper}) e
+ciascuno di loro punta a risolvere diverse problematiche.
 
 \chapter{Il protocollo GREEN-WUP}
 
@@ -204,15 +202,15 @@ ad un sottoinsieme di nodi della rete a partire dai loro valori di hop count e d
 Nel momento in cui un nodo deve inviare un pacchetto dati può farlo seguendo degli step fondamentali di seguito descritti.
 La prima fase consiste nell'instaurare una comunicazione con i nodi elegibili alla ritrasmissione del pacchetto: il suddetto nodo sensore
 entra in uno stato di ricerca di un nodo che si farà carico della sua richiesta di ritrasmissione. La ricerca si considera conclusa
-nel momento in cui viene selezionato un nodo tra quelli disponibili come nodo intermediario tra il nodo che invia i dati (sender) e il sink
+nel momento in cui viene selezionato un nodo tra quelli disponibili come nodo intermedio tra il nodo che invia i dati (sender) e il sink
 node, cui la richiesta di ricezione dati è destinata. Infine si procede alla trasmissione del pacchetto, a seguito della quale
-verrà inviata una conferma a certificare l'avvenuta ricezione dello stesso e si ripete in questo modo sino a raggiungere
+verrà inviata una conferma a certificare l'avvenuta ricezione dello stesso, ripetendo quindi questa procedura sino a raggiungere
 il sink node.\\
 
-Nel seguito sarà descritto il comportamento del protocollo da un punto di vista algoritmico ed in seguito alcune osservazioni su di esso.
+Nel seguito sarà descritto il comportamento del protocollo da un punto di vista algoritmico ed in seguito alcune saranno esposte osservazioni su di esso.
 Per facilitarne la lettura, il duplice ruolo che ciascun nodo assume viene scomposto in due parti: rispettivamente in \textbf{Algoritmo 1}
 viene descritto il comportamento che ciascun nodo assume nel momento in cui deve inviare dei dati (sender), mentre in \textbf{Algoritmo 2}
-viene descritto il comportamento che questo assume quando agisce da nodo intermediario (receiver).
+viene descritto il comportamento che questo assume quando agisce da nodo intermedio (receiver).
 
 \begin{algorithm}
     \caption{Sender in GREEN-WUP}
@@ -221,7 +219,6 @@ viene descritto il comportamento che questo assume quando agisce da nodo interme
 
         \WHILE{queue is not empty}
             \STATE $dataPkt \leftarrow$ queue.head()
-            %\STATE do CSMA/CA and backoff until channel is CLEAR
 
             \IF{level = 1}
                 \STATE send $dataPkt$ to the sink node and wait for some time $\delta_{ACK}$ to receive the relative ACK packet
@@ -289,7 +286,7 @@ protocollo preveda la presenza di un jitter randomico per evitare che avvengano 
 dei nodi candidati. Analogamente a quanto sopra descritto i nodi riceventi includono un indirizzo univoco a cui essere eventualmente ricontattati.\\
 
 Si noti come le descrizioni teoriche del protocollo sopra esposte non comprendano alcuni dettagli inerenti al meccanismo di trasmissione
-dei pacchetti. In particolare questi comprendono una fase di \emph{Carrier Sensing} (CSMA/CA) per evitare che avvengano collisioni e
+dei pacchetti. In particolare, tra questi questi troviamo una fase di \emph{Carrier Sensing} (CSMA/CA) per evitare che avvengano collisioni e
 inizando a trasmettere solo quando il canale di comunicazione è libero. Inoltre, un'importante convenzione in ambito di reti consiste
 nell'introdurre un massimo numero di ritrasmissioni per ciascun pacchetto. Nel contesto di GREEN-WUP troviamo una diretta applicazione di questa
 idea e ciascun pacchetto viene ritrasmesso al più un numero fissato di volte prima di passare alla prossima classe energetica, oppure, nel caso
@@ -298,8 +295,8 @@ di esaurimento delle classi energetiche disponibili, al prossimo pacchetto.
 \section{Interest dissemination}
 
 Per completezza in questo lavoro si è scelto di fornire una versione del protocollo GREEN-WUP in cui la determinazione dell'hop count avviene
-durante la fase di interest dissemination. Tutto ciò avviene per mezzo di un protocollo di flooding (FLOOD-WUP) che permette di distribuire pacchetti
-a tutti i nodi della rete senza incorrere in \emph{broadcast storm}.\\
+durante la fase di interest dissemination. Tutto ciò avviene per mezzo di un protocollo di flooding chiamato FLOOD-WUP \cite{novel-wake-up-receiver-paper}
+che permette di distribuire pacchetti a tutti i nodi della rete senza incorrere in \emph{broadcast storm}.\\
 
 L'obbiettivo della fase di interest dissemination è di assegnare a ciascun nodo della rete un valore di hop count. Nel caso di FLOOD-WUP ciò
 avviene secondo un algoritmo iterativo: questo avrà valore 0 nel solo caso del sink node, altrimenti assume un valore $h$ se $h-1$ è il valore
@@ -314,9 +311,9 @@ della rete semplicemente seguendone la definizione ricorsiva.\\
 Come precedente accennato, in FLOOD-WUP il traffico generato non provoca broadcast storm e questo è possibile grazie all'impiego dei messaggi
 di wake up. Infatti, ciascun nodo fa riferimento ad una pool di indirizzi di wake up condivisa $w_1, w_2, \cdots, w_n$ e ha inizialmente
 settato come indirizzo di wake up $w_1$. Quando il primo pacchetto di interest viene inviato dal sink node si utilizza $w_1$ come sequenza
-di wake up che lo precede. Al momento della ricezione del paccheto, i nodi cambiano il loro indirizzo di wake up in $w_b$ e lo redistribuiscono
+di wake up che lo precede. Al momento della ricezione del paccheto, i nodi cambiano il loro indirizzo di wake up in $w_2$ e lo redistribuiscono
 precedendolo con la stessa sequenza di wake up con la quale è stato spedito. Il successivo pacchetto viene spedito dal sink
-node utilizzando $w_b$ come sequenza di wake up e questo evita di ricevere pacchetti duplicati in quanto i nodi che hanno già ricevuto un
+node utilizzando $w_2$ come sequenza di wake up e questo evita di ricevere pacchetti duplicati in quanto i nodi che hanno già ricevuto un
 pacchetto non saranno successivamente svegliati da quella stessa sequenza di wake up.
 
 \begin{listing}
@@ -390,64 +387,69 @@ wurModule->addWakeupAddress(wurDisseminationAddresses[addressIndex]);
 \let\cleardoublepage    % probably not a good decision
 
 La porzione di codice in \textbf{Codice 3.1} mostra il comportamento del sink node quando questo genera un command packet. L'idea in questo caso è
-di generare $m \geq 1 $ command packets, cui saranno trasferiti sino al livello MAC per essere instradati nella rete. Si noti come generalmente si
-spediscono più command packet distanziandoli di un certo tempo $\delta$ per permettere che tutti i nodi della rete siano raggiunti. In questa
-implementazione si è scelto di utilizzare $m=3$ e $\delta=60s$. Dunque il sink node procede fornendo i campi richiesti alla creazione del
-pacchetto di interest ed in particolare setta il tipo del pacchetto da inviare che sarà poi utile in fase di ricezione dei pacchetti
-per capire quale operazione applicare al pacchetto ricevuto (non mostrato per evitare porzioni troppo lunghe di codice). Infine il sink
-node inizializza il valore del campo \emph{hopCount}, aggiorna il prossimo indirizzo wake up da utilizzare ed invia il pacchetto in broadcast.\\
+di generare dei command packets, cui saranno trasferiti sino al livello MAC per essere instradati nella rete. Dunque il sink node procede
+fornendo i campi richiesti alla creazione del pacchetto di interest ed in particolare setta la tipologia del pacchetto da inviare che sarà poi
+utile in fase di ricezione dei pacchetti per capire quale operazione applicare al pacchetto ricevuto (non mostrato per evitare porzioni troppo lunghe di codice).
+Infine il sink node inizializza il valore del campo \emph{hopCount}, aggiorna il prossimo indirizzo wake up da utilizzare ed invia il pacchetto in broadcast.\\
 
-Dualmente in \textbf{Codice 3.2} il pacchetto di interest viene ricevuto controllando campo \emph{type} del pacchetto in questione. Viene
+Si noti come generalmente vengono generati un numero $m \geq 1 $ di command packet per assicurarsi che tutti i nodi della rete siano raggiunti. Ciascun pacchetto
+di interest viene spedito ad una distanza di tempo $\delta$ dal pacchetto precedente. Infatti, il valore assegnato a $\delta$ deve essere sufficientemente
+grande per permettere che la precedente fase di interest sia terminata nel momento in cui inizia una nuova. Nell'implementazione presentata in questo lavoro
+si è scelto di utilizzare $m=3$ e $\delta=60s$.\\
+
+Dualmente in \textbf{Codice 3.2} il pacchetto di interest viene ricevuto controllando il valore del campo \emph{type} del pacchetto in questione. Viene
 successivamente chiamata la funzione \emph{updateLevel} che aggiorna il valore di hop count del nodo considerando il suo valore di hop count
 e quello presente all'interno del pacchetto e prendendone il minimo tra i due. Infine viene aggiornato il valore di hop count contenuto
 nel pacchetto e sostituita la sequenza di wake up con cui il nodo è stato svegliato con la sequenza successiva. Si noti come 
 nell'implementazione mostrata sia presente un controllo per evitare di ritrasmettere pacchetti duplicati mentre nella descrizione originale
-questo comportamento non viene descritto. Quanto accade è assolutamente possibile e non è da imputare al protocollo: può capitare ad esempio
-che il nodo sia già attivo (RX) in quanto ad esempio sta facendo carrier sensing del canale di comunicazione ed in questo caso
-potrebbe ricevere un pacchetto senza ricevere alcuna sequenza di wake up, dunque pacchetti duplicati.
+questo comportamento non viene descritto. Quanto accade è assolutamente possibile e non è da imputare allo specifico protocollo: può capitare infatti
+che un nodo sia già attivo (RX) poichè stava precedentemente facendo carrier sensing del canale di comunicazione ed in queste condizioni
+potrebbe ricevere un pacchetto senza ricevere prima alcuna sequenza di wake up, risultando di fatto nella ricezione di pacchetti duplicati.
 
 \let\cleardoublepage\clearpage  % restore changes
 
+\newpage
 \section{Problematiche emerse}
 
 In questa sezione sono descritti i principali problemi che sono emersi durante lo studio di GREEN-WUP e che in alcuni particolari
 scenari potrebbero comportare un degrado delle prestazioni del protocollo stesso. Tutte le considerazioni di seguito esposte si riferiscono
 all'implementazione base di GREEN-WUP sviluppata durante questo lavoro di tirocinio.\\
 
-Come primo punto desideriamo concentrarci sullo studio dei jitter utilizzati all'interno del protocollo e alle conseguenze che questi comportano.
-GREEN-WUP infatti impiega jitter puramente randomici al momento dell'invio dei pacchetti CTS per evitare che avvengano collisioni durante
+Come primo punto desideriamo concentrarci sullo studio dei jitter utilizzati all'interno del protocollo e sulle possibili implicazioni seguono dalla loro
+natura. GREEN-WUP infatti impiega jitter puramente randomici al momento dell'invio dei pacchetti CTS per evitare che avvengano collisioni durante
 la trasmissione. In questo modo, i nodi inviano un pacchetto CTS il cui tempo di ricezione dipende unicamente dal valore di jitter
 considerato e dalla distanza dei singoli dal nodo ricevente, in quanto viene considerato il tempo di trasmissione un'ulteriore ritardo nella
 trasmissione pacchetto.\\
 
-La scelta \emph{greedy} secondo cui un nodo trasmette un pacchetto ad un certo tempo $t+jitter$ non aggiunge alcuna
-informazione sullo stato dello stesso. Si tratta di una scelta per alcuni aspetti ragionevole, in quanto non aggiunge overhead alla trasmissione
-del pacchetto, ma che non garantisce che il percorso scelto nella rete sia il migliore in termini di efficienza e di costo energetico. Si noti come
-un nodo potrebbe essere selezionato come nodo intermedio seppur trovandosi in uno stato di scarsa disponibilità energetica. Considerando inoltre che
-ciascun nodo è dotato di un buffer di ricezione con capacità limitata, è possibile che un nodo sia selezionato come nodo intermedio pur non
-potendo bufferizzare nuovi pacchetti a seguito di un riempiemento della coda (\emph{buffer overflow}).\\
+La scelta \emph{greedy} secondo cui un nodo trasmette un pacchetto ad un certo tempo $t+jitter$ non aggiunge alcuna informazione sullo stato dello stesso.
+Si tratta di una scelta per alcuni aspetti ragionevole, in quanto non aggiunge overhead ai costi di trasmissione del pacchetto, ma che non garantisce che
+il percorso scelto nella rete sia il migliore in termini di efficienza e di costo energetico. Si noti come un nodo potrebbe essere selezionato come nodo
+intermedio seppur trovandosi in uno stato di scarsa disponibilità energetica. Si osservi inoltre come ciascun nodo sia equipaggiato di un buffer di ricezione
+con capacità limitata. Può accadere che un nodo sia selezionato come nodo intermedio pur non potendo bufferizzare nuovi pacchetti a
+seguito del riempiemento della propria coda di ricezione (\emph{buffer overflow}).\\
 
-Inoltre, durante lo scambio di RTS e CTS viene scelto un nodo che opererà da intermediario per la ricezione del pacchetto destinato
-al sink node. Si noti come i nodi sono considerati sulla base della loro posizione rispetto al sink node (hop count) e alla loro
-disponibilità energetica corrente. Tuttavia questa procedura non garantisce che i nodi svegliati siano abilitati alla ricezione di nuovi pacchetti,
-poichè, in maniera simile a quanto sopra descritto, un nodo può essere nella condizione di non poter bufferizzare nuovi pacchetti, verificandosi
-quindi sprechi di energia ed ulteriori ritrasmissioni per far recapitare il pacchetto.\\
+Inoltre, durante lo scambio di RTS e CTS viene scelto un nodo che opererà da intermediario per la ricezione del pacchetto destinato al sink node. Si noti
+come i nodi sono considerati sulla base della loro posizione rispetto al sink node (hop count) e alla loro disponibilità energetica corrente.
+Tuttavia questa procedura non garantisce che i nodi svegliati siano abilitati alla ricezione di nuovi pacchetti, poichè, in maniera simile a quanto
+sopra descritto, un nodo può trovarsi nella condizione di non poter bufferizzare nuovi pacchetti, verificandosi quindi sprechi energetici ed
+ulteriori ritrasmissioni per far recapitare il pacchetto.\\
 
 In generale, l'approccio utilizzato da GREEN-WUP non garantisce la massima efficienza energetica della rete, nè tantomeno permette di ottenere latenze ottimali.
-Si osservi come un nodo che è impegnato nel processamento di uno o più pacchetti possa essere selezionato come nodo intermediario rispetto ad un altro che si
+Si osservi come un nodo che è impegnato nel processamento di uno o più pacchetti possa essere selezionato come nodo intermedio rispetto ad un altro che si
 trova alla stessa distanza dal sink node e che ha coda di ricezione vuota, se questo ha, ad esempio, classe energetica inferiore al nodo in questione. \\
 
 Osservando in dettaglio il comportamento dei nodi durante la fase di selezione del nodo intermedio si nota un dettaglio degno di nota.
-Al momento della ricezione di una sequenza di wake up con semantic addressing da parte di un nodo, esso attiverà la radio principale (RX) e si metterà
-in ascolto di nuovi dati. Questo accade poichè la risposta al trigger della sequenza di wake up genera un evento in ciascun nodo che lo porta
+Al momento della ricezione di una sequenza di wake up con semantic addressing da parte di un nodo questo attiverà la radio principale (RX) e si metterà
+in ascolto di nuovi dati. Ciò accade poichè la risposta al trigger della sequenza di wake up genera un evento in ciascun nodo che lo porta
 inevitabilmente ad attivare la radio principale. Se tuttavia i nodi candidati a svegliarsi in seguito alla ricezione del messaggio di wake up sono
-numerosi, si può avere uno spreco energetico considerevole (soprattutto considerando che questo costo cresce linearmente con l'aumento del traffico
-di rete).\\
+numerosi, si può avere uno spreco energetico considerevole. L'ultima affermazione è motivata dal fatto che con l'aumento del traffico dati aumenta
+anche il numero di messaggi di wake up in circolazione, dunque lo scenario delineato descrive un costo energetico che cresce linearmente con l'aumento
+del traffico di rete.\\
 
 Un'analisi del comportamento di GREEN-WUP ci permette di osservare come i nodi riceventi non hanno possibilità di scegliere l'azione
-intrapresa in seguito alla ricezione di un messaggio di wake up. Essi semplicemente reagiscono al messaggio ricevuto e si preparano alla ricezione
-di un eventuale pacchetto dati. Analogamente alla prima problematica emersa, anche in questo caso la scelta da parte di un nodo di attivare la
-radio principale (RX) è presa senza considerare lo stato dello stesso e può portare a consumi energetici superflui.
+intrapresa in seguito alla ricezione di un messaggio di wake up. Essi semplicemente reagiscono alla sequenza di wake up ricevuta attivando la radio principale (RX),
+preparandosi all'eventuale ricezione di un pacchetto dati. Si noti come analogamente alla prima problematica emersa anche quest'ultima sceltaviene presa da
+ciascun nodo senza considerare lo stato dello stesso e ciò può portare ad ulteriori consumi energetici.
 
 \chapter{La variante proposta}
 
@@ -458,7 +460,7 @@ precedente. Nel seguito, per ciascuna problematica si descrivono le modifiche ad
 
 La variante proposta risolve il precedente problema della mancanza di stato nella formulazione del valore di jitter considerando lo stato energetico
 corrente del nodo e lo stato della sua coda di ricezione. Un nodo sarà tanto più prono a ricevere e reinstradare un pacchetto quanto
-più è alta è la sua disponibilità energetica e di ricezione di nuovi pacchetti. In particolare, un nodo $j$ risponde ad un pacchetto RTS ricevuto al
+più è alta la sua disponibilità energetica e di ricezione di nuovi pacchetti. In particolare, un nodo $j$ risponde ad un pacchetto RTS ricevuto al
 tempo $t$ inviando un pacchetto CTS ad un tempo $t+\delta$, con $\delta$ così definito:
 
 \begin{equation}
@@ -469,14 +471,14 @@ con $e_{j}$ che rappresenta la frazione di energia residua del nodo corrente, $b
 delay consentito, $\delta_{r} < \delta_{M}$ un valore randomico ed infine $k \geq 0$ e $l \geq 0$, con $k+l=1$, che regolano il contributo di
 ciascun elemento.\\
 
-La presenza di un offset randomico non influisce sulla correttezza dell'approccio impiegato. Senza perdita di generalità possiamo considerarlo come una
+Si noti come la presenza di un offset randomico non influisce sulla correttezza dell'approccio impiegato. Senza perdita di generalità possiamo considerarlo come una
 costante dal momento che il suo unico scopo è quello di introdurre un evento aleatorio al fine di evitare le collisioni derivate dall'invio di pacchetti CTS
 nello stesso momento da parte di nodi nello stesso stato (pari energia residua e stato del buffer). Così facendo il jitter scelto aumenta al crescere
 delle due componenti considerate. Si noti come nell'implementazione si è scelto di dare pari peso ad entrambe le componenti ($k=1/2=l$) per favorire il
 tradeoff di bassi valori per la latenza e contemporaneamente diminuire i consumi energetici della rete.\\
 
 Un altro obiettivo della variante sviluppata è quello di limitare i consumi energetici della rete dovuti a risvegli non necessari dei nodi della rete. Quindi,
-l'idea del semantic addressing sulla quale è fondato il protocollo GREEN-WUP viene espansa introducendo lo stato del buffer di ricezione dei nodi destinatari.
+l'idea del semantic addressing sulla quale si fonda il protocollo GREEN-WUP viene espansa introducendo lo stato del buffer di ricezione dei nodi destinatari.
 L'indirizzo di wake up che viene inviato per svegliare i nodi prima consisteva nei soli valori di hop count e della classe energetica target, mentre ora viene
 trasformato nel formato $1BBHHHEE$. Con $B$ che rappresenta la classe dello stato del buffer di ricezione del nodo, $H$ che denota l'hop count ed $E$ che
 rappresenta la classe energetica. L'aggiunta dei bit che codificano lo stato del buffer permettono di selezionare dapprima i nodi con classe energetica
@@ -485,7 +487,7 @@ di buffer overflow sopra descritto viene mitigato in quanto il nodo che ha più 
 pacchetti nel loro buffer di ricezione. Inoltre, migliora le prestazioni della rete dal momento che i nodi saranno considerati in ordine a partire da quelli
 con più alta disponibilità ad accogliere nuovi pacchetti sino a quelli che attualmente ne hanno già bufferizzati diversi.\\
 
-Nella versione base del protocollo ciascun nodo risponde alla ricezione di un messaggio di wake up a lui destinato attivando la radio principale (RX) e mettendosi
+Inoltre, nella versione base del protocollo ciascun nodo risponde alla ricezione di un messaggio di wake up a lui destinato attivando la radio principale (RX) e mettendosi
 in attesa di ricevere nuovi pacchetti. Nella versione qui proposta si introduce la possibilità da parte del nodo di prendere la decisione se svegliarsi o meno.
 In particolare, si utilizzano \emph{energy predictor} per studiare le predizioni dell'energia derivata da sorgenti esterne al fine di determinare se un nodo sarà o
 meno nelle condizioni di potersi svegliare. Si noti come la decisione venga presa dal nodo in questione in maniera del tutto indipendente dal resto della rete dato
@@ -961,6 +963,11 @@ successivamente smettono di aumentare.
     D. Benedetti, C. Petrioli, D. Spenza.
     \say{GreenCastalia: An Energy-Harvesting-Enabled Framework for the Castalia Simulator}.
     In: \textit{Proceeding of the ACM 1st International Workshop on Energy Neutral Sensing Systems, ACM ENSSys 2013. Rome, Italy, November 11-14 2013.}
+
+    \bibitem{wharp-paper}
+    S. Basagni, V. Di Valerio, G. Koutsandria, C. Petrioli, D. Spenza.
+    \say{WHARP: A Wake-Up Radio and Harvesting-Based Forwarding Strategy for Green Wireless Networks}.
+    In: \textit{2017 IEEE 14th International Conference on Mobile Ad Hoc and Sensor Systems (MASS). Orlando, FL, USA, October 22-25 2017    .}
 
 \end{thebibliography}
 
