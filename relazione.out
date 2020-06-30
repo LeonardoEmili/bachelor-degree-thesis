@@ -1,16 +1,17 @@
 \BOOKMARK [0][-]{chapter.1}{Introduzione}{}% 1
 \BOOKMARK [0][-]{chapter.2}{Scenario di riferimento}{}% 2
 \BOOKMARK [0][-]{chapter.3}{Il protocollo GREEN-WUP}{}% 3
-\BOOKMARK [1][-]{section.3.1}{Descrizione del protocollo}{chapter.3}% 4
-\BOOKMARK [1][-]{section.3.2}{Interest dissemination}{chapter.3}% 5
+\BOOKMARK [1][-]{section.3.1}{Interest dissemination}{chapter.3}% 4
+\BOOKMARK [1][-]{section.3.2}{Descrizione del protocollo}{chapter.3}% 5
 \BOOKMARK [1][-]{section.3.3}{Problematiche emerse}{chapter.3}% 6
 \BOOKMARK [0][-]{chapter.4}{La variante proposta}{}% 7
 \BOOKMARK [1][-]{section.4.1}{Descrizione delle modifiche}{chapter.4}% 8
-\BOOKMARK [1][-]{section.4.2}{Scenario di simulazione e parametri}{chapter.4}% 9
-\BOOKMARK [1][-]{section.4.3}{Metriche prestazionali}{chapter.4}% 10
-\BOOKMARK [1][-]{section.4.4}{Valutazione delle prestazioni}{chapter.4}% 11
-\BOOKMARK [0][-]{chapter.5}{Ottimizzazione dei parametri}{}% 12
-\BOOKMARK [1][-]{section.5.1}{Scelta dei valori di jitter}{chapter.5}% 13
-\BOOKMARK [1][-]{section.5.2}{Trasmissioni per classe energetica}{chapter.5}% 14
-\BOOKMARK [0][-]{chapter.6}{Conclusioni}{}% 15
-\BOOKMARK [0][-]{section*.10}{Bibliografia}{}% 16
+\BOOKMARK [0][-]{chapter.5}{Valutazione delle prestazioni}{}% 9
+\BOOKMARK [1][-]{section.5.1}{Metriche prestazionali}{chapter.5}% 10
+\BOOKMARK [1][-]{section.5.2}{Scenario di simulazione e parametri}{chapter.5}% 11
+\BOOKMARK [1][-]{section.5.3}{Risultati ottenuti}{chapter.5}% 12
+\BOOKMARK [0][-]{chapter.6}{Ottimizzazione dei parametri}{}% 13
+\BOOKMARK [1][-]{section.6.1}{Scelta dei valori di jitter}{chapter.6}% 14
+\BOOKMARK [1][-]{section.6.2}{Trasmissioni per classe energetica}{chapter.6}% 15
+\BOOKMARK [0][-]{chapter.7}{Conclusioni}{}% 16
+\BOOKMARK [0][-]{section*.10}{Bibliografia}{}% 17
