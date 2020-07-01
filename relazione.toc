@@ -16,4 +16,4 @@
 \contentsline {section}{\numberline {6.1}Scelta dei valori di jitter}{27}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Trasmissioni per classe energetica}{30}{section.6.2}%
 \contentsline {chapter}{\numberline {7}Conclusioni}{33}{chapter.7}%
-\contentsline {chapter}{Bibliografia}{34}{section*.10}%
+\contentsline {chapter}{Bibliografia}{34}{section*.11}%
