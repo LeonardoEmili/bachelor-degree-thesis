@@ -119,9 +119,7 @@ confrontati i risultati ottenuti in relazione ad alcune metriche fondamentali e 
 Nel \textbf{Capitolo 6} vengono presentati i parametri dei protocolli di rete che in misura principale contribuiscono alle loro prestazioni e ne favoriscono
 il risparmio energetico. Parte fondante di questo tirocinio consiste nella sperimentazione tramite simulatori del comportamento che questi protocolli
 assumono in ambito reale. In questi termini questo capitolo punta ad ottimizzare i parametri utilizzati nell'implementazione del protocollo GREEN-WUP e
-che in generale rispecchiano i comportamenti comuni ai protocolli di rete utilizzati al giorno d'oggi.\\
-
-Nel \textbf{Capitolo 7} vengono tratte le conclusioni di quanto osservato e presentate le possibili direzioni future nell'ambito di protocolli per sistemi IoT.
+che in generale rispecchiano i comportamenti comuni ai protocolli di rete utilizzati al giorno d'oggi.
 
 \let\cleardoublepage    % probably not a good decision
 \clearpage
@@ -684,15 +682,14 @@ energy harvesting e wake up radio.\\
         Frequenza di aggiornamento indirizzi di wake up & 300s                                      \\
         Dimensione dei pacchetti DATA                   & 58 byte                                   \\
         Dimensione dei pacchetti di controllo           & 6 byte                                    \\
-        Tentativi per livello                           & 3                                         \\
         Sorgente energetica esterna                     & Energia solare                            \\
         Piattaforma hardware                            & MagoNode++                                \\
         Raggio di azione radio principale               & 60mt                                      \\
         Raggio di azione radio wake-up                  & 25mt                                      \\
-        Frequenza radio principale                      & x                                         \\
-        Frequenza radio wake-up                         & y                                         \\
-        Consumi energetici radio principale             & x (RX), y (TX)                            \\
-        Consumi energetici radio wake-up                & x (RX), y (TX)                            \\
+        Frequenza radio principale                      & 2.4GHz                                    \\
+        Frequenza radio wake-up                         & 868MHz                                    \\
+        %Consumi energetici radio principale             & 33.6mW (RX), 69.0mW (TX), 0.00165mW (IDLE) \\
+        %Consumi energetici radio wake-up                & 33.6mW (RX), 90.0mW (TX), 0.00165mW (IDLE) \\
         Capacità di storage delle batterie              & 245000mA                                  \\
         Durata allenamento degli energy predictor       & 72h                                       \\
         \hline
@@ -714,6 +711,8 @@ cresce il traffico di rete e dunque il suo stato di congestionamento.\\
 In particolare, al variare del tipo di traffico presente è possibile osservare due situazioni di stress della rete completamente diverse. Valori alti di \emph{iaTime}
 favoriscono lo scambio di pacchetti in quanto i nodi sono scarsamente utilizzati e possono ricevere nuovi pacchetti. Quando invece \emph{iaTime} diminuisce, i
 nodi della rete sono sottoposti a costante lavoro ed è probabile che si verifichino perdite di pacchetti, maggiori latenze e consumi energetici superiori.
+
+\newpage
 
 Tutti i dati riportati fanno riferimento ad un numero di esecuzioni sufficientemente elevato da fornire un intervallo di confidenza del 95\% con una precisione
 del 5\% ed i risultati finali sono considerati come la media dei risultati individuali ottenuti da ciascuna di esse.\\
@@ -775,7 +774,7 @@ dei pacchetti in circolazione, e quindi di messaggi di wake up, ed in questo sce
 scegliere se attivare o meno la radio principale risulta essere ancor più evidente. Si noti come il miglioramento energetico sperimentato
 risulti essere sempre almeno pari al 7\% e mediamente si aggira attorno al 10\%.\\
 
-\newpage
+%\newpage
 
 L'efficienza energetica della rete è favorita non solo da ques'ultima modifica ma anche dalla stessa applicazione di jitter che vengono
 calcolati a partire dallo stato dei nodi e che non sono puramente randomici come nel caso dell'implementazione originale di GREEN-WUP.\\
@@ -969,6 +968,10 @@ consegue quindi che le prestazioni crescono in maniera proporzionale al valore d
 successivamente smettono di migliorare.
 
 \chapter{Conclusioni}
+
+In questo lavoro abbiamo presentato lo scenario delle Wireless Sensor Network e affrontato le problematiche comuni ai protocolli per sistemi IoT
+facendo riferimento al protocollo GREEN-WUP. Successivamente è stata proposta una nuova variante di GREEN-WUP che affronta i problemi del protocollo
+originale e abbiamo valutato i risultati raggiunti ottimizando i parametri fondamentali al fine di migliorarne le prestazioni.
 
 \backmatter
 \cleardoublepage
