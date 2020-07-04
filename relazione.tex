@@ -49,15 +49,14 @@
 % treat this as a special chapter
 \chapter*{Ringraziamenti}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis a mi eget pharetra. Maecenas feugiat, ligula in sagittis ultrices, tortor felis
-euismod sapien, id vestibulum enim magna eget lorem. Sed ut orci id est hendrerit facilisis. Mauris finibus, velit sed euismod egestas, nunc tortor posuere
-quam, eget tincidunt ligula nisl luctus diam. Sed finibus est quis dolor dignissim congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-vel orci metus. Praesent dictum, dolor vitae tincidunt posuere, lectus metus iaculis mauris, fermentum volutpat massa urna a diam. Aenean varius tortor id
-mi elementum lobortis. Nullam at libero volutpat, tristique lacus in, posuere velit.\\
+Vorrei iniziare ringraziando vivamente la \textbf{Prof. Chiara Petrioli} per il suo supporto e per l'ispirazione fornita senza i quali non avrei mai scoperto
+le tematiche delle Wireless Sensor Network e affrontato un percorso simile. La sua ispirazione e le costanti sfide da risolvere durante questo lavoro di tirocinio
+sono stati di fondamentale importanza sia per il progresso di questo progetto che per la mia crescita personale. Ci tengo inoltre a ringraziare di cuore la
+\textbf{Dr. Georgia Koutsandria} per il continuo aiuto fornito e per l'enorme pazienza dimostrata nei miei confronti a fronte degli incessanti quesiti posti
+durante questo tirocinio.\\
 
-Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus eu lorem vehicula, aliquam urna quis, gravida velit. Pellentesque
-quis sem ipsum. Donec sapien nulla, interdum a magna vitae, hendrerit gravida justo. Fusce placerat magna quis cursus gravida. Nullam in nibh ac erat iaculis tempor
-et sed dolor. Etiam in vulputate libero. Duis suscipit nisi vel sapien ullamcorper, sed efficitur est aliquet. Aliquam venenatis eu risus eu semper.
+Senza dubbio la stesura di questa relazione non sarebbe mai stata possibile senza il continuo supporto dimostrato dai miei amici e dai parenti. Voglio
+ringraziare in modo particolare la mia famiglia che mi è stata sempre vicina durante questo percorso di laurea e a cui devo tutto.
 
 \let\cleardoublepage    % probably not a good decision
 \clearpage
@@ -292,7 +291,7 @@ wurModule->addWakeupAddress(wurDisseminationAddresses[addressIndex]);
 \let\cleardoublepage    % probably not a good decision
 
 La porzione di codice in \textbf{Codice 3.1} mostra il comportamento del sink node quando questo genera un command packet. L'idea in questo caso è
-di generare dei command packet che saranno trasferiti sino al livello MAC per essere instradati nella rete. Dunque il sink node procede
+di generare dei command packet che saranno trasferiti sino al livello \emph{data link} per essere instradati nella rete. Dunque il sink node procede
 fornendo i campi richiesti alla creazione del pacchetto di interest ed in particolare setta la tipologia del pacchetto da inviare in quanto sarà poi
 utile in fase di ricezione dei pacchetti per evitare confusioni e stabilire quale operazione applicare al pacchetto ricevuto.
 Infine il sink node inizializza il valore del campo \emph{hopCount}, aggiorna il prossimo indirizzo wake up da utilizzare ed invia il pacchetto in broadcast.\\
@@ -969,9 +968,11 @@ successivamente smettono di migliorare.
 
 \chapter{Conclusioni}
 
-In questo lavoro abbiamo presentato lo scenario delle Wireless Sensor Network e affrontato le problematiche comuni ai protocolli per sistemi IoT
-facendo riferimento al protocollo GREEN-WUP. Successivamente è stata proposta una nuova variante di GREEN-WUP che affronta i problemi del protocollo
-originale e abbiamo valutato i risultati raggiunti ottimizando i parametri fondamentali al fine di migliorarne le prestazioni.
+In questo lavoro abbiamo presentato lo scenario delle Wireless Sensor Network ed esplorato il loro aspetto \emph{green} che coinvolge le tecnologie di
+wake up radio, semantic addressing e energy harvesting. Abbiamo inoltre affrontato sia l'aspetto teorico delle problematiche comuni ai protocolli per sistemi IoT
+sia quello pratico in riferimento alla loro presenza nel protocollo GREEN-WUP. Successivamente abbiamo proposto una nuova variante di GREEN-WUP
+che affronta i problemi del protocollo originale ed infine abbiamo valutato i risultati raggiunti in un'ottica di ottimizzazione dei parametri fondamentali
+che contribuiscono a regolarne i comportamento al fine di migliorare le prestazioni ottenute.
 
 \backmatter
 \cleardoublepage
