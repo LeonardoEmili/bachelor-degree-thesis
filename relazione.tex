@@ -88,7 +88,7 @@ anche parzialmente, a conoscenza della topologia della rete. Si richiede quindi 
 costante aggiornamento e favoriscano una comunicazione efficiente. Inoltre, in queste reti la principale fonte di consumo energetico risiede
 nella comunicazione tra nodi ma anche nell'attesa che la precede: è quindi di vitale importanza prevedere lo scaricamento delle batterie che li alimentano
 e studiare soluzioni che ne favoriscano durate sufficientemente elevate per garantire l'operatività della rete. Infatti, la morte prematura di un nodo
-può spesso avere conseguenze più grandi della semplice disconnessione dello stesso poichè frequentemente si tratta di reti \emph{multi-hop} che
+può spesso avere conseguenze più grandi della semplice disconnessione dello stesso poiché frequentemente si tratta di reti \emph{multi-hop} che
 realizzano la comunicazione passando attraverso nodi intermedi ed in alcuni casi si può verificare perfino la disconnessione dell'intera rete.\\
 
 Nel seguito sarà brevemente descritta la struttura del documento e saranno enumerati per ciascun capitolo i contenuti in esso presenti.\\
@@ -127,11 +127,11 @@ che in generale rispecchiano i comportamenti comuni ai protocolli di rete utiliz
 \chapter{Scenario di riferimento}
 
 Sino a qualche anno fa, la principale tendenza nello sviluppo di soluzioni ai problemi menzionati nel \textbf{Capitolo 1} consisteva nell'introduzione di cicli di attività
-dei nodi. Il cosiddetto \emph{duty cycling}, definito come la frazione di tempo in cui un nodo è attivo, aveva come obbettivo quello di minimizzare i momenti
+dei nodi. Il cosiddetto \emph{duty cycling}, definito come la frazione di tempo in cui un nodo è attivo, aveva come obiettivo quello di minimizzare i momenti
 in cui i nodi sensori sono accessi senza alcun processamento di dati attivo. Seppur questo approccio permetta di prolungare la durata della vita della rete,
 incrementa in maniera considerevole i ritardi nelle comunicazioni, dal momento che queste possono avvenire solamente all'interno delle finestre di attività
 delle coppie dei nodi coinvolti. Tuttavia l'utilizzo del duty cycling non permette di risolvere tutti i problemi in quanto le comunicazioni possono ancora
-avvenire nei momenti di inattivà dei nodi. Dualmente, esistono ancora i periodi di tempo in cui i nodi consumano energia pur non ricevendo o inviando dati.\\
+avvenire nei momenti di inattività dei nodi. Dualmente, esistono ancora i periodi di tempo in cui i nodi consumano energia pur non ricevendo o inviando dati.\\
 
 In questo panorama viene introdotta la tecnologia rivoluzionaria delle \emph{wake up radio}, il cui obbiettivo consiste nell'eliminazione dei consumi energetici
 superflui relativi alle attese che precedono la ricezione dei pacchetti. L'idea prevede che i nodi della rete siano prevalentemente dormienti durante il loro
@@ -141,7 +141,7 @@ sequenza di wake-up che, svegliando il ricevente, lo abilita alla ricezione. Inf
 pacchetto, la radio principale viene nuovamente posta in stato di SLEEP per risparmiare energia.\\
 
 L'utilizzo delle wake up radio prevede l'introduzione di una radio secondaria il cui compito consiste solamente nel processamento dei messaggi di wake up ricevuti
-da parte dei nodi della rete. Quest'ultima in particolare rimane costantamente accesa per poter in ogni momento ricevere delle sequenze di wake up, permettendo
+da parte dei nodi della rete. Quest'ultima in particolare rimane costantemente accesa per poter in ogni momento ricevere delle sequenze di wake up, permettendo
 quindi di lasciare disattiva la radio principale per tutto il tempo in cui questa non è necessaria. Si noti come spesso dal punto di vista di design
 dell'hardware si preferisce separare la logica di wake up da quella della radio principale. In questi casi viene progettata una nuova antenna di dimensioni
 ridotte e consumi energetici nettamente inferiori rispetto a quelli della radio principale che si occuperà di ricevere i messaggi di wake up.\\
@@ -153,8 +153,8 @@ Successivamente la tecnologia delle wake up radio è stata ulteriormente svilupp
 L'idea in questo caso consiste nel designare la ricezione di una sequenza di wake up ad un sottoinsieme di nodi della rete, evitando quindi che questa sia
 recepita da tutti i nodi presenti all'interno del range di comunicazione. Il principio fondante è quello di scegliere uno o più opportuni indirizzi di
 wake up e di assegnarli ad un certo sottoinsieme di nodi della rete. A meno di errori di interpretazione della sequenza di wake up, al momento della
-ricezione tutti e soli e nodi desiderati saranno svegliati. In questo scenario i consumi energetici risultano essere ulteriormente ridotti poichè viene
-virtualmente azzerato il numero dei nodi che vengono riattivati in seguito alla ricezione di messaggi di wake up, poichè all'interno del range di
+ricezione tutti e soli e nodi desiderati saranno svegliati. In questo scenario i consumi energetici risultano essere ulteriormente ridotti poiché viene
+virtualmente azzerato il numero dei nodi che vengono riattivati in seguito alla ricezione di messaggi di wake up, poiché all'interno del range di
 comunicazione, destinati tuttavia ad altri nodi della rete.\\
 
 Più recentemente la tendenza è quella di equipaggiare i nodi delle Wireless Sensor Network con moduli per l'\emph{energy harvesting} come ulteriore
@@ -215,7 +215,7 @@ della rete semplicemente seguendone la definizione ricorsiva.\\
 Si noti come in FLOOD-WUP il traffico generato non provochi broadcast storm e ciò è possibile grazie all'impiego dei messaggi
 di wake up. Infatti, ciascun nodo fa riferimento ad una pool di indirizzi di wake up condivisa $w_1, w_2, \cdots, w_n$ e ha inizialmente
 settato come indirizzo di wake up $w_1$. Quando il primo pacchetto di interest viene inviato dal sink node si utilizza $w_1$ come sequenza
-di wake up che lo precede. Al momento della ricezione del paccheto, i nodi cambiano il loro indirizzo di wake up in $w_2$ e lo redistribuiscono
+di wake up che lo precede. Al momento della ricezione del pacchetto, i nodi cambiano il loro indirizzo di wake up in $w_2$ e lo redistribuiscono
 precedendolo con la stessa sequenza di wake up con la quale è stato spedito. Il successivo pacchetto viene spedito dal sink
 node utilizzando $w_2$ come sequenza di wake up e questo evita di ricevere pacchetti duplicati in quanto i nodi che hanno già ricevuto un
 pacchetto non saranno successivamente svegliati da quella stessa sequenza di wake up.\\
@@ -308,7 +308,7 @@ e quello presente all'interno del pacchetto e prendendone il minimo tra i due. I
 nel pacchetto e sostituita la sequenza di wake up con cui il nodo è stato svegliato con la sequenza successiva. Si noti come 
 nell'implementazione mostrata sia presente un controllo per evitare di ritrasmettere pacchetti duplicati mentre nella descrizione originale
 questo comportamento non viene descritto. Quanto accade è assolutamente possibile e non è da imputare allo specifico protocollo: può capitare infatti
-che un nodo sia già attivo (RX) poichè stava precedentemente facendo carrier sensing del canale di comunicazione ed in queste condizioni
+che un nodo sia già attivo (RX) poiché stava precedentemente facendo carrier sensing del canale di comunicazione ed in queste condizioni
 potrebbe ricevere un pacchetto senza ricevere prima alcuna sequenza di wake up, risultando di fatto nella ricezione di pacchetti duplicati.
 
 \let\cleardoublepage\clearpage  % restore changes
@@ -321,7 +321,7 @@ di tipo \emph{converge casting} ed è basato sull'assegnazione di hop count a ci
 all'interno della rete.\\
 
 L'approccio tradizionale dei protocolli di rete prevede due fasi principali: in primo luogo avviene la fase di \emph{interest dissemination} dove si
-definisce la topologia della rete da rispettare affinchè i nodi realizzino un corretto flusso di scambio dati; successivamente si assume che gli
+definisce la topologia della rete da rispettare affinché i nodi realizzino un corretto flusso di scambio dati; successivamente si assume che gli
 indirizzi di wake up siano stati assegnati e si procede con lo scambio di dati che è governato da sequenze di wake up che vengono utilizzate per
 risvegliare i nodi della rete. Nel caso specifico di GREEN-WUP la fase di interest dissemination non viene eseguita per motivi di efficienza
 e gli hop count vengono determinati indirettamente prima ancora dell'inizio della simulazione. Per ragioni completezza in questo lavoro viene
@@ -448,21 +448,21 @@ Si tratta di una scelta per alcuni aspetti ragionevole, in quanto non aggiunge o
 il percorso scelto nella rete sia il migliore in termini di efficienza e di costo energetico. Si noti come un nodo potrebbe essere selezionato come nodo
 intermedio seppur trovandosi in uno stato di scarsa disponibilità energetica. Si osservi inoltre come ciascun nodo sia equipaggiato di un buffer di ricezione
 con capacità limitata. Può accadere che un nodo sia selezionato come nodo intermedio pur non potendo bufferizzare nuovi pacchetti a
-seguito del riempiemento della propria coda di ricezione (\emph{buffer overflow}).\\
+seguito del riempimento della propria coda di ricezione (\emph{buffer overflow}).\\
 
 Inoltre, durante lo scambio di RTS e CTS viene scelto un nodo che opererà da intermediario per la ricezione del pacchetto destinato al sink node. Si noti
 come i nodi sono considerati sulla base della loro posizione rispetto al sink node (hop count) e alla loro disponibilità energetica corrente.
-Tuttavia questa procedura non garantisce che i nodi svegliati siano abilitati alla ricezione di nuovi pacchetti, poichè, in maniera simile a quanto
+Tuttavia questa procedura non garantisce che i nodi svegliati siano abilitati alla ricezione di nuovi pacchetti, poiché, in maniera simile a quanto
 sopra descritto, un nodo può trovarsi nella condizione di non poter bufferizzare nuovi pacchetti, verificandosi quindi sprechi energetici ed
 ulteriori ritrasmissioni per far recapitare il pacchetto.\\
 
-In generale, l'approccio utilizzato da GREEN-WUP non garantisce la massima efficienza energetica della rete, nè tantomeno permette di ottenere latenze ottimali.
+In generale, l'approccio utilizzato da GREEN-WUP non garantisce la massima efficienza energetica della rete, né tantomeno permette di ottenere latenze ottimali.
 Si osservi come un nodo che è impegnato nel processamento di uno o più pacchetti possa essere selezionato come nodo intermedio rispetto ad un altro che si
 trova alla stessa distanza dal sink node e che ha coda di ricezione vuota, se questo ha, ad esempio, classe energetica inferiore al nodo in questione. \\
 
 Osservando in dettaglio il comportamento dei nodi durante la fase di selezione del nodo intermedio si nota un dettaglio degno di nota.
 Al momento della ricezione di una sequenza di wake up con semantic addressing da parte di un nodo, questo attiverà la radio principale (RX) e si metterà
-in ascolto di nuovi dati. Ciò accade poichè la risposta al trigger della sequenza di wake up genera un evento in ciascun nodo che lo porta
+in ascolto di nuovi dati. Ciò accade poiché la risposta al trigger della sequenza di wake up genera un evento in ciascun nodo che lo porta
 inevitabilmente ad attivare la radio principale. Se tuttavia i nodi candidati a svegliarsi in seguito alla ricezione del messaggio di wake up sono
 numerosi, si può avere uno spreco energetico considerevole. L'ultima affermazione è motivata dal fatto che con l'aumento del traffico dati aumenta
 anche il numero di messaggi di wake up in circolazione. Dunque lo scenario delineato descrive un costo energetico che cresce linearmente con l'aumento
@@ -555,7 +555,7 @@ se questo dovrà attivare la radio principale oppure rimanere inattivo (SLEEP).\
 L'idea in questo caso è che una sequenza di wake up può interessare più nodi
 in ricezione e, dal momento che al termine della procedura solamente un nodo sarà selezionato come intermediario, questa decisione può essere influenzata dalla
 disponibilità energetica dei nodi stessi in un certo istante di tempo. Si noti come nel caso migliore la modifica apportata comporti che un numero minore di nodi
-rispetto alla versione originale sia coinvolto durante la fase di scelta del nodo intermedio, con conseguente diminuizione dei costi energetici e latenze dovute a
+rispetto alla versione originale sia coinvolto durante la fase di scelta del nodo intermedio, con conseguente diminuzione dei costi energetici e latenze dovute a
 possibili ritrasmissioni. Può tuttavia accadere che il nodo candidato alla ricezione non si svegli mai in quanto il valore randomico $r$ non supera mai la
 soglia $t$ da noi fissata. Ma questo accade con una probabilità che dipende dal numero di possibili ritrasmissioni $n$ per livello e che diminuisce esponenzialmente
 ad ogni tentativo. Nello scenario considerato, con $n=5$ è possibile ottenere un \emph{Packet Delivery Ratio} (PDR) medio del 99.5-100\% ed i consumi
@@ -675,7 +675,7 @@ energy harvesting e wake up radio.\\
         \hline
         Tempo limite di simulazione                     & 1h                                        \\
         Nodi coinvolti                                  & 140                                       \\
-        Dimensione campo di simulazone                  & $(100 \times 100) mt\textsuperscript{2}$  \\
+        Dimensione campo di simulazione                 & $(100 \times 100) mt\textsuperscript{2}$  \\
         Tipo di distribuzione dei nodi                  & randomica uniforme                        \\
         Massimo jitter consentito                       & 100ms                                     \\
         Frequenza di aggiornamento indirizzi di wake up & 300s                                      \\
@@ -745,7 +745,7 @@ numero di pacchetti in circolazione, ovvero nei buffer dei nodi della rete. In p
 in quanto nella variante l'insieme dei nodi candidati risulta essere ulteriormente partizionato, tuttavia questo è bilanciato dal fatto che i tempi
 di selezione dei nodi disponibili diminuisce, favorendo quindi latenze più basse. Quest'ultima osservazione in particolare segue dal fatto che la variante
 tenta di ridurre il numero di ritrasmissioni di pacchetti a causa di collisioni ed in particolare punta a ridurre il numero di pacchetti di controllo
-(RTS/CTS) persi a causa del verificarsi di quest'ultime.\\
+(RTS/CTS) persi a causa del verificarsi di queste ultime.\\
 
 \begin{figure}
     \centering
@@ -775,7 +775,7 @@ risulti essere sempre almeno pari al 7\% e mediamente si aggira attorno al 10\%.
 
 %\newpage
 
-L'efficienza energetica della rete è favorita non solo da ques'ultima modifica ma anche dalla stessa applicazione di jitter che vengono
+L'efficienza energetica della rete è favorita non solo da quest'ultima modifica ma anche dalla stessa applicazione di jitter che vengono
 calcolati a partire dallo stato dei nodi e che non sono puramente randomici come nel caso dell'implementazione originale di GREEN-WUP.\\
 
 Si noti come in \textbf{(b)} il \emph{Packet Delivery Ratio} ottenuto della variante sia mediamente dello 0.2\% inferiore rispetto a quello ottenuto
@@ -865,7 +865,7 @@ questi valori espressi in millisecondi rappresentino il massimo valore di jitter
 \end{figure}
 
 Come sopra anticipato, è possibile osservare in \textbf{Figura \ref{comparison-cts-latency}} che l'introduzione di un jitter impatta direttamente sulle
-latenze sperimentate dalla rete. In particolare, al crescere del valore di jitter impiegato crescono i tempi di attesa per far recepitare il pacchetto al sink node.
+latenze sperimentate dalla rete. In particolare, al crescere del valore di jitter impiegato crescono i tempi di attesa per far recapitare il pacchetto al sink node.
 Si noti inoltre come le latenze diminuiscono al diminuire del traffico presente in rete, ovvero al crescere del valore assunto da inter-arrival time (\emph{iaTime}).\\
 
 Analizzando \textbf{(b)} si può inoltre notare come il \emph{Packet Delivery Ratio} risenta dei valori di jitter selezionati, raggiungendo valori ottimali per
@@ -885,17 +885,17 @@ particolare, i consumi di energia della rete dipendono sia dal traffico in essa 
 \textbf{Figura \ref{comparison-cts-energy}} si può notare come questi aumentino al crescere della quantità di pacchetti in circolazione, raggiungendo il
 massimo in corrispondenza di $\emph{ctsMaxJitter}=150ms$.\\
 
-Ricordiamo che un aspetto fondamentale analizando in consumi energetici delle reti consiste nell'attesa che precede l'invio dei pacchetti. In particolare essa
+Ricordiamo che un aspetto fondamentale analizzando in consumi energetici delle reti consiste nell'attesa che precede l'invio dei pacchetti. In particolare essa
 consiste in un'operazione di \emph{carrier sensing} del canale di comunicazione per verificare che nessun nodo abbia precedentemente iniziato a trasmettere dati.
 Dunque, i nodi intermedi rispondono inviando un pacchetto CTS con un jitter randomico che è proporzionale al valore di \emph{ctsMaxJitter} ed è da esso superiormente
 limitato. La durata del carrier sensing dipende quindi dalla durata del jitter che i nodi intermedi hanno selezionato, in quanto essi prima di poter inviare un nuovo
-pacchetto devono necessariamente attendere il tempo richiesto affinchè i nodi intermedi inizino a trasmettere il pacchetto CTS. Ne consegue che al crescere del
+pacchetto devono necessariamente attendere il tempo richiesto affinché i nodi intermedi inizino a trasmettere il pacchetto CTS. Ne consegue che al crescere del
 parametro \emph{ctsMaxJitter} vengono prolungate le attività di ascolto (RX) dei nodi prima che questi possano iniziare a trasmettere e quindi i consumi energetici
 della rete subiscono un aumento.\\
 
 \newpage
-Risulta quindi evidente che la scelta di questo parametro non è un'operazione banale e in ambienti reali può portare ad ottenre risultati fortemente diversi tra di loro.
-In generale questo è uno degli esempi di trade-off che vengono costantamente affrontati in ambito di reti ed è di vitale importanza in questi casi valutare
+Risulta quindi evidente che la scelta di questo parametro non è un'operazione banale e in ambienti reali può portare ad ottenere risultati fortemente diversi tra di loro.
+In generale questo è uno degli esempi di trade-off che vengono costantemente affrontati in ambito di reti ed è di vitale importanza in questi casi valutare
 la metrica di riferimento che si intende ottimizzare.
 
 \section{Trasmissioni per classe energetica}
@@ -952,14 +952,14 @@ delle prestazioni della rete. Ad esempio, alti valori di $n$ possono portare ad 
 nodi della rete a seguito del loro scaricamento.\\
 
 Conseguentemente in \textbf{(b)} si può notare come i consumi energetici della rete crescano, seppur in maniera lieve, al crescere di \emph{energyClassRetries}.
-Questo accade poichè i nodi della rete sono attivi per più tempo dal momento che dispongono più tentativi di trasmettere i pacchetti.\\
+Questo accade poiché i nodi della rete sono attivi per più tempo dal momento che dispongono più tentativi di trasmettere i pacchetti.\\
 
 Si noti infine come in \textbf{(c)} le prestazioni della rete risentano maggiormente del valore di \emph{energyClassRetries} scelto. Il \emph{packet delivery ratio}
 tocca il valore minimo di 98.8\% in prossimità di $\emph{energyClassRetries}=1$ e di elevate condizioni di stress della rete. Chiaramente la metrica considerata
-è influenzata dallo stato di traffico della rete come pure dal numero di tentativi per classe energetica poichè regola la profondità a cui ciascuna classe
+è influenzata dallo stato di traffico della rete come pure dal numero di tentativi per classe energetica poiché regola la profondità a cui ciascuna classe
 energetica viene analizzata. Infatti, per quanto osservato alcuni nodi di una classe energetica potrebbero non essere considerati in una prima fase di analisi
 ma essere successivamente disponibili. Da questo segue che una volta esaminate tutte le classi energetiche il pacchetto considerato viene scartato, portando
-ad una diminuizione dei valori del \emph{packet delivery ratio}.\\
+ad una diminuzione dei valori del \emph{packet delivery ratio}.\\
 
 In generale un cattiva scelta del parametro \emph{energyClassRetries} può condurre al degrado delle prestazioni della rete. Tuttavia si noti in \textbf{(c)}
 come nelle simulazioni eseguite l'aumento del valore di PDR subisca un forte rallentamento una volta raggiunto il valore $\emph{energyClassRetries}=5$. Ne
