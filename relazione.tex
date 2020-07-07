@@ -86,17 +86,19 @@ altamente performanti per i monitoraggi clinici oppure di altre che garantiscano
 problematiche comuni a queste tipologie di reti, ad esempio spesso si richiede che l'intera rete sia connessa e che tutti i nodi siano,
 anche parzialmente, a conoscenza della topologia della rete. Si richiede quindi l'impiego di protocolli che ne prevedano il
 costante aggiornamento e favoriscano una comunicazione efficiente. Inoltre, in queste reti la principale fonte di consumo energetico risiede
-nella comunicazione tra nodi ma anche nell'attesa che la precede: è quindi di vitale importanza prevedere lo scaricamento delle batterie che li alimentano
+nella comunicazione tra nodi ma anche nel cosiddetto \emph{idle listening}, ovvero il tempo in cui i nodi sono attivi con il trasmettitore pronto a
+ricevere senza che sia in corso alcuna comunicazione: è quindi di vitale importanza prevedere lo scaricamento delle batterie che li alimentano
 e studiare soluzioni che ne favoriscano durate sufficientemente elevate per garantire l'operatività della rete. Infatti, la morte prematura di un nodo
 può spesso avere conseguenze più grandi della semplice disconnessione dello stesso poiché frequentemente si tratta di reti \emph{multi-hop} che
 realizzano la comunicazione passando attraverso nodi intermedi ed in alcuni casi si può verificare perfino la disconnessione dell'intera rete.\\
 
-Nel seguito sarà brevemente descritta la struttura del documento e saranno enumerati per ciascun capitolo i contenuti in esso presenti.\\
+In questa tesi ci siamo concentrati su un paradigma emergente per ottimizzare il trade-off energia-latenza nelle reti di nodi sensori: i dispositivi IoT
+dotati di wake up radio, in grado di essere selettivamente svegliati solo quando il nodo deve compiere task (quali la ricezione di un messaggio). I nuovi
+dispositivi IoT dotati di wake up radio creano le premesse per ottimizzazioni delle prestazioni delle reti di sensori finora non possibili. Nell'ambito
+della tesi è stato implementato nel simulatore Green Castalia uno dei primi protocolli proposti per tali sistemi, ne sono state studiate le prestazioni.
+In base allo studio simulativo sono state proposte nuove varianti che ne ottimizzano le prestazioni.\\
 
-In primo luogo procederemo fornendo una visione analitica delle problematiche comuni ai protocolli delle Wireless Sensor
-Network, prendendo un protocollo di rete in analisi e studiandone gli effetti delle soluzioni tipicamente adottate. Esamineremo poi le principali
-idee che sono state avanzate dalla ricerca negli ultimi anni per costruire protocolli di rete altamente efficienti. Costruiremo quindi una nuova variante
-del protocollo in analisi che cerca di risolvere le problematiche emerse ed infine valuteremo i difetti ed i benefici che questa comporta in ambienti reali.\\
+Nel seguito sarà brevemente descritta la struttura del documento e saranno enumerati per ciascun capitolo i contenuti in esso presenti.\\
 
 Nel \textbf{Capitolo 2} viene introdotto lo scenario di riferimento e sono presentate soluzioni allo stato dell'arte in ambito di protocolli di rete. In questo
 capitolo discutiamo delle principali considerazioni che nel tempo sono state adottate e che ad oggi definiscono il panorama delle Wireless Sensor Network.\\
@@ -118,7 +120,9 @@ confrontati i risultati ottenuti in relazione ad alcune metriche fondamentali e 
 Nel \textbf{Capitolo 6} vengono presentati i parametri dei protocolli di rete che in misura principale contribuiscono alle loro prestazioni e ne favoriscono
 il risparmio energetico. Parte fondante di questo tirocinio consiste nella sperimentazione tramite simulatori del comportamento che questi protocolli
 assumono in ambito reale. In questi termini questo capitolo punta ad ottimizzare i parametri utilizzati nell'implementazione del protocollo GREEN-WUP e
-che in generale rispecchiano i comportamenti comuni ai protocolli di rete utilizzati al giorno d'oggi.
+che in generale rispecchiano i comportamenti comuni ai protocolli di rete utilizzati al giorno d'oggi.\\
+
+Nel \textbf{Capitolo 7} vengono presentate le conclusioni del lavoro e discussi i possibili sviluppi futuri.
 
 \let\cleardoublepage    % probably not a good decision
 \clearpage
@@ -128,10 +132,9 @@ che in generale rispecchiano i comportamenti comuni ai protocolli di rete utiliz
 
 Sino a qualche anno fa, la principale tendenza nello sviluppo di soluzioni ai problemi menzionati nel \textbf{Capitolo 1} consisteva nell'introduzione di cicli di attività
 dei nodi. Il cosiddetto \emph{duty cycling}, definito come la frazione di tempo in cui un nodo è attivo, aveva come obiettivo quello di minimizzare i momenti
-in cui i nodi sensori sono accessi senza alcun processamento di dati attivo. Seppur questo approccio permetta di prolungare la durata della vita della rete,
+in cui i nodi sensori sono accesi senza alcuna trasmissione o ricezione di pacchetti o processing dei dati in corso. Seppur questo approccio permetta di prolungare la durata della vita della rete,
 incrementa in maniera considerevole i ritardi nelle comunicazioni, dal momento che queste possono avvenire solamente all'interno delle finestre di attività
-delle coppie dei nodi coinvolti. Tuttavia l'utilizzo del duty cycling non permette di risolvere tutti i problemi in quanto le comunicazioni possono ancora
-avvenire nei momenti di inattività dei nodi. Dualmente, esistono ancora i periodi di tempo in cui i nodi consumano energia pur non ricevendo o inviando dati.\\
+delle coppie dei nodi coinvolti.\\
 
 In questo panorama viene introdotta la tecnologia rivoluzionaria delle \emph{wake up radio}, il cui obbiettivo consiste nell'eliminazione dei consumi energetici
 superflui relativi alle attese che precedono la ricezione dei pacchetti. L'idea prevede che i nodi della rete siano prevalentemente dormienti durante il loro
@@ -140,7 +143,7 @@ schema di comunicazione \emph{on demand}: un nodo può inviare un pacchetto dati
 sequenza di wake-up che, svegliando il ricevente, lo abilita alla ricezione. Infine, allo scadere del tempo necessario per permettere al nodo di ricevere il
 pacchetto, la radio principale viene nuovamente posta in stato di SLEEP per risparmiare energia.\\
 
-L'utilizzo delle wake up radio prevede l'introduzione di una radio secondaria il cui compito consiste solamente nel processamento dei messaggi di wake up ricevuti
+L'utilizzo delle wake up radio prevede l'introduzione di una radio secondaria a bassissimo consumo energetico il cui compito consiste solamente nel processamento dei messaggi di wake up ricevuti
 da parte dei nodi della rete. Quest'ultima in particolare rimane costantemente accesa per poter in ogni momento ricevere delle sequenze di wake up, permettendo
 quindi di lasciare disattiva la radio principale per tutto il tempo in cui questa non è necessaria. Si noti come spesso dal punto di vista di design
 dell'hardware si preferisce separare la logica di wake up da quella della radio principale. In questi casi viene progettata una nuova antenna di dimensioni
@@ -150,26 +153,26 @@ Dal punto vista energetico il meccanismo delle wake up radio è altamente effici
 risulta essere  non desiderata in quanto implicitamente introduce overhead dovuto alla gestione di timer aggiuntivi.\\
 
 Successivamente la tecnologia delle wake up radio è stata ulteriormente sviluppata attraverso l'impiego del cosiddetto \emph{semantic addressing}.
-L'idea in questo caso consiste nel designare la ricezione di una sequenza di wake up ad un sottoinsieme di nodi della rete, evitando quindi che questa sia
+L'idea in questo caso consiste nell'associare la ricezione di una sequenza di wake up ad un sottoinsieme di nodi della rete, evitando quindi che questa sia
 recepita da tutti i nodi presenti all'interno del range di comunicazione. Il principio fondante è quello di scegliere uno o più opportuni indirizzi di
 wake up e di assegnarli ad un certo sottoinsieme di nodi della rete. A meno di errori di interpretazione della sequenza di wake up, al momento della
-ricezione tutti e soli e nodi desiderati saranno svegliati. In questo scenario i consumi energetici risultano essere ulteriormente ridotti poiché viene
-virtualmente azzerato il numero dei nodi che vengono riattivati in seguito alla ricezione di messaggi di wake up, poiché all'interno del range di
-comunicazione, destinati tuttavia ad altri nodi della rete.\\
+ricezione tutti e soli i nodi desiderati saranno svegliati. In questo scenario i consumi energetici risultano essere ulteriormente ridotti poiché viene
+virtualmente azzerato il numero dei nodi che vengono riattivati in seguito alla ricezione di messaggi di wake up, limitando l'attivazione ai soli nodi che
+per capacità o risorse attuali (es energetiche) sono i più idonei ad  eseguire dei task (di processing e/o comunicazione).\\
 
 Più recentemente la tendenza è quella di equipaggiare i nodi delle Wireless Sensor Network con moduli per l'\emph{energy harvesting} come ulteriore
-supporto energetico alla loro durata di attività. In particolare, i nodi sono in grado di utilizzare l'energia fornita dalle pile elettriche di cui sono
+supporto energetico alla loro durata di attività. In particolare, i nodi sono in grado di utilizzare l'energia fornita dalle batterie di cui sono
 forniti e di derivarne nuova mediante turbine eoliche, pannelli solari e generatori termoelettrici di cui sono equipaggiati.\\
 
 \newpage
 La presenza di moduli per l'energy harvesting abilita le Wireless Sensor Network a disporre di lifetime che fino a prima non erano state mai sperimentate.
-Infatti, sebbene l'energia derivata da sorgenti esterne sia di ordini di grandezza inferiore rispetto a quella fornita dalle pile elettriche di cui i nodi sono
-equipaggiati, i moduli di energy harvesting sono di vitale importanza per i nodi della rete. Essi permettono persino risolvere problemi di disconnessione
-della rete in quanto possono recuperare quei nodi diventati inattivi a seguito dello scaricamento delle pile elettriche di cui sono forniti. In
+Infatti, sebbene l'energia derivata da sorgenti esterne sia di ordini di grandezza inferiore rispetto a quella fornita dalle batterie di cui i nodi sono
+equipaggiati, i moduli di energy harvesting sono di vitale importanza per i nodi della rete. Essi permettono persino di risolvere problemi di disconnessione
+della rete in quanto possono recuperare quei nodi diventati inattivi a seguito dello scaricamento delle batterie di cui sono forniti. In
 \cite{wsn-energy-harvesting-paper} viene descritto l'enorme contributo che l'impiego di moduli di energy harvesting può fornire alle lifetime delle
 Wireless Sensor Network, arrivando anche a permettere loro durate di diversi anni e persino decenni.\\
 
-In ambito di ricerca sono presenti molti paper scientifici in cui viene indagata la transizione dall'utilizzo del duty cycling alle wake up radio. Ad esempio
+In ambito di ricerca sono presenti molti articoli scientifici in cui viene indagata la transizione dall'utilizzo del duty cycling alle wake up radio. Ad esempio
 in \cite{beyond-duty-cycling-paper} viene presentato il protocollo ALBA-WUR, come estensione del protocollo ALBA-R, che utilizza la tecnologia delle wake up radio
 e che ha come obbiettivo quello di ridurre l'energia spesa dalla rete e fornire lifetime superiori rispetto a quelle precedentemente sperimentate. In
 \cite{ctp-wur-paper} viene proposto il protocollo CTP-WUR, come estensione al classico protocollo CTP, che utilizza le wake up radio piuttosto che il
@@ -183,8 +186,9 @@ dimostrato che l'impiego di nodi dotati di energy harvesting \cite{energy-harves
 
 Questo lavoro si concentra sullo studio di protocolli delle cosiddette \emph{green wireless sensor network}, ovverosia di quei protocolli che si basano
 sulle tecnologie sopra esposte e che implementano la comunicazione tra nodi minimizzandone gli sprechi energetici. Nella letteratura scientifica
-sono presenti molti protocolli di questo tipo (es. CTP-WUR \cite{ctp-wur-paper}, GREENROUTES \cite{wake-up-radios-paper}, WHARP \cite{wharp-paper}) e
-ciascuno di loro punta a risolvere diverse problematiche.
+sono presenti molti protocolli di questo tipo (es. CTP-WUR \cite{ctp-wur-paper}, GREENROUTES \cite{wake-up-radios-paper}, WHARP \cite{wharp-paper}) che
+presentano euristiche distribuite o tecniche di ottimizzazione basate su \emph{reinforcement learning} per ottimizzare lo scambio dati in reti IoT dotate di wake
+up radio e energy harvesting.
 
 \chapter{Il protocollo GREEN-WUP}
 
@@ -325,7 +329,7 @@ definisce la topologia della rete da rispettare affinché i nodi realizzino un c
 indirizzi di wake up siano stati assegnati e si procede con lo scambio di dati che è governato da sequenze di wake up che vengono utilizzate per
 risvegliare i nodi della rete. Nel caso specifico di GREEN-WUP la fase di interest dissemination non viene eseguita per motivi di efficienza
 e gli hop count vengono determinati indirettamente prima ancora dell'inizio della simulazione. Per ragioni completezza in questo lavoro viene
-mostrata sia alla versione originale di GREEN-WUP che non comprende la fase di interest dissemination che una versione che la utilizza per
+mostrata sia la versione originale di GREEN-WUP che non comprende la fase di interest dissemination che una versione che la utilizza per
 il calcolo degli hop count dei nodi della rete.\\
 
 In GREEN-WUP ciascun nodo è fornito di una coppia di indirizzi di wake up. Si tratta infatti di un primo indirizzo che identifica univocamente
@@ -339,7 +343,7 @@ energetica del nodo nel tempo. Questa idea realizza il principio del semantic ad
 ad un sottoinsieme di nodi della rete a partire dai loro valori di hop count e da quello della classe energetica. \\
 
 Nel momento in cui un nodo deve inviare un pacchetto dati può farlo seguendo degli step fondamentali di seguito descritti.
-La prima fase consiste nell'instaurare una comunicazione con i nodi elegibili alla ritrasmissione del pacchetto: il suddetto nodo sensore
+La prima fase consiste nell'instaurare una comunicazione con i nodi eleggibili, idonei alla ritrasmissione del pacchetto: il suddetto nodo sensore
 entra in uno stato di ricerca di un nodo che si farà carico della sua richiesta di ritrasmissione. La ricerca si considera conclusa
 nel momento in cui viene selezionato un nodo tra quelli disponibili come nodo intermedio tra il nodo che invia i dati (sender) e il sink
 node, cui la richiesta di ricezione dati è destinata. Infine si procede alla trasmissione del pacchetto, a seguito della quale
@@ -425,7 +429,7 @@ protocollo preveda la presenza di un jitter randomico per evitare che avvengano 
 dei nodi candidati. Analogamente a quanto sopra descritto i nodi riceventi includono un indirizzo univoco a cui essere eventualmente ricontattati.\\
 
 Si noti come le descrizioni teoriche del protocollo sopra esposte non comprendano alcuni dettagli inerenti al meccanismo di trasmissione
-dei pacchetti. In particolare, tra questi questi troviamo la tecnica di \emph{Carrier Sensing} (CSMA/CA) utilizzata per evitare che avvengano collisioni
+dei pacchetti. In particolare, tra questi troviamo la tecnica di \emph{Carrier Sensing} (CSMA/CA) utilizzata per evitare che avvengano collisioni
 e che prevede che si inizi a trasmettere solo quando il canale di comunicazione è libero. Inoltre, un'importante convenzione in ambito di reti consiste
 nell'introdurre un massimo numero di ritrasmissioni per ciascun pacchetto. Nel contesto di GREEN-WUP ciascun pacchetto viene ritrasmesso
 al più un numero fissato di volte prima di passare alla prossima classe energetica, oppure, nel caso di esaurimento delle classi energetiche
@@ -972,7 +976,13 @@ In questo lavoro abbiamo presentato lo scenario delle Wireless Sensor Network ed
 wake up radio, semantic addressing e energy harvesting. Abbiamo inoltre affrontato sia l'aspetto teorico delle problematiche comuni ai protocolli per sistemi IoT
 sia quello pratico in riferimento alla loro presenza nel protocollo GREEN-WUP. Successivamente abbiamo proposto una nuova variante di GREEN-WUP
 che affronta i problemi del protocollo originale ed infine abbiamo valutato i risultati raggiunti in un'ottica di ottimizzazione dei parametri fondamentali
-che contribuiscono a regolarne i comportamento al fine di migliorare le prestazioni ottenute.
+che contribuiscono a regolarne i comportamento al fine di migliorare le prestazioni ottenute.\\
+
+Durante questo lavoro di tirocinio abbiamo studiato i protocolli per dispositivi IoT, studiandone l'aspetto teorico e analizzandole le prestazioni. In futuro
+sarebbe sicuramente interessante introdurre nuove variazioni al protocollo GREEN-WUP che modellano l'esigenza di ottimizzare ulteriormente i consumi energetici
+e le latenze sperimentate. Inoltre vale la pena analizzare le prestazioni che il protocollo raggiunge quando sottoposto a nuove condizioni di traffico o dello
+stato della rete (es. nodi altamente congestionati, link di trasmissione meno performanti).
+
 
 \backmatter
 \cleardoublepage
